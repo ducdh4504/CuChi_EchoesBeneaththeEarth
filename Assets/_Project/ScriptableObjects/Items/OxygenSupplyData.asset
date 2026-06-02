@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c9e75bbd0e33f43b65e6221d2788c4, type: 3}
+  m_Name: OxygenSupplyData
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemId: oxygen_supply
+  itemName: "B\xECnh Oxy"
+  description: "B\xECnh oxy gi\xFAp An h\u1ED3i l\u1EA1i m\u1ED9t ph\u1EA7n oxy trong
+    \u0111\u1ECBa \u0111\u1EA1o."
+  icon: {fileID: 0}
+  itemType: 1
+  effectType: 1
+  effectValue: 30
+  objectiveId: 
+  messageWhenCollected: "\u0110\xE3 nh\u1EB7t b\xECnh oxy. L\u01B0\u1EE3ng Oxy \u0111\u01B0\u1EE3c
+    ph\u1EE5c h\u1ED3i."
+  destroyAfterPickup: 1

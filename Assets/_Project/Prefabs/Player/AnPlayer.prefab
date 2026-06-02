@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 7984456390143273484}
   - component: {fileID: 7924216535602355077}
   - component: {fileID: 8246023344090091713}
+  - component: {fileID: 3082615458738519966}
+  - component: {fileID: -3191206925097502686}
   m_Layer: 0
   m_Name: AnPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,10 +116,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.35
+  m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &7924216535602355077
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,10 +143,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 1
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 66
+  m_CollisionDetection: 0
 --- !u!114 &8246023344090091713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +172,7 @@ MonoBehaviour:
   groundCheckRadius: 0.1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 9
   coyoteTime: 0.08
   jumpBufferTime: 0.12
   canJumpWhileCrawling: 0
@@ -179,7 +181,7 @@ MonoBehaviour:
   interactionRadius: 0.35
   interactionMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1
   collisionMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -192,6 +194,33 @@ MonoBehaviour:
   standingRadius: 0.5
   sneakingRadius: 0.45
   crawlingRadius: 0.35
+--- !u!114 &3082615458738519966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6841952963394960362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197afaaaa05ff914991928eef26d5cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnInventory
+--- !u!114 &-3191206925097502686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6841952963394960362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba430c6219a83544a202ba7071b8c3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnOxygen
+  maxOxygen: 100
+  currentOxygen: 100
+  oxygenDecreaseRate: 3
 --- !u!1 &7205881103263958873
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,14 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: f8828d1d49524c4489496554fceff36f, type: 2}
     - target: {fileID: 5866666021909216657, guid: 953ccef21a1d42647b07f0c657496470, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
-        'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'An_SneakingForward'\n\tFrom
-        animation clip 'An_LowCrawl'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 953ccef21a1d42647b07f0c657496470, type: 3}
       propertyPath: m_ApplyRootMotion

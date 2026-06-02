@@ -1,16 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OxygenBarUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [Header("References")]
+    [SerializeField] private AnOxygen anOxygen;
+    [SerializeField] private Image oxygenFillImage;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (anOxygen == null || oxygenFillImage == null)
+        {
+            return;
+        }
+
+        oxygenFillImage.fillAmount = anOxygen.OxygenPercent;
     }
 }

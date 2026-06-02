@@ -1,16 +1,30 @@
 using UnityEngine;
 
-public class ItemData : MonoBehaviour
+[CreateAssetMenu(fileName = "NewItemData", menuName = "CuChi/Items/Item Data")]
+public class ItemData : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [Header("Basic Info")]
+    public string itemId;
+    public string itemName;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [TextArea(3, 5)]
+    public string description;
+
+    public Sprite icon;
+
+    [Header("Item Type")]
+    public ItemType itemType;
+    public ItemEffectType effectType;
+
+    [Header("Effect")]
+    public float effectValue;
+
+    [Header("Story / Objective")]
+    public string objectiveId;
+
+    [TextArea(2, 4)]
+    public string messageWhenCollected;
+
+    [Header("Pickup Settings")]
+    public bool destroyAfterPickup = true;
 }
