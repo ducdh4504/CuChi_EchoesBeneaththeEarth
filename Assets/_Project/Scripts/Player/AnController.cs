@@ -1,16 +1,18 @@
 using UnityEngine;
 
+[DisallowMultipleComponent]
+[RequireComponent(typeof(AnMovement))]
 public class AnController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public AnMovement Movement { get; private set; }
+    public bool IsGrounded => Movement != null && Movement.IsGrounded;
+    public bool IsMoving => Movement != null && Movement.IsMoving;
+    public bool IsRunning => Movement != null && Movement.IsRunning;
+    public bool IsSneaking => Movement != null && Movement.IsSneaking;
+    public bool IsCrawling => Movement != null && Movement.IsCrawling;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        Movement = GetComponent<AnMovement>();
     }
 }
