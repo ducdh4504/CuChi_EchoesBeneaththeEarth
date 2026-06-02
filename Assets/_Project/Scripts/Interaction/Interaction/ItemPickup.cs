@@ -4,48 +4,19 @@ public class ItemPickup : MonoBehaviour
 {
     [Header("Item Data")]
     [SerializeField] private ItemData itemData;
-
-    [Header("Pickup Settings")]
+    [Header("Prompt")]
     [SerializeField] private KeyCode pickupKey = KeyCode.E;
-    [SerializeField] private bool allowTriggerPickupInput = true;
 
-    private bool isPlayerNearby;
     private bool isPickedUp;
-
     private AnInventory playerInventory;
     private AnOxygen playerOxygen;
 
-    private void Update()
-    {
-        // Cách 1: Player đứng trong trigger rồi nhấn E
-        if (!allowTriggerPickupInput)
-        {
-            return;
-        }
-
-        if (!isPlayerNearby)
-        {
-            return;
-        }
-
-        if (Input.GetKeyDown(pickupKey))
-        {
-            PickupItem();
-        }
-    }
-
-    // Cách 2: AnMovement nhấn E rồi gọi SendMessageUpwards("Interact")
     public void Interact()
     {
-        if (!isPlayerNearby)
-        {
-            TryFindPlayerReferences();
-        }
-
-        PickupItem();
+        TryPickup();
     }
 
-    private void PickupItem()
+    private void TryPickup()
     {
         if (isPickedUp)
         {
@@ -58,16 +29,21 @@ public class ItemPickup : MonoBehaviour
             return;
         }
 
-        isPickedUp = true;
+        FindPlayerReferencesIfNeeded();
 
-        ApplyItemEffect();
+        if (!TryApplyItemEffect())
+        {
+            return;
+        }
+
+        isPickedUp = true;
 
         if (playerInventory != null)
         {
             playerInventory.AddItem(itemData);
         }
 
-        if (!string.IsNullOrEmpty(itemData.messageWhenCollected))
+        if (!string.IsNullOrWhiteSpace(itemData.messageWhenCollected))
         {
             Debug.Log(itemData.messageWhenCollected);
         }
@@ -78,42 +54,51 @@ public class ItemPickup : MonoBehaviour
         }
     }
 
-    private void ApplyItemEffect()
+    private bool TryApplyItemEffect()
     {
         switch (itemData.effectType)
         {
-            case ItemEffectType.RestoreOxygen:
-                if (playerOxygen != null)
-                {
-                    playerOxygen.RestoreOxygen(itemData.effectValue);
-                }
-                else
-                {
-                    Debug.LogWarning("Cannot restore oxygen because AnOxygen was not found on Player.");
-                }
-                break;
+            case ItemEffectType.None:
+                return true;
 
-            //case ItemEffectType.RestoreHealth:
-            //    Debug.Log("RestoreHealth effect is not implemented yet.");
-            //    break;
+            case ItemEffectType.RestoreOxygen:
+                return TryRestorePlayerOxygen();
 
             case ItemEffectType.RestoreLanternFuel:
-                Debug.Log("RestoreLanternFuel effect is not implemented yet.");
-                break;
+                Debug.LogWarning("RestoreLanternFuel effect is not implemented yet.");
+                return true;
 
             case ItemEffectType.UnlockMap:
             case ItemEffectType.UnlockMorseCode:
-            case ItemEffectType.CollectMapFragment:
             case ItemEffectType.UnlockObjective:
-                Debug.Log($"Key item collected: {itemData.itemName}");
-                break;
+            case ItemEffectType.CollectMapFragment:
+                return true;
+
+            default:
+                Debug.LogWarning($"Unsupported item effect: {itemData.effectType}");
+                return true;
         }
     }
 
-    private void TryFindPlayerReferences()
+    private bool TryRestorePlayerOxygen()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (playerOxygen == null)
+        {
+            Debug.LogWarning("Cannot restore oxygen because AnOxygen was not found on Player.");
+            return false;
+        }
 
+        return playerOxygen.TryRestoreOxygen(itemData.effectValue);
+    }
+
+    private void FindPlayerReferencesIfNeeded()
+    {
+        if (playerInventory != null && playerOxygen != null)
+        {
+            return;
+        }
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
         {
             Debug.LogWarning("Player not found. Make sure An has Tag = Player.");
@@ -126,15 +111,14 @@ public class ItemPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        AnOxygen oxygen = other.GetComponentInParent<AnOxygen>();
+        if (oxygen == null)
         {
             return;
         }
 
-        isPlayerNearby = true;
-
-        playerInventory = other.GetComponent<AnInventory>();
-        playerOxygen = other.GetComponent<AnOxygen>();
+        playerOxygen = oxygen;
+        playerInventory = other.GetComponentInParent<AnInventory>();
 
         if (itemData != null)
         {
@@ -144,12 +128,11 @@ public class ItemPickup : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (other.GetComponentInParent<AnOxygen>() != playerOxygen)
         {
             return;
         }
 
-        isPlayerNearby = false;
         playerInventory = null;
         playerOxygen = null;
     }

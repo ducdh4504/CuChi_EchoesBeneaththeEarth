@@ -9,9 +9,16 @@ public class AnOxygen : MonoBehaviour
 
     public float CurrentOxygen => currentOxygen;
     public float MaxOxygen => maxOxygen;
-    public float OxygenPercent => currentOxygen / maxOxygen;
+    public float OxygenPercent => maxOxygen <= 0f ? 0f : currentOxygen / maxOxygen;
+    public bool IsFull => currentOxygen >= maxOxygen;
 
     private bool isOutOfOxygen;
+
+    private void Awake()
+    {
+        currentOxygen = Mathf.Clamp(currentOxygen, 0f, maxOxygen);
+        isOutOfOxygen = currentOxygen <= 0f;
+    }
 
     private void Update()
     {
@@ -37,10 +44,23 @@ public class AnOxygen : MonoBehaviour
 
     public void RestoreOxygen(float amount)
     {
+        TryRestoreOxygen(amount);
+    }
+
+    public bool TryRestoreOxygen(float amount)
+    {
         if (amount <= 0)
         {
-            return;
+            return false;
         }
+
+        if (IsFull)
+        {
+            Debug.Log("Oxygen is already full.");
+            return false;
+        }
+
+        float oxygenBeforeRestore = currentOxygen;
 
         currentOxygen += amount;
         currentOxygen = Mathf.Clamp(currentOxygen, 0f, maxOxygen);
@@ -50,6 +70,9 @@ public class AnOxygen : MonoBehaviour
             isOutOfOxygen = false;
         }
 
-        Debug.Log($"Oxygen restored: {amount}");
+        float restoredAmount = currentOxygen - oxygenBeforeRestore;
+        Debug.Log($"Oxygen restored: {restoredAmount}");
+
+        return restoredAmount > 0f;
     }
 }
