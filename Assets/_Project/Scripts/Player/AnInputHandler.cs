@@ -42,21 +42,6 @@ public sealed class AnInputHandler
             interactPressed |= keyboard.eKey.wasPressedThisFrame;
         }
 
-        Gamepad gamepad = Gamepad.current;
-        if (gamepad != null)
-        {
-            Vector2 gamepadMove = gamepad.leftStick.ReadValue();
-            if (gamepadMove.sqrMagnitude > move.sqrMagnitude)
-            {
-                move = gamepadMove;
-            }
-
-            jumpPressed |= gamepad.buttonSouth.wasPressedThisFrame;
-            sneakPressed |= gamepad.leftShoulder.wasPressedThisFrame;
-            crawlPressed |= gamepad.buttonEast.wasPressedThisFrame;
-            sprintHeld |= gamepad.leftTrigger.isPressed || gamepad.leftStickButton.isPressed;
-            interactPressed |= gamepad.buttonWest.wasPressedThisFrame;
-        }
 
         return new AnInputSnapshot(
             Vector2.ClampMagnitude(move, 1f),

@@ -28,23 +28,25 @@ public class AnMovement : MonoBehaviour
     // ─────────────────────────────────────────────────────────────
     #region Thông số (Inspector)
 
+
+
     [Header("Tốc độ di chuyển")]
     [SerializeField] private float walkSpeed = 4.5f;
     [SerializeField] private float runSpeed = 7f;
     [SerializeField] private float sneakSpeed = 2.2f;
     [SerializeField] private float crawlSpeed = 1.25f;
-    [SerializeField, Range(0f, 1f)] private float airControl = 0.55f; // hệ số điều khiển khi ở trên không
+    [SerializeField, Range(0f, 1f)] private float airControl = 0.55f; 
     [SerializeField] private float acceleration = 24f;
     [SerializeField] private float deceleration = 30f;
     [SerializeField] private float rotationSpeed = 12f;
 
     [Header("Nhảy")]
     [SerializeField] private float jumpVelocity = 4.2f;
-    [SerializeField] private Transform groundCheck;          // điểm kiểm tra mặt đất (có thể để trống)
+    [SerializeField] private Transform groundCheck;         
     [SerializeField] private float groundCheckRadius = 0.15f;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float coyoteTime = 0.08f;       // thời gian vẫn nhảy được sau khi rời đất
-    [SerializeField] private float jumpBufferTime = 0.12f;   // thời gian nhớ lệnh nhảy trước khi chạm đất
+    [SerializeField] private float coyoteTime = 0.08f;       
+    [SerializeField] private float jumpBufferTime = 0.12f;   
     [SerializeField] private bool canJumpWhileCrawling;
 
     [Header("Tương tác")]
@@ -351,7 +353,6 @@ public class AnMovement : MonoBehaviour
 
     private void ApplyMovement()
     {
-        // Hướng input quy ra world (lưu để dùng cho xoay nhân vật).
         inputDirection = new Vector3(moveInput.x, 0f, moveInput.y);
         if (inputDirection.sqrMagnitude > 1f) inputDirection.Normalize();
 

@@ -11,7 +11,7 @@ public class AnController : MonoBehaviour
     public bool IsSneaking => Movement != null && Movement.IsSneaking;
     public bool IsCrawling => Movement != null && Movement.IsCrawling;
 
-    private void Awake()
+    private void Awake()    
     {
         Movement = GetComponent<AnMovement>();
     }
