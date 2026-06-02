@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AnOxygen : MonoBehaviour
@@ -12,10 +13,14 @@ public class AnOxygen : MonoBehaviour
     public float OxygenPercent => maxOxygen <= 0f ? 0f : currentOxygen / maxOxygen;
     public bool IsFull => currentOxygen >= maxOxygen;
 
+    public event Action<float, float, float> OnOxygenChanged;
+    public event Action OnOutOfOxygen;
+
     private bool isOutOfOxygen;
 
     private void Awake()
     {
+        maxOxygen = Mathf.Max(1f, maxOxygen);
         currentOxygen = Mathf.Clamp(currentOxygen, 0f, maxOxygen);
         isOutOfOxygen = currentOxygen <= 0f;
     }
@@ -34,11 +39,13 @@ public class AnOxygen : MonoBehaviour
 
         currentOxygen -= oxygenDecreaseRate * Time.deltaTime;
         currentOxygen = Mathf.Clamp(currentOxygen, 0f, maxOxygen);
+        NotifyOxygenChanged();
 
         if (currentOxygen <= 0f)
         {
             isOutOfOxygen = true;
             Debug.Log("An is out of oxygen!");
+            OnOutOfOxygen?.Invoke();
         }
     }
 
@@ -73,6 +80,13 @@ public class AnOxygen : MonoBehaviour
         float restoredAmount = currentOxygen - oxygenBeforeRestore;
         Debug.Log($"Oxygen restored: {restoredAmount}");
 
+        NotifyOxygenChanged();
+
         return restoredAmount > 0f;
+    }
+
+    private void NotifyOxygenChanged()
+    {
+        OnOxygenChanged?.Invoke(currentOxygen, maxOxygen, OxygenPercent);
     }
 }
