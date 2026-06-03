@@ -28,17 +28,19 @@ public class AnMovement : MonoBehaviour
     // ─────────────────────────────────────────────────────────────
     #region Thông số (Inspector)
 
-
+    [Header("Camera")]
+    [Tooltip("Kéo Transform của camera vào đây. Nếu để trống sẽ tự lấy Camera.main.")]
+    [SerializeField] private Transform cameraTransform;
 
     [Header("Tốc độ di chuyển")]
-    [SerializeField] private float walkSpeed = 4.5f;
-    [SerializeField] private float runSpeed = 7f;
-    [SerializeField] private float sneakSpeed = 2.2f;
-    [SerializeField] private float crawlSpeed = 1.25f;
+    [SerializeField] private float walkSpeed = 2.5f;
+    [SerializeField] private float runSpeed = 4.5f;
+    [SerializeField] private float sneakSpeed = 1.2f;
+    [SerializeField] private float crawlSpeed = 0.5f;
     [SerializeField, Range(0f, 1f)] private float airControl = 0.55f; 
     [SerializeField] private float acceleration = 24f;
     [SerializeField] private float deceleration = 30f;
-    [SerializeField] private float rotationSpeed = 12f;
+    [SerializeField] private float rotationSpeed = 3f;
 
     [Header("Nhảy")]
     [SerializeField] private float jumpVelocity = 4.2f;
@@ -147,6 +149,7 @@ public class AnMovement : MonoBehaviour
         CacheAnimatorParameters();
         CreateFrictionlessMaterial();
         ApplyStance(Stance.Standing);
+        GetCameraTransform();
     }
 
     private void Update()
@@ -353,7 +356,18 @@ public class AnMovement : MonoBehaviour
 
     private void ApplyMovement()
     {
-        inputDirection = new Vector3(moveInput.x, 0f, moveInput.y);
+        // === CHUYỂN INPUT SANG HƯỚNG THEO CAMERA ===
+        Vector3 camForward = cameraTransform.forward;
+        Vector3 camRight = cameraTransform.right;
+
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
+
+
+        inputDirection = camForward * moveInput.y + camRight * moveInput.x;
+
         if (inputDirection.sqrMagnitude > 1f) inputDirection.Normalize();
 
         float speed = GetCurrentSpeed() * (isGrounded ? 1f : airControl);
@@ -690,6 +704,14 @@ public class AnMovement : MonoBehaviour
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+    }
+
+    private void GetCameraTransform()
+    {
+        if (cameraTransform == null && Camera.main != null)
+        {
+            cameraTransform = Camera.main.transform;
         }
     }
 

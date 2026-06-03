@@ -18,6 +18,7 @@ public class ItemPickup : MonoBehaviour
 
     private void TryPickup()
     {
+
         if (isPickedUp)
         {
             return;

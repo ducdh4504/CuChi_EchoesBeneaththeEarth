@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour
 
         if (oxygenBarUI == null)
         {
-            oxygenBarUI = FindFirstObjectByType<OxygenBarUI>();
+            oxygenBarUI = FindAnyObjectByType<OxygenBarUI>();
         }
     }
 }
