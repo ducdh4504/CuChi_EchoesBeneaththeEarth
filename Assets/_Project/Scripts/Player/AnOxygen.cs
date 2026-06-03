@@ -6,7 +6,8 @@ public class AnOxygen : MonoBehaviour
     [Header("Oxygen Settings")]
     [SerializeField] private float maxOxygen = 100f;
     [SerializeField] private float currentOxygen = 100f;
-    [SerializeField] private float oxygenDecreaseRate = 3f;
+    //[SerializeField] private float oxygenDecreaseRate = 3f; //100 / 3 ≈ 33 giây là hết oxy
+    [SerializeField] private float oxygenDecreaseRate = 0.5f; //100 / 0.5 = 200 giây
 
     public float CurrentOxygen => currentOxygen;
     public float MaxOxygen => maxOxygen;
