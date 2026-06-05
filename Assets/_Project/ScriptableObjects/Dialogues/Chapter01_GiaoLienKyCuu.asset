@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c543af8b5bd13fe48bebf92be6c07dfc, type: 3}
+  m_Name: Chapter01_GiaoLienKyCuu
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  dialogueId: chapter01_giao_lien_ky_cuu_intro
+  dialogueTitle: "Giao nhi\u1EC7m v\u1EE5 t\xECm b\u1EA3n \u0111\u1ED3 b\xED m\u1EADt"
+  lines:
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
+    content: "An, c\u1EADu \u0111\u1EBFn r\u1ED3i. T\u1EEB \u0111\xE2y tr\u1EDF xu\u1ED1ng
+      l\xE0 tuy\u1EBFn h\u1EA7m c\u0169, t\u1ED1i v\xE0 h\u1EB9p h\u01A1n nhi\u1EC1u
+      so v\u1EDBi khu tr\xEAn."
+  - speakerName: AN
+    content: "Em \u0111\xE3 s\u1EB5n s\xE0ng. Nh\u01B0ng... t\u1EA5m b\u1EA3n \u0111\u1ED3
+      th\u1EADt s\u1EF1 bi\u1EBFn m\u1EA5t \u1EDF khu v\u1EF1c n\xE0y sao?\r\n"
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
+    content: "\u0110\xFAng. \u0110\xF3 kh\xF4ng ch\u1EC9 l\xE0 m\u1ED9t t\u1EA5m
+      b\u1EA3n \u0111\u1ED3. N\xF3 ghi l\u1EA1i \u0111\u01B0\u1EDDng h\u1EA7m ch\xEDnh,
+      kho thu\u1ED1c, kho l\u01B0\u01A1ng th\u1EF1c v\xE0 c\u1EA3 l\u1ED1i tho\xE1t
+      cho th\u01B0\u01A1ng binh."
+  - speakerName: AN
+    content: "N\u1EBFu \u0111\u1ECBch t\xECm th\u1EA5y n\xF3..."
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
+    content: "C\u1EA3 c\u0103n c\u1EE9 n\xE0y c\xF3 th\u1EC3 b\u1ECB l\u1ED9. V\xEC
+      v\u1EADy c\u1EADu ph\u1EA3i t\xECm l\u1EA1i n\xF3 tr\u01B0\u1EDBc khi tr\u1EDDi
+      s\xE1ng."
+  - speakerName: AN
+    content: "Em s\u1EBD \u0111i ngay."
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
+    content: "Nh\u1EDB k\u1EF9. \u0110\xE8n l\xE0 m\u1EA1ng s\u1ED1ng c\u1EE7a c\u1EADu,
+      nh\u01B0ng \xE1nh s\xE1ng c\u0169ng c\xF3 th\u1EC3 khi\u1EBFn c\u1EADu b\u1ECB
+      ph\xE1t hi\u1EC7n. Oxy d\u01B0\u1EDBi h\u1EA7m kh\xF4ng nhi\u1EC1u. H\xE3y
+      quan s\xE1t k\xFD hi\u1EC7u tr\xEAn v\xE1ch, ch\xFAng s\u1EBD ch\u1EC9 \u0111\u01B0\u1EDDng
+      cho c\u1EADu."
+  - speakerName: AN
+    content: "C\xF2n n\u1EBFu em g\u1EB7p h\u1EA7m s\u1EADp ho\u1EB7c m\u1EA5t d\u1EA5u?"
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
+    content: "T\xECm c\xE1c h\u1ED9p ti\u1EBFp t\u1EBF c\u0169. Giao li\xEAn tr\u01B0\u1EDBc
+      th\u01B0\u1EDDng \u0111\u1EC3 l\u1EA1i d\u1EA5u hi\u1EC7u g\u1EA7n \u0111\xF3.
+      V\xE0 An n\xE0y..."
+  - speakerName: AN
+    content: "D\u1EA1?"
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
+    content: "S\u1EE3 h\xE3i kh\xF4ng l\xE0m c\u1EADu y\u1EBFu \u0111i. B\u1ECF cu\u1ED9c
+      m\u1EDBi l\xE0m nhi\u1EC7m v\u1EE5 th\u1EA5t b\u1EA1i."
+  - speakerName: AN
+    content: "Em hi\u1EC3u r\u1ED3i. Em s\u1EBD t\xECm l\u1EA1i t\u1EA5m b\u1EA3n
+      \u0111\u1ED3."
+  objectiveIdAfterDialogue: 
+  messageAfterDialogue: "Nhi\u1EC7m v\u1EE5 m\u1EDBi: T\xECm d\u1EA5u v\u1EBFt \u0111\u1EA7u
+    ti\xEAn c\u1EE7a t\u1EA5m b\u1EA3n \u0111\u1ED3 b\xED m\u1EADt \u1EDF tuy\u1EBFn
+    h\u1EA7m c\u0169."

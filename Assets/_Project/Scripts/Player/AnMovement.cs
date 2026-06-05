@@ -492,12 +492,33 @@ public class AnMovement : MonoBehaviour
     // ─────────────────────────────────────────────────────────────
     #region Tương tác
 
+    //private void TryInteract()
+    //{
+    //    Collider target = FindInteractionTarget();
+    //    if (target == null) return;
+
+    //    target.SendMessageUpwards("Interact", null, SendMessageOptions.DontRequireReceiver);
+    //}
     private void TryInteract()
     {
-        Collider target = FindInteractionTarget();
-        if (target == null) return;
+        IInteractable interactable = FindInteractableTarget();
+        if (interactable == null)
+        {
+            return;
+        }
 
-        target.SendMessageUpwards("Interact", null, SendMessageOptions.DontRequireReceiver);
+        interactable.Interact();
+    }
+
+    private IInteractable FindInteractableTarget()
+    {
+        Collider target = FindInteractionTarget();
+        if (target == null)
+        {
+            return null;
+        }
+
+        return target.GetComponentInParent<IInteractable>();
     }
 
     private Collider FindInteractionTarget()
@@ -559,12 +580,27 @@ public class AnMovement : MonoBehaviour
         return transform.position + Vector3.up;
     }
 
+    //private bool CanInteractWith(Collider col)
+    //{
+    //    if (col == null || col == capsule) return false;
+    //    if (col.attachedRigidbody == rb) return false;
+
+    //    return true;
+    //}
     private bool CanInteractWith(Collider col)
     {
-        if (col == null || col == capsule) return false;
-        if (col.attachedRigidbody == rb) return false;
+        if (col == null || col == capsule)
+        {
+            return false;
+        }
 
-        return true;
+        if (col.attachedRigidbody == rb)
+        {
+            return false;
+        }
+
+        IInteractable interactable = col.GetComponentInParent<IInteractable>();
+        return interactable != null;
     }
 
     private bool IsInInteractionDirection(Collider col, Vector3 origin, Vector3 direction)

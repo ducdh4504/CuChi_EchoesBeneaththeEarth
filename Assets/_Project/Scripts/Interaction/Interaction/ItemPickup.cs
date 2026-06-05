@@ -4,12 +4,14 @@
 //{
 //    [Header("Item Data")]
 //    [SerializeField] private ItemData itemData;
+
 //    [Header("Prompt")]
 //    [SerializeField] private KeyCode pickupKey = KeyCode.E;
 
 //    private bool isPickedUp;
 //    private AnInventory playerInventory;
 //    private AnOxygen playerOxygen;
+//    private AnLantern playerLantern;
 
 //    public void Interact()
 //    {
@@ -18,6 +20,7 @@
 
 //    private void TryPickup()
 //    {
+
 //        if (isPickedUp)
 //        {
 //            return;
@@ -65,8 +68,7 @@
 //                return TryRestorePlayerOxygen();
 
 //            case ItemEffectType.RestoreLanternFuel:
-//                Debug.LogWarning("RestoreLanternFuel effect is not implemented yet.");
-//                return true;
+//                return TryRestorePlayerLanternFuel();
 
 //            case ItemEffectType.UnlockMap:
 //            case ItemEffectType.UnlockMorseCode:
@@ -91,9 +93,21 @@
 //        return playerOxygen.TryRestoreOxygen(itemData.effectValue);
 //    }
 
+//    private bool TryRestorePlayerLanternFuel()
+//    {
+//        if (playerLantern == null)
+//        {
+//            Debug.LogWarning("Cannot restore lantern fuel because AnLantern was not found on Player.");
+//            return false;
+//        }
+
+//        playerLantern.RestoreLight(itemData.effectValue);
+//        return true;
+//    }
+
 //    private void FindPlayerReferencesIfNeeded()
 //    {
-//        if (playerInventory != null && playerOxygen != null)
+//        if (playerInventory != null && playerOxygen != null && playerLantern != null)
 //        {
 //            return;
 //        }
@@ -107,17 +121,21 @@
 
 //        playerInventory = player.GetComponent<AnInventory>();
 //        playerOxygen = player.GetComponent<AnOxygen>();
+//        playerLantern = player.GetComponent<AnLantern>();
 //    }
 
 //    private void OnTriggerEnter(Collider other)
 //    {
 //        AnOxygen oxygen = other.GetComponentInParent<AnOxygen>();
-//        if (oxygen == null)
+//        AnLantern lantern = other.GetComponentInParent<AnLantern>();
+
+//        if (oxygen == null && lantern == null)
 //        {
 //            return;
 //        }
 
 //        playerOxygen = oxygen;
+//        playerLantern = lantern;
 //        playerInventory = other.GetComponentInParent<AnInventory>();
 
 //        if (itemData != null)
@@ -128,31 +146,41 @@
 
 //    private void OnTriggerExit(Collider other)
 //    {
-//        if (other.GetComponentInParent<AnOxygen>() != playerOxygen)
+//        AnOxygen oxygen = other.GetComponentInParent<AnOxygen>();
+//        AnLantern lantern = other.GetComponentInParent<AnLantern>();
+
+//        if (oxygen != playerOxygen && lantern != playerLantern)
 //        {
 //            return;
 //        }
 
 //        playerInventory = null;
 //        playerOxygen = null;
+//        playerLantern = null;
 //    }
 //}
 
-
 using UnityEngine;
 
-public class ItemPickup : MonoBehaviour
+public class ItemPickup : MonoBehaviour, IInteractable
 {
     [Header("Item Data")]
     [SerializeField] private ItemData itemData;
-
-    [Header("Prompt")]
-    [SerializeField] private KeyCode pickupKey = KeyCode.E;
 
     private bool isPickedUp;
     private AnInventory playerInventory;
     private AnOxygen playerOxygen;
     private AnLantern playerLantern;
+
+    public string GetInteractPrompt()
+    {
+        if (itemData == null)
+        {
+            return "Nhấn E để nhặt vật phẩm";
+        }
+
+        return $"Nhấn E để nhặt {itemData.itemName}";
+    }
 
     public void Interact()
     {
@@ -161,7 +189,6 @@ public class ItemPickup : MonoBehaviour
 
     private void TryPickup()
     {
-
         if (isPickedUp)
         {
             return;
@@ -263,40 +290,5 @@ public class ItemPickup : MonoBehaviour
         playerInventory = player.GetComponent<AnInventory>();
         playerOxygen = player.GetComponent<AnOxygen>();
         playerLantern = player.GetComponent<AnLantern>();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        AnOxygen oxygen = other.GetComponentInParent<AnOxygen>();
-        AnLantern lantern = other.GetComponentInParent<AnLantern>();
-
-        if (oxygen == null && lantern == null)
-        {
-            return;
-        }
-
-        playerOxygen = oxygen;
-        playerLantern = lantern;
-        playerInventory = other.GetComponentInParent<AnInventory>();
-
-        if (itemData != null)
-        {
-            Debug.Log($"Press {pickupKey} to pick up {itemData.itemName}");
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        AnOxygen oxygen = other.GetComponentInParent<AnOxygen>();
-        AnLantern lantern = other.GetComponentInParent<AnLantern>();
-
-        if (oxygen != playerOxygen && lantern != playerLantern)
-        {
-            return;
-        }
-
-        playerInventory = null;
-        playerOxygen = null;
-        playerLantern = null;
     }
 }
