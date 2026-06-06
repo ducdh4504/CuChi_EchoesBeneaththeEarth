@@ -7,18 +7,51 @@ public class LanternBarUI : MonoBehaviour
     [SerializeField] private AnLantern playerLantern;
     [SerializeField] private Image fillImage;
 
-    private void Update()
+    private void Awake()
     {
-        UpdateLanternBar();
+        FindLanternIfNeeded();
     }
 
-    private void UpdateLanternBar()
+    private void OnEnable()
     {
-        if (playerLantern == null || fillImage == null)
+        FindLanternIfNeeded();
+
+        if (playerLantern != null)
+        {
+            playerLantern.OnEnergyChanged += UpdateLanternBar;
+            UpdateLanternBar(playerLantern.CurrentEnergy, playerLantern.MaxEnergy, playerLantern.EnergyPercent);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (playerLantern != null)
+        {
+            playerLantern.OnEnergyChanged -= UpdateLanternBar;
+        }
+    }
+
+    private void UpdateLanternBar(float currentEnergy, float maxEnergy, float energyPercent)
+    {
+        if (fillImage == null)
         {
             return;
         }
 
-        fillImage.fillAmount = playerLantern.EnergyPercent;
+        fillImage.fillAmount = Mathf.Clamp01(energyPercent);
+    }
+
+    private void FindLanternIfNeeded()
+    {
+        if (playerLantern != null)
+        {
+            return;
+        }
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerLantern = player.GetComponent<AnLantern>();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AnLantern : MonoBehaviour
@@ -18,28 +19,47 @@ public class AnLantern : MonoBehaviour
     public float MaxEnergy => maxEnergy;
     public float EnergyPercent => maxEnergy <= 0f ? 0f : currentEnergy / maxEnergy;
 
+    public event Action<float, float, float> OnEnergyChanged;
+
     private void Awake()
     {
+        maxEnergy = Mathf.Max(1f, maxEnergy);
         currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
-        UpdateLanternLight();
+        UpdateLanternState();
     }
 
     private void Update()
     {
         DrainLantern();
-        UpdateLanternLight();
     }
 
     private void DrainLantern()
     {
         if (currentEnergy <= 0f)
         {
-            currentEnergy = 0f;
+            SetEnergy(0f);
             return;
         }
 
-        currentEnergy -= drainRate * Time.deltaTime;
-        currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
+        SetEnergy(currentEnergy - drainRate * Time.deltaTime);
+    }
+
+    private void SetEnergy(float value)
+    {
+        float nextEnergy = Mathf.Clamp(value, 0f, maxEnergy);
+        if (Mathf.Approximately(currentEnergy, nextEnergy))
+        {
+            return;
+        }
+
+        currentEnergy = nextEnergy;
+        UpdateLanternState();
+    }
+
+    private void UpdateLanternState()
+    {
+        UpdateLanternLight();
+        OnEnergyChanged?.Invoke(currentEnergy, maxEnergy, EnergyPercent);
     }
 
     private void UpdateLanternLight()
@@ -62,15 +82,11 @@ public class AnLantern : MonoBehaviour
             return;
         }
 
-        currentEnergy += amount;
-        currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
-
-        UpdateLanternLight();
+        SetEnergy(currentEnergy + amount);
     }
 
     public void RefillFull()
     {
-        currentEnergy = maxEnergy;
-        UpdateLanternLight();
+        SetEnergy(maxEnergy);
     }
 }
