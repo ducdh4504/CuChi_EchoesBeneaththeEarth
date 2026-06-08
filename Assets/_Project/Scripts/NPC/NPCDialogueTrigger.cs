@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NPCDialogueTrigger : MonoBehaviour, IInteractable
+public class NPCDialogueTrigger : MonoBehaviour, IInteractable, IInteractionAvailability
 {
     [Header("NPC Info")]
     [SerializeField] private string npcDisplayName = "Giao liên kỳ cựu";
@@ -16,6 +16,21 @@ public class NPCDialogueTrigger : MonoBehaviour, IInteractable
     public string GetInteractPrompt()
     {
         return $"Nhấn E để nói chuyện với {npcDisplayName}";
+    }
+
+    public bool CanInteract()
+    {
+        if (dialogueData == null)
+        {
+            return false;
+        }
+
+        if (!canRepeatDialogue && hasTalked)
+        {
+            return false;
+        }
+
+        return DialogueManager.Instance != null && !DialogueManager.Instance.IsDialogueActive;
     }
 
     public void Interact()

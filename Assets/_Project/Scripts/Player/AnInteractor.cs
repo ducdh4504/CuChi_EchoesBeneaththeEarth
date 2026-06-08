@@ -11,6 +11,9 @@ public class AnInteractor : MonoBehaviour
     private float interactionDistance;
     private float interactionRadius;
     private LayerMask interactionMask;
+    private IInteractable currentInteractable;
+
+    public IInteractable CurrentInteractable => currentInteractable;
 
     public void Initialize(
         Rigidbody rb,
@@ -30,8 +33,25 @@ public class AnInteractor : MonoBehaviour
 
     public void TryInteract()
     {
-        IInteractable interactable = FindInteractableTarget();
-        interactable?.Interact();
+        RefreshCurrentInteractable();
+        currentInteractable?.Interact();
+        RefreshCurrentInteractable();
+    }
+
+    public IInteractable GetCurrentInteractable()
+    {
+        RefreshCurrentInteractable();
+        return currentInteractable;
+    }
+
+    private void Update()
+    {
+        RefreshCurrentInteractable();
+    }
+
+    private void RefreshCurrentInteractable()
+    {
+        currentInteractable = FindInteractableTarget();
     }
 
     private IInteractable FindInteractableTarget()
@@ -117,7 +137,14 @@ public class AnInteractor : MonoBehaviour
             return false;
         }
 
-        return col.GetComponentInParent<IInteractable>() != null;
+        IInteractable interactable = col.GetComponentInParent<IInteractable>();
+        if (interactable == null)
+        {
+            return false;
+        }
+
+        IInteractionAvailability availability = col.GetComponentInParent<IInteractionAvailability>();
+        return availability == null || availability.CanInteract();
     }
 
     private static bool IsInInteractionDirection(Collider col, Vector3 origin, Vector3 direction)

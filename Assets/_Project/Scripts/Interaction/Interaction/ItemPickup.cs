@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ItemPickup : MonoBehaviour, IInteractable
+public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
 {
     [Header("Item Data")]
     [SerializeField] private ItemData itemData;
@@ -18,6 +18,11 @@ public class ItemPickup : MonoBehaviour, IInteractable
         }
 
         return $"Nhấn E để nhặt {itemData.itemName}";
+    }
+
+    public bool CanInteract()
+    {
+        return !isPickedUp && itemData != null;
     }
 
     public void Interact()
