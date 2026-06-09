@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class ThirdPersonCamera : MonoBehaviour
 {
     [Header("Mục tiêu theo dõi")]
-    [SerializeField] private Transform target;        
+    [SerializeField] private Transform target;
+    [SerializeField] private Transform cinemachineTarget;
 
     [Header("Thông số camera")]
     [SerializeField] private float distance = 1f;     
@@ -21,6 +22,11 @@ public class ThirdPersonCamera : MonoBehaviour
         // Khóa và ẩn con trỏ chuột cho giống game third-person.
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        Transform drivenTransform = cinemachineTarget != null ? cinemachineTarget : transform;
+        Vector3 angles = drivenTransform.eulerAngles;
+        yaw = angles.y;
+        pitch = NormalizePitch(angles.x);
     }
 
     // Dùng LateUpdate để camera cập nhật SAU khi nhân vật đã di chuyển xong.
@@ -42,9 +48,21 @@ public class ThirdPersonCamera : MonoBehaviour
         // Tính vị trí camera dựa trên góc xoay.
         Quaternion rotation = Quaternion.Euler(pitch, yaw, 0f);
         Vector3 focusPoint = target.position + Vector3.up * height;
+
+        if (cinemachineTarget != null)
+        {
+            cinemachineTarget.SetPositionAndRotation(focusPoint, rotation);
+            return;
+        }
+
         Vector3 camPosition = focusPoint - rotation * Vector3.forward * distance;
 
         transform.position = camPosition;
         transform.LookAt(focusPoint);
+    }
+
+    private static float NormalizePitch(float angle)
+    {
+        return angle > 180f ? angle - 360f : angle;
     }
 }
