@@ -41,6 +41,23 @@ public class AnAnimatorDriver : MonoBehaviour
         SetFloat(VerticalSpeedHash, velocity.y);
     }
 
+    public void ResetMovementState(bool isGrounded, AnStance stance)
+    {
+        if (animator == null)
+        {
+            return;
+        }
+
+        SetBool(IsWalkingHash, false);
+        SetBool(IsRunningHash, false);
+        SetBool(IsSneakingHash, false);
+        SetBool(IsCrawlingHash, stance == AnStance.Crawling);
+        SetBool(IsGroundedHash, isGrounded);
+        SetBool(IsJumpingHash, false);
+        SetFloat(MoveSpeedHash, 0f);
+        SetFloat(VerticalSpeedHash, 0f);
+    }
+
     private void CacheAnimatorParameters()
     {
         animatorParams.Clear();

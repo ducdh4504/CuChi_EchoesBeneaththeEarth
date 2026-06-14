@@ -93,6 +93,21 @@ public class AnMotor : MonoBehaviour
         rb.linearVelocity = velocity;
     }
 
+    public void StopImmediately()
+    {
+        InputDirection = Vector3.zero;
+        IsMoving = false;
+
+        if (rb == null)
+        {
+            return;
+        }
+
+        Vector3 velocity = rb.linearVelocity;
+        rb.linearVelocity = new Vector3(0f, velocity.y, 0f);
+        rb.angularVelocity = Vector3.zero;
+    }
+
     private Vector3 ResolveHorizontalVelocity(Vector3 wishDirection, float speed)
     {
         if (wishDirection.sqrMagnitude < 0.001f || speed <= 0f)

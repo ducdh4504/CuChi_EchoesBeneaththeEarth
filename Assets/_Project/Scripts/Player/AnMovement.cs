@@ -97,6 +97,11 @@ public class AnMovement : MonoBehaviour
         ReadInput();
     }
 
+    private void OnDisable()
+    {
+        StopMovementAndAnimation();
+    }
+
     private void FixedUpdate()
     {
         UpdateGroundedState();
@@ -230,6 +235,25 @@ public class AnMovement : MonoBehaviour
         isGrounded = false;
         lastJumpPressedTime = -999f;
         lastGroundedTime = -999f;
+    }
+
+    private void StopMovementAndAnimation()
+    {
+        moveInput = Vector2.zero;
+        sprintHeld = false;
+        lastJumpPressedTime = -999f;
+
+        if (motor != null)
+        {
+            motor.StopImmediately();
+        }
+        else if (rb != null)
+        {
+            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
+            rb.angularVelocity = Vector3.zero;
+        }
+
+        animatorDriver?.ResetMovementState(isGrounded, CurrentStance);
     }
 
     private float GetCurrentSpeed()
