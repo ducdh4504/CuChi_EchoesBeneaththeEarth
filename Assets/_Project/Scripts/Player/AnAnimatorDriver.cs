@@ -31,9 +31,9 @@ public class AnAnimatorDriver : MonoBehaviour
         Vector3 velocity = rb.linearVelocity;
         float horizontalSpeed = new Vector3(velocity.x, 0f, velocity.z).magnitude;
 
-        SetBool(IsWalkingHash, isGrounded && stance == AnStance.Standing && isMoving);
+        SetBool(IsWalkingHash, isGrounded && isMoving);
         SetBool(IsRunningHash, isGrounded && isRunning);
-        SetBool(IsSneakingHash, isGrounded && stance == AnStance.Sneaking && isMoving);
+        SetBool(IsSneakingHash, isGrounded && stance == AnStance.Sneaking);
         SetBool(IsCrawlingHash, stance == AnStance.Crawling);
         SetBool(IsGroundedHash, isGrounded);
         SetBool(IsJumpingHash, !isGrounded && velocity.y > 0.05f);
@@ -50,7 +50,7 @@ public class AnAnimatorDriver : MonoBehaviour
 
         SetBool(IsWalkingHash, false);
         SetBool(IsRunningHash, false);
-        SetBool(IsSneakingHash, false);
+        SetBool(IsSneakingHash, isGrounded && stance == AnStance.Sneaking);
         SetBool(IsCrawlingHash, stance == AnStance.Crawling);
         SetBool(IsGroundedHash, isGrounded);
         SetBool(IsJumpingHash, false);
