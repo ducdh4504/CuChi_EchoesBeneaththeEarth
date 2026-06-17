@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c9e75bbd0e33f43b65e6221d2788c4, type: 3}
+  m_Name: FlashlightData
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemId: flashlight
+  itemName: "\u0111\xE8n pin"
+  description: "\u0110\xE8n pin d\xF9ng \u0111\u1EC3 chi\u1EBFu s\xE1ng trong \u0111\u1ECBa
+    \u0111\u1EA1o."
+  icon: {fileID: 0}
+  itemType: 2
+  effectType: 7
+  effectValue: 0
+  objectiveId: 
+  objectiveWhenCollected: "Nh\u1EA5n ph\xEDm 2 \u0111\u1EC3 b\u1EADt/t\u1EAFt \u0111\xE8n
+    pin"
+  messageWhenCollected: "\u0110\xE3 nh\u1EB7t \u0111\xE8n pin. Nh\u1EA5n ph\xEDm
+    2 \u0111\u1EC3 s\u1EED d\u1EE5ng. \u0110\xE8n pin c\xF3 gi\u1EDBi h\u1EA1n pin,
+    h\xE3y s\u1EED d\u1EE5ng c\u1EA9n th\u1EADn."
+  destroyAfterPickup: 0

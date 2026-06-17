@@ -61,6 +61,9 @@ public class AnMovement : MonoBehaviour
     private AnAnimatorDriver animatorDriver;
     private PhysicsMaterial frictionlessMaterial;
 
+    // xử lý đèn pin
+    private AnFlashlight flashlight;
+
     private Vector2 moveInput;
     private AnStance requestedStance = AnStance.Standing;
     private bool sprintHeld;
@@ -119,6 +122,9 @@ public class AnMovement : MonoBehaviour
         motor = GetOrAddComponent<AnMotor>();
         interactor = GetOrAddComponent<AnInteractor>();
         animatorDriver = GetOrAddComponent<AnAnimatorDriver>();
+
+        // xử lý đèn pin
+        flashlight = GetComponent<AnFlashlight>();
 
         stanceController.Initialize(
             rb,
@@ -184,6 +190,17 @@ public class AnMovement : MonoBehaviour
         if (snapshot.InteractPressed)
         {
             interactor.TryInteract();
+        }
+
+        // xử lý đèn pin
+        if (snapshot.FlashlightPressed)
+        {
+            if (flashlight == null)
+            {
+                flashlight = GetComponent<AnFlashlight>();
+            }
+
+            flashlight?.HandleFlashlightButtonPressed();
         }
 
         requestedStance = ResolveRequestedStanceFromInput();

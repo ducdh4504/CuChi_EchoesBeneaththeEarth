@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public readonly struct AnInputSnapshot
 {
-    public AnInputSnapshot(Vector2 move, bool jumpPressed, bool sneakPressed, bool crawlPressed, bool sprintHeld, bool interactPressed)
+    public AnInputSnapshot(Vector2 move, bool jumpPressed, bool sneakPressed, bool crawlPressed, bool sprintHeld, bool interactPressed, bool flashlightPressed)
     {
         Move = move;
         JumpPressed = jumpPressed;
@@ -11,6 +11,7 @@ public readonly struct AnInputSnapshot
         CrawlPressed = crawlPressed;
         SprintHeld = sprintHeld;
         InteractPressed = interactPressed;
+        FlashlightPressed = flashlightPressed;
     }
 
     public Vector2 Move { get; }
@@ -19,6 +20,8 @@ public readonly struct AnInputSnapshot
     public bool CrawlPressed { get; }
     public bool SprintHeld { get; }
     public bool InteractPressed { get; }
+    // xử lý đèn pin
+    public bool FlashlightPressed { get; }
 }
 
 public sealed class AnInputHandler
@@ -31,6 +34,7 @@ public sealed class AnInputHandler
         bool crawlPressed = false;
         bool sprintHeld = false;
         bool interactPressed = false;
+        bool flashlightPressed = false;
 
         Keyboard keyboard = Keyboard.current;
         if (keyboard != null)
@@ -40,6 +44,11 @@ public sealed class AnInputHandler
             crawlPressed |= keyboard.zKey.wasPressedThisFrame;
             sprintHeld |= keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed;
             interactPressed |= keyboard.eKey.wasPressedThisFrame;
+
+            // xử lý đèn pin
+            flashlightPressed |= keyboard.digit2Key.wasPressedThisFrame;
+            flashlightPressed |= keyboard.numpad2Key.wasPressedThisFrame;
+            flashlightPressed |= keyboard.fKey.wasPressedThisFrame;
         }
 
 
@@ -49,7 +58,8 @@ public sealed class AnInputHandler
             sneakPressed,
             crawlPressed,
             sprintHeld,
-            interactPressed);
+            interactPressed,
+            flashlightPressed);
     }
 
     private static Vector2 ReadKeyboardMove()
