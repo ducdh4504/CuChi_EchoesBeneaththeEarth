@@ -30,11 +30,6 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
         }
 
         return $"Nhấn E để nhặt {itemData.itemName}";
-        // Nhặt đèn pin
-        if (itemData.effectType == ItemEffectType.UnlockFlashlight)
-        {
-            return "Nhấn E để lấy đèn pin";
-        }
     }
 
     public bool CanInteract()
@@ -102,11 +97,6 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
             case ItemEffectType.RestoreOxygen:
                 return TryRestorePlayerOxygen();
 
-            // Có thể loại bỏ sau này - hiện tại giữ tránh bug
-            //case ItemEffectType.RestoreLanternFuel:
-            //    Debug.LogWarning("RestoreLanternFuel is deprecated. Using flashlight battery restore instead.");
-            //    return TryRestorePlayerLanternFuel();
-
             // xử lý đèn pin
             case ItemEffectType.RestoreFlashlightBattery:
                 return TryRestorePlayerFlashlightBattery();
@@ -115,6 +105,7 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
 
             case ItemEffectType.UnlockMap:
             case ItemEffectType.UnlockMorseCode:
+            case ItemEffectType.UnlockSecretDecree:
             case ItemEffectType.UnlockObjective:
             case ItemEffectType.CollectMapFragment:
                 return true;
@@ -185,24 +176,8 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
         return playerFlashlight.TryRestoreBattery(itemData.effectValue);
     }
 
-    //private bool TryRestorePlayerLanternFuel()
-    //{
-    //    if (playerLantern == null)
-    //    {
-    //        Debug.LogWarning("Cannot restore lantern fuel because AnLantern was not found on Player.");
-    //        return false;
-    //    }
-
-    //    playerLantern.RestoreLight(itemData.effectValue);
-    //    return true;
-    //}
-
     private void FindPlayerReferencesIfNeeded()
     {
-        //if (playerInventory != null && playerOxygen != null && playerLantern != null)
-        //{
-        //    return;
-        //}
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
@@ -231,9 +206,5 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
         {
             objectivePanelUI = Object.FindAnyObjectByType<ObjectivePanelUI>(FindObjectsInactive.Include);
         }
-
-        //playerInventory = player.GetComponent<AnInventory>();
-        //playerOxygen = player.GetComponent<AnOxygen>();
-        //playerLantern = player.GetComponent<AnLantern>();
     }
 }
