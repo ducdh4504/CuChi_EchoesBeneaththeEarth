@@ -3,7 +3,16 @@ using UnityEngine.InputSystem;
 
 public readonly struct AnInputSnapshot
 {
-    public AnInputSnapshot(Vector2 move, bool jumpPressed, bool sneakPressed, bool crawlPressed, bool sprintHeld, bool interactPressed, bool flashlightPressed)
+    public AnInputSnapshot(
+        Vector2 move,
+        bool jumpPressed,
+        bool sneakPressed,
+        bool crawlPressed,
+        bool sprintHeld,
+        bool interactPressed,
+        bool slot1Pressed,
+        bool slot2Pressed,
+        bool slot3Pressed)
     {
         Move = move;
         JumpPressed = jumpPressed;
@@ -11,7 +20,9 @@ public readonly struct AnInputSnapshot
         CrawlPressed = crawlPressed;
         SprintHeld = sprintHeld;
         InteractPressed = interactPressed;
-        FlashlightPressed = flashlightPressed;
+        Slot1Pressed = slot1Pressed;
+        Slot2Pressed = slot2Pressed;
+        Slot3Pressed = slot3Pressed;
     }
 
     public Vector2 Move { get; }
@@ -20,8 +31,9 @@ public readonly struct AnInputSnapshot
     public bool CrawlPressed { get; }
     public bool SprintHeld { get; }
     public bool InteractPressed { get; }
-    // xử lý đèn pin
-    public bool FlashlightPressed { get; }
+    public bool Slot1Pressed { get; }
+    public bool Slot2Pressed { get; }
+    public bool Slot3Pressed { get; }
 }
 
 public sealed class AnInputHandler
@@ -34,7 +46,9 @@ public sealed class AnInputHandler
         bool crawlPressed = false;
         bool sprintHeld = false;
         bool interactPressed = false;
-        bool flashlightPressed = false;
+        bool slot1Pressed = false;
+        bool slot2Pressed = false;
+        bool slot3Pressed = false;
 
         Keyboard keyboard = Keyboard.current;
         if (keyboard != null)
@@ -45,10 +59,12 @@ public sealed class AnInputHandler
             sprintHeld |= keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed;
             interactPressed |= keyboard.eKey.wasPressedThisFrame;
 
-            // xử lý đèn pin
-            flashlightPressed |= keyboard.digit2Key.wasPressedThisFrame;
-            flashlightPressed |= keyboard.numpad2Key.wasPressedThisFrame;
-            flashlightPressed |= keyboard.fKey.wasPressedThisFrame;
+            slot1Pressed |= keyboard.digit1Key.wasPressedThisFrame;
+            slot1Pressed |= keyboard.numpad1Key.wasPressedThisFrame;
+            slot2Pressed |= keyboard.digit2Key.wasPressedThisFrame;
+            slot2Pressed |= keyboard.numpad2Key.wasPressedThisFrame;
+            slot3Pressed |= keyboard.digit3Key.wasPressedThisFrame;
+            slot3Pressed |= keyboard.numpad3Key.wasPressedThisFrame;
         }
 
 
@@ -59,7 +75,9 @@ public sealed class AnInputHandler
             crawlPressed,
             sprintHeld,
             interactPressed,
-            flashlightPressed);
+            slot1Pressed,
+            slot2Pressed,
+            slot3Pressed);
     }
 
     private static Vector2 ReadKeyboardMove()

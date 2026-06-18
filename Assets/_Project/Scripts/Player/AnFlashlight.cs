@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
 
-public class AnFlashlight : MonoBehaviour
+public class AnFlashlight : MonoBehaviour, IEquippableItem
 {
     [Header("Flashlight State")]
+    [SerializeField] private HeldItemSlot slot = HeldItemSlot.Slot2;
     [SerializeField] private bool hasFlashlight;
     [SerializeField] private bool equipAfterUnlock = true;
     [SerializeField] private bool turnOnAfterUnlock;
+    [SerializeField] private bool turnOnWhenEquippedFromSlot = true;
 
     [Header("Battery")]
     [SerializeField] private float maxBattery = 100f;
@@ -33,6 +35,8 @@ public class AnFlashlight : MonoBehaviour
     [SerializeField] private float minLitRange = 7f;
 
     public bool HasFlashlight => hasFlashlight;
+    public HeldItemSlot Slot => slot;
+    public bool IsUnlocked => hasFlashlight;
     public bool IsEquipped { get; private set; }
     public bool IsLightOn { get; private set; }
 
@@ -107,6 +111,47 @@ public class AnFlashlight : MonoBehaviour
         {
             TurnOn();
         }
+    }
+
+    public bool CanEquip()
+    {
+        return hasFlashlight;
+    }
+
+    public void Equip()
+    {
+        EquipFlashlight(turnOnWhenEquippedFromSlot);
+    }
+
+    public void Unequip()
+    {
+        HolsterFlashlight();
+    }
+
+    public bool UseEquipped()
+    {
+        if (!hasFlashlight)
+        {
+            Debug.Log("An chưa có đèn pin.");
+            return false;
+        }
+
+        if (!IsEquipped)
+        {
+            EquipFlashlight(true);
+            return IsEquipped;
+        }
+
+        if (IsLightOn)
+        {
+            TurnOff();
+        }
+        else
+        {
+            TurnOn();
+        }
+
+        return IsEquipped;
     }
 
     public bool UnlockFlashlight()

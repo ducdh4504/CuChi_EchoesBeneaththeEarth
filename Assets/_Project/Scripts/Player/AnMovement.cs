@@ -61,8 +61,7 @@ public class AnMovement : MonoBehaviour
     private AnAnimatorDriver animatorDriver;
     private PhysicsMaterial frictionlessMaterial;
 
-    // xử lý đèn pin
-    private AnFlashlight flashlight;
+    private AnEquipmentController equipmentController;
 
     private Vector2 moveInput;
     private AnStance requestedStance = AnStance.Standing;
@@ -123,8 +122,7 @@ public class AnMovement : MonoBehaviour
         interactor = GetOrAddComponent<AnInteractor>();
         animatorDriver = GetOrAddComponent<AnAnimatorDriver>();
 
-        // xử lý đèn pin
-        flashlight = GetComponent<AnFlashlight>();
+        equipmentController = GetOrAddComponent<AnEquipmentController>();
 
         stanceController.Initialize(
             rb,
@@ -192,15 +190,19 @@ public class AnMovement : MonoBehaviour
             interactor.TryInteract();
         }
 
-        // xử lý đèn pin
-        if (snapshot.FlashlightPressed)
+        if (snapshot.Slot1Pressed)
         {
-            if (flashlight == null)
-            {
-                flashlight = GetComponent<AnFlashlight>();
-            }
+            equipmentController?.HandleSlotPressed(HeldItemSlot.Slot1);
+        }
 
-            flashlight?.HandleFlashlightButtonPressed();
+        if (snapshot.Slot2Pressed)
+        {
+            equipmentController?.HandleSlotPressed(HeldItemSlot.Slot2);
+        }
+
+        if (snapshot.Slot3Pressed)
+        {
+            equipmentController?.HandleSlotPressed(HeldItemSlot.Slot3);
         }
 
         requestedStance = ResolveRequestedStanceFromInput();

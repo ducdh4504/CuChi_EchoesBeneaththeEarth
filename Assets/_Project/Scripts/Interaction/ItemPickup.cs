@@ -29,12 +29,13 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
             return "Nhấn E để nhặt vật phẩm";
         }
 
-        return $"Nhấn E để nhặt {itemData.itemName}";
         // Nhặt đèn pin
         if (itemData.effectType == ItemEffectType.UnlockFlashlight)
         {
             return "Nhấn E để lấy đèn pin";
         }
+
+        return $"Nhấn E để nhặt {itemData.itemName}";
     }
 
     public bool CanInteract()
