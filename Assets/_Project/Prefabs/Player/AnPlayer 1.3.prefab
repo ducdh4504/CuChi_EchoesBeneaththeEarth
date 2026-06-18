@@ -24,14 +24,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003607361644333395}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0.01, z: 0.88}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.47081658, y: 0.5088091, z: -0.5331445, w: -0.48497626}
+  m_LocalPosition: {x: 0.00008, y: 0.00093, z: 0.0007}
+  m_LocalScale: {x: 0.005, y: 0.004999999, z: 0.004999999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2003293077594792283}
   - {fileID: 2537957788234525328}
-  m_Father: {fileID: 4116751258696480849}
+  m_Father: {fileID: 3559293453226413827}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3499960611576168817
 GameObject:
@@ -198,7 +198,6 @@ Transform:
   m_Children:
   - {fileID: 1966592892350094512}
   - {fileID: 3412096011705358112}
-  - {fileID: 8337447188449894153}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &218823425731541908
@@ -353,9 +352,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe7636761240ec4ab49d32b39ee9a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnFlashlight
+  slot: 2
   hasFlashlight: 0
   equipAfterUnlock: 1
   turnOnAfterUnlock: 0
+  turnOnWhenEquippedFromSlot: 1
   maxBattery: 100
   currentBattery: 100
   batteryDrainRate: 0.5
@@ -542,7 +543,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: afb9c28667e703c4a80147e5a5af8e52, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1852576806548013000, guid: afb9c28667e703c4a80147e5a5af8e52, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8337447188449894153}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: afb9c28667e703c4a80147e5a5af8e52, type: 3}
       insertIndex: -1
@@ -578,5 +582,10 @@ Animator:
 --- !u!4 &3412096011705358112 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: afb9c28667e703c4a80147e5a5af8e52, type: 3}
+  m_PrefabInstance: {fileID: 2941002580857516235}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3559293453226413827 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: afb9c28667e703c4a80147e5a5af8e52, type: 3}
   m_PrefabInstance: {fileID: 2941002580857516235}
   m_PrefabAsset: {fileID: 0}
