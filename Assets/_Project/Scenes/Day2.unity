@@ -8491,7 +8491,7 @@ Terrain:
   m_GameObject: {fileID: 491740766}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: a0fe838d2dd0c424b838c63e8f561966, type: 2}
+  m_TerrainData: {fileID: 0}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -26673,6 +26673,10 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 568924479}
+    - target: {fileID: 6305423780198503290, guid: 5450d13612dd9cb4881de22799b2279c, type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7278918502880779305, guid: 5450d13612dd9cb4881de22799b2279c, type: 3}
       propertyPath: maxRange
       value: 16
@@ -34182,6 +34186,10 @@ PrefabInstance:
     - target: {fileID: 2339664948176840038, guid: 2d8d380aa60425442894b2f1cb389d29, type: 3}
       propertyPath: nextSceneName
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339664948176840038, guid: 2d8d380aa60425442894b2f1cb389d29, type: 3}
+      propertyPath: loadNextSceneAfterDiscovery
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4776119856549719029, guid: 2d8d380aa60425442894b2f1cb389d29, type: 3}
       propertyPath: m_Name
