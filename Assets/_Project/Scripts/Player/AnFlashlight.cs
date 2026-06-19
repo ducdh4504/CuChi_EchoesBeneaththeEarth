@@ -63,9 +63,29 @@ public class AnFlashlight : MonoBehaviour, IEquippableItem
             IsLightOn = false;
         }
 
+        if (RuntimeInventoryState.HasFlashlight)
+        {
+            RestoreFlashlightFromRuntimeState();
+        }
+
         ApplyVisualState();
         NotifyBatteryChanged();
         NotifyStateChanged();
+    }
+
+    // xử lý đồng bộ 3 days
+    private void RestoreFlashlightFromRuntimeState()
+    {
+        hasFlashlight = true;
+        IsEquipped = false;
+        IsLightOn = false;
+
+        if (currentBattery <= 0f)
+        {
+            currentBattery = maxBattery;
+        }
+
+        Debug.Log("Flashlight restored from runtime inventory state.");
     }
 
     private void Update()
