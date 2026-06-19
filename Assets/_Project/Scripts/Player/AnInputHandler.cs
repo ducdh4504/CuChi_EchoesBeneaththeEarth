@@ -53,7 +53,13 @@ public sealed class AnInputHandler
         Keyboard keyboard = Keyboard.current;
         if (keyboard != null)
         {
-            jumpPressed |= keyboard.spaceKey.wasPressedThisFrame;
+            //jumpPressed |= keyboard.spaceKey.wasPressedThisFrame;
+            // xử lý space không nhảy khi đang sử dụng morse code
+            if (!DocumentViewerUI.ShouldBlockGameplaySpace)
+            {
+                jumpPressed |= keyboard.spaceKey.wasPressedThisFrame;
+            }
+
             sneakPressed |= keyboard.cKey.wasPressedThisFrame;
             crawlPressed |= keyboard.zKey.wasPressedThisFrame;
             sprintHeld |= keyboard.leftShiftKey.isPressed || keyboard.rightShiftKey.isPressed;

@@ -1,21 +1,3 @@
-//using UnityEngine;
-
-//public enum ItemEffectType
-//{
-//    None,
-
-//    RestoreOxygen,
-//    RestoreLanternFuel,
-//    //Optional
-//    //RestoreHealth,
-
-//    UnlockMap,
-//    UnlockMorseCode,
-//    UnlockObjective,
-
-//    CollectMapFragment
-//}
-
 using UnityEngine;
 
 public enum ItemEffectType
@@ -35,5 +17,7 @@ public enum ItemEffectType
     UnlockObjective,
     UnlockFlashlight,
 
-    CollectMapFragment
+    CollectMapFragment,
+
+    UnlockSecretDecree
 }
