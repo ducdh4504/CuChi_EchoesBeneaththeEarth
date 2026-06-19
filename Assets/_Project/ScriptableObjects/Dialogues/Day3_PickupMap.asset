@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c543af8b5bd13fe48bebf92be6c07dfc, type: 3}
+  m_Name: Day3_PickupMap
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  dialogueId: day3_pickup_map
+  dialogueTitle: "Nh\u1EB7t b\u1EA3n \u0111\u1ED3"
+  lines:
+  - speakerName: An
+    content: "\u0110\xE2y r\u1ED3i! T\u1EA5m b\u1EA3n \u0111\u1ED3 m\xE0 m\xECnh
+      \u0111i t\xECm b\u1EA5y l\xE2u nay."
+  - speakerName: An
+    content: "Ph\u1EA3i \u0111em ngay cho C\u1EF1u chi\u1EBFn binh th\xF4i."
+  objectiveIdAfterDialogue: day3_return_map
+  messageAfterDialogue: "\u0110em b\u1EA3n \u0111\u1ED3 v\u1EC1 cho C\u1EF1u chi\u1EBFn
+    binh."

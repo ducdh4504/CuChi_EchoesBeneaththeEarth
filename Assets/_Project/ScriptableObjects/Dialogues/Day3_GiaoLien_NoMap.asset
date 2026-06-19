@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c543af8b5bd13fe48bebf92be6c07dfc, type: 3}
+  m_Name: Day3_GiaoLien_NoMap
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  dialogueId: day3_giaolien_no_map
+  dialogueTitle: "Ch\u01B0a c\xF3 b\u1EA3n \u0111\u1ED3"
+  lines:
+  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+    content: "Sao? Con t\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n \u0111\u1ED3
+      ch\u01B0a?"
+  - speakerName: An
+    content: "D\u1EA1... con v\u1EABn ch\u01B0a t\xECm th\u1EA5y, b\xE1c \u1EA1."
+  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+    content: "V\u1EADy th\xEC con \u0111i t\xECm ti\u1EBFp \u0111i. Nh\u1EDB l\xE0
+      v\xE0o ph\xF2ng h\u1ECDp (Meeting Room) coi th\u1EED."
+  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+    content: "Kh\xF4ng c\xF3 b\u1EA3n \u0111\u1ED3 th\xEC c\u1EA3 \u0111o\xE0n kh\xF4ng
+      ti\u1EBFn l\xEAn \u0111\u01B0\u1EE3c \u0111\xE2u."
+  objectiveIdAfterDialogue: day3_find_map
+  messageAfterDialogue: "\u0110i t\xECm b\u1EA3n \u0111\u1ED3 trong Meeting Room."

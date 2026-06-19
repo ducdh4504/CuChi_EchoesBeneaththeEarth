@@ -60,6 +60,12 @@ public class AnInventory : MonoBehaviour
         }
     }
 
+public void SetHasMap(bool value)
+    {
+        HasSmallMap = value;
+    }
+
+
     #region Unlock documents after Day 1 discovery
 
     public void UnlockMorseCode()
