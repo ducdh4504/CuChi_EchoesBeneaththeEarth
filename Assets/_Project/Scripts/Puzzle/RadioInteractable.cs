@@ -6,29 +6,35 @@ public class RadioInteractable : MonoBehaviour, IInteractable, IInteractionAvail
 {
     [Header("UI")]
     [SerializeField] private GameObject morsePuzzleUIPrefab;
-        [SerializeField] private GameObject inventoryUI;
-    
-[SerializeField] private string promptText = "Nhấn E để chơi mã Morse";
+    [SerializeField] private GameObject inventoryUI;
+    [SerializeField] private string promptText = "Nhấn E để chơi mã Morse";
 
     [Header("Behaviour")]
     [SerializeField] private bool disablePlayerMovementWhileOpen = true;
     [SerializeField] private bool showCursorWhileOpen = true;
+    [SerializeField] private bool pauseOxygenWhileOpen = true;
     [SerializeField] private float autoCloseAfterWinSeconds = 1.0f;
+
+    [Header("On Win - Scene Transition")]
+    [SerializeField] private bool loadSceneOnWin = true;
+    [SerializeField] private string sceneOnWin = "Day3";
+    [SerializeField] private string transitionMessage = "Đã giải mã thành công...";
 
     private GameObject currentInstance;
     private MorseChallenge currentChallenge;
     private MonoBehaviour disabledMovement;
+    private AnOxygen pausedOxygen;
     private CursorLockMode previousLockMode;
     private bool previousCursorVisible;
-    private bool closing;
     private bool inventoryWasActive;
-
+    private bool closing;
+    private bool winLatched;
 
     public string GetInteractPrompt() => promptText;
 
     public bool CanInteract() => currentInstance == null && morsePuzzleUIPrefab != null;
 
-public void Interact()
+    public void Interact()
     {
         if (currentInstance != null || morsePuzzleUIPrefab == null) return;
 
@@ -48,14 +54,18 @@ public void Interact()
             inventoryUI.SetActive(false);
         }
 
-        if (disablePlayerMovementWhileOpen)
+        var player = GameObject.FindGameObjectWithTag("Player");
+
+        if (disablePlayerMovementWhileOpen && player != null)
         {
-            var player = GameObject.FindGameObjectWithTag("Player");
-            if (player != null)
-            {
-                disabledMovement = player.GetComponent("AnMovement") as MonoBehaviour;
-                if (disabledMovement != null) disabledMovement.enabled = false;
-            }
+            disabledMovement = player.GetComponent("AnMovement") as MonoBehaviour;
+            if (disabledMovement != null) disabledMovement.enabled = false;
+        }
+
+        if (pauseOxygenWhileOpen && player != null)
+        {
+            pausedOxygen = player.GetComponent<AnOxygen>();
+            if (pausedOxygen != null) pausedOxygen.enabled = false;
         }
 
         if (showCursorWhileOpen)
@@ -81,6 +91,7 @@ public void Interact()
     private void HandleWin()
     {
         if (closing) return;
+        winLatched = true;
         StartCoroutine(CloseAfterDelay(autoCloseAfterWinSeconds));
     }
 
@@ -91,7 +102,7 @@ public void Interact()
         Close();
     }
 
-private void Close()
+    private void Close()
     {
         if (currentChallenge != null)
         {
@@ -116,6 +127,12 @@ private void Close()
             disabledMovement = null;
         }
 
+        if (pausedOxygen != null)
+        {
+            pausedOxygen.enabled = true;
+            pausedOxygen = null;
+        }
+
         if (showCursorWhileOpen)
         {
             Cursor.lockState = previousLockMode;
@@ -123,6 +140,28 @@ private void Close()
         }
 
         closing = false;
+
+        if (winLatched && loadSceneOnWin && !string.IsNullOrWhiteSpace(sceneOnWin))
+        {
+            winLatched = false;
+            TriggerSceneTransition();
+        }
+        else
+        {
+            winLatched = false;
+        }
+    }
+
+    private void TriggerSceneTransition()
+    {
+        if (SceneTransitionController.Instance != null)
+        {
+            SceneTransitionController.Instance.LoadScene(sceneOnWin, transitionMessage);
+        }
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneOnWin);
+        }
     }
 
     private void OnDisable()

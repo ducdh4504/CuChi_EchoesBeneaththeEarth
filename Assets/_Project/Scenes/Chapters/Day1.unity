@@ -8435,31 +8435,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -77.42964
+      value: -114.60433
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.34864426
+      value: 0.53393453
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.000132
+      value: -2.1165562
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.12622726
+      value: 0.06104794
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.008225643
+      value: -0.010224987
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99157256
+      value: -0.9955222
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.027979331
+      value: -0.07144403
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8761,6 +8761,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5524952286781540223, guid: 451239565a8e267468de48e947e8e414, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1531065470}
+    - targetCorrespondingSourceObject: {fileID: 5524952286781540223, guid: 451239565a8e267468de48e947e8e414, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1007432609}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5181182986123009477, guid: 451239565a8e267468de48e947e8e414, type: 3}
       insertIndex: -1
@@ -20077,6 +20080,82 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1047256006325515575, guid: e97e3301dbfaec942813fabbc19670ca, type: 3}
+--- !u!1 &1007432608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007432609}
+  - component: {fileID: 1007432610}
+  - component: {fileID: 1007432611}
+  m_Layer: 0
+  m_Name: RadioBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1007432609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007432608}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00015954972, y: 0.006157167, z: 0.011502055}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 425093699}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1007432610
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007432608}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.005, y: 0.005, z: 0.005}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1007432611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007432608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a8890358d8313045a4d3b3808071c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RadioInteractable
+  morsePuzzleUIPrefab: {fileID: 8742782141540804239, guid: ed6500a6ecdff214893a90632fb6a3c8, type: 3}
+  inventoryUI: {fileID: 1028211999}
+  promptText: "Nh\u1EA5n E \u0111\u1EC3 ch\u01A1i m\xE3 Morse"
+  disablePlayerMovementWhileOpen: 1
+  showCursorWhileOpen: 1
+  pauseOxygenWhileOpen: 1
+  autoCloseAfterWinSeconds: 1
+  loadSceneOnWin: 1
+  sceneOnWin: Day3
+  transitionMessage: "\u0110\xE3 gi\u1EA3i m\xE3 th\xE0nh c\xF4ng..."
 --- !u!1 &1010219943 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3359466319006758077, guid: 8227768272da6b946927eb31ce77f0bf, type: 3}
