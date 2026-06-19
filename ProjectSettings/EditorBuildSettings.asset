@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Chapters/Day2.unity
     guid: facc625adf9545140a17caa209ccfff0
+  - enabled: 1
+    path: Assets/_Project/Scenes/Chapters/Day3.unity
+    guid: 9fb4ffd87ee13b74ea86bee02ad8e8e7
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
