@@ -117,16 +117,36 @@ public class DialogueManager : MonoBehaviour
         ShowCurrentLine();
     }
 
+    //private void EndDialogue()
+    //{
+    //    if (dialogueUI != null)
+    //    {
+    //        dialogueUI.Hide();
+    //    }
+
+    //    if (currentDialogue != null && !string.IsNullOrWhiteSpace(currentDialogue.messageAfterDialogue))
+    //    {
+    //        Debug.Log(currentDialogue.messageAfterDialogue);
+    //    }
+
+    //    currentDialogue = null;
+    //    currentLineIndex = 0;
+    //    isDialogueActive = false;
+
+    //    SetPlayerControlEnabled(true);
+    //}
     private void EndDialogue()
     {
+        DialogueData completedDialogue = currentDialogue;
+
         if (dialogueUI != null)
         {
             dialogueUI.Hide();
         }
 
-        if (currentDialogue != null && !string.IsNullOrWhiteSpace(currentDialogue.messageAfterDialogue))
+        if (completedDialogue != null && !string.IsNullOrWhiteSpace(completedDialogue.messageAfterDialogue))
         {
-            Debug.Log(currentDialogue.messageAfterDialogue);
+            Debug.Log(completedDialogue.messageAfterDialogue);
         }
 
         currentDialogue = null;
@@ -134,6 +154,15 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
 
         SetPlayerControlEnabled(true);
+
+        if (
+            completedDialogue != null &&
+            !string.IsNullOrWhiteSpace(completedDialogue.objectiveIdAfterDialogue) &&
+            MissionManager.Instance != null
+        )
+        {
+            MissionManager.Instance.HandleObjectiveId(completedDialogue.objectiveIdAfterDialogue);
+        }
     }
 
     private void SetPlayerControlEnabled(bool enabled)

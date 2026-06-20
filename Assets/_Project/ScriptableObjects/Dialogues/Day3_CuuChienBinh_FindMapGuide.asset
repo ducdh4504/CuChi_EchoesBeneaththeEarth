@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Day3_CuuChienBinh_FindMapGuide
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   dialogueId: day3_cuuchienbinh_find_map_guide
-  dialogueTitle: "H\u01B0\u1EDBng d\u1EABn t\xECm b\u1EA3n \u0111\u1ED3"
+  dialogueTitle: "H\u01B0\u1EDBng d\u1EABn t\xECm b\u1EA3n \u0111\u1ED3 "
   lines:
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
     content: "An, mu\u1ED1n t\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n \u0111\u1ED3
@@ -37,6 +37,6 @@ MonoBehaviour:
   - speakerName: An
     content: "D\u1EA1, con s\u1EBD t\xECm \u1EDF ph\xF2ng h\u1ECDp c\u0169 r\u1ED3i
       quay l\xEAn m\u1EB7t \u0111\u1EA5t ngay."
-  objectiveIdAfterDialogue: day3_find_map
+  objectiveIdAfterDialogue: Day3_FindMap
   messageAfterDialogue: "\u0110i t\u1EDBi ph\xF2ng h\u1ECDp c\u0169 \u0111\u1EC3
     t\xECm t\u1EA5m b\u1EA3n \u0111\u1ED3, sau \u0111\xF3 quay l\xEAn m\u1EB7t \u0111\u1EA5t."

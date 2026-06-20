@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c543af8b5bd13fe48bebf92be6c07dfc, type: 3}
   m_Name: Chapter01_GiaoLienKyCuu
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  dialogueId: chapter01_giao_lien_ky_cuu_intro
+  dialogueId: day1_receive_mission
   dialogueTitle: "Giao nhi\u1EC7m v\u1EE5 t\xECm b\u1EA3n \u0111\u1ED3 b\xED m\u1EADt"
   lines:
   - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
@@ -54,7 +54,7 @@ MonoBehaviour:
   - speakerName: AN
     content: "Em hi\u1EC3u r\u1ED3i. Em s\u1EBD t\xECm l\u1EA1i t\u1EA5m b\u1EA3n
       \u0111\u1ED3."
-  objectiveIdAfterDialogue: 
+  objectiveIdAfterDialogue: Day1_FindTinBox
   messageAfterDialogue: "Nhi\u1EC7m v\u1EE5 m\u1EDBi: T\xECm d\u1EA5u v\u1EBFt \u0111\u1EA7u
     ti\xEAn c\u1EE7a t\u1EA5m b\u1EA3n \u0111\u1ED3 b\xED m\u1EADt \u1EDF tuy\u1EBFn
     h\u1EA7m c\u0169."

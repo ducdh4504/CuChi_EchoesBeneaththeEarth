@@ -5,6 +5,12 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
     [Header("Item Data")]
     [SerializeField] private ItemData itemData;
 
+    //Display quest
+    [Header("Mission")]
+    [SerializeField] private string missionIdToStartOnPickup;
+    [SerializeField] private string missionIdToCompleteOnPickup;
+    [SerializeField] private string objectiveAfterPickup;
+
     private bool isPickedUp;
     private AnInventory playerInventory;
     private AnOxygen playerOxygen;
@@ -68,6 +74,7 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
         {
             playerInventory.AddItem(itemData);
         }
+        HandleMissionAfterPickup();
 
         if (!string.IsNullOrWhiteSpace(itemData.messageWhenCollected))
         {
@@ -84,6 +91,28 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
         if (itemData.destroyAfterPickup)
         {
             Destroy(gameObject);
+        }
+    }
+    private void HandleMissionAfterPickup()
+    {
+        if (MissionManager.Instance == null)
+        {
+            return;
+        }
+
+        if (!string.IsNullOrWhiteSpace(missionIdToStartOnPickup))
+        {
+            MissionManager.Instance.StartMission(missionIdToStartOnPickup);
+        }
+
+        if (!string.IsNullOrWhiteSpace(missionIdToCompleteOnPickup))
+        {
+            MissionManager.Instance.CompleteMission(missionIdToCompleteOnPickup);
+        }
+
+        if (!string.IsNullOrWhiteSpace(objectiveAfterPickup))
+        {
+            MissionManager.Instance.SetCurrentObjective(objectiveAfterPickup);
         }
     }
 

@@ -33,6 +33,6 @@ MonoBehaviour:
   - speakerName: An
     content: "D\u1EA1, con s\u1EBD \u0111i t\xECm ngay r\u1ED3i g\u1EEDi cho ph\xF2ng
       truy\u1EC1n tin."
-  objectiveIdAfterDialogue: day1_find_order8
+  objectiveIdAfterDialogue: Day2_MorseTransmission
   messageAfterDialogue: "T\xECm l\u1EA1i S\u1EAFc l\u1EC7nh s\u1ED1 8 b\u1ECB ch\xE1y
     x\xE9m v\xE0 g\u1EEDi cho ph\xF2ng truy\u1EC1n tin."

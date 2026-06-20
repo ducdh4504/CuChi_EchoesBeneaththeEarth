@@ -87,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6103234803951589378}
   - component: {fileID: 7264234743093056904}
+  - component: {fileID: 1198605406470551571}
   m_Layer: 0
   m_Name: MorseChallengeController
   m_TagString: Untagged
@@ -124,14 +125,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MorseChallenge
   morsePuzzle: {fileID: 3893811227349540238}
-  targetMessage: CACVIBOTRUONGCHIEUSACLENHTHIHANH
+  targetMessage: CHIEUSACLENHTHIHANH
   typedDisplay: {fileID: 8544429751429321870}
   correctColor: {r: 0.3, g: 0.85, b: 0.4, a: 1}
   wrongColor: {r: 0.95, g: 0.3, b: 0.3, a: 1}
   wrongFlashDuration: 0.6
   onWin:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1198605406470551571}
+        m_TargetAssemblyTypeName: MorseMissionCompleteHandler, Assembly-CSharp
+        m_MethodName: CompleteMorseMissionAndLoadNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1198605406470551571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235365366094969377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a0a17634dcd464eb2cb62e8c896c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MorseMissionCompleteHandler
+  missionIdToComplete: Day2_MorseTransmission
+  nextSceneName: Day3
+  transitionMessage: "Ng\xE0y 3/2/1948 - T\xECm l\u1EA1i t\u1EA5m b\u1EA3n \u0111\u1ED3
+    th\u1EA5t l\u1EA1c"
 --- !u!1 &300975173132909695
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "V\u0102N B\u1EA2N \u0110\xC3 GI\u1EA2I M\xC3"
+  m_text: "Th\xF4ng tin c\u1EA7n truy\u1EC1n: CHIEUSACLENHTHIHANH"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

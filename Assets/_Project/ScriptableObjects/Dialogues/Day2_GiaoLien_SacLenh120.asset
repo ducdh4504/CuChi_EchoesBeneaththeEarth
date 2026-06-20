@@ -40,6 +40,6 @@ MonoBehaviour:
       \u0111\xF3 con."
   - speakerName: An
     content: "D\u1EA1, con \u0111i ngay b\xE1c \u01A1i!"
-  objectiveIdAfterDialogue: day3_transmit_order8
+  objectiveIdAfterDialogue: Day2_MorseTransmission
   messageAfterDialogue: "V\u1EC1 ph\xF2ng truy\u1EC1n tin \u0111\u1EC3 truy\u1EC1n
     S\u1EAFc l\u1EC7nh s\u1ED1 8."

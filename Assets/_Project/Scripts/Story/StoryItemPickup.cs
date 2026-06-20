@@ -17,13 +17,18 @@ public class StoryItemPickup : MonoBehaviour, IInteractable, IInteractionAvailab
     [SerializeField] private bool unlockMorseCodeAfterDiscovery = true;
     [SerializeField] private bool unlockSecretDecreeAfterDiscovery = true;
 
+    //Display quest
+    [Header("Mission")]
+    [SerializeField] private string missionIdToCompleteAfterDiscovery;
+    [SerializeField] private string objectiveAfterDiscoveryOverride;
+
     [Header("Interaction")]
     [SerializeField] private string interactPrompt = "Nhấn E để kiểm tra hộp y tế cũ";
     [SerializeField] private bool disableObjectAfterDiscovery;
 
     [Header("Scene Transition")]
     [SerializeField] private bool loadNextSceneAfterDiscovery = true;
-    [SerializeField] private string nextSceneName = "Chapter_02_DarkMessage";
+    [SerializeField] private string nextSceneName = "Day2";
     [SerializeField] private float sceneLoadDelay = 0.5f;
 
     private bool isDiscovered;
@@ -74,6 +79,7 @@ public class StoryItemPickup : MonoBehaviour, IInteractable, IInteractionAvailab
     private void CompleteDiscovery()
     {
         ApplyDiscoveryRewards();
+        HandleMissionAfterDiscovery();
 
         if (disableObjectAfterDiscovery)
         {
@@ -96,6 +102,25 @@ public class StoryItemPickup : MonoBehaviour, IInteractable, IInteractionAvailab
         }
 
         EndStoryControl();
+    }
+
+    //Display quest
+    private void HandleMissionAfterDiscovery()
+    {
+        if (MissionManager.Instance == null)
+        {
+            return;
+        }
+
+        if (!string.IsNullOrWhiteSpace(missionIdToCompleteAfterDiscovery))
+        {
+            MissionManager.Instance.CompleteMission(missionIdToCompleteAfterDiscovery);
+        }
+
+        if (!string.IsNullOrWhiteSpace(objectiveAfterDiscoveryOverride))
+        {
+            MissionManager.Instance.SetCurrentObjective(objectiveAfterDiscoveryOverride);
+        }
     }
 
     // using morse code
