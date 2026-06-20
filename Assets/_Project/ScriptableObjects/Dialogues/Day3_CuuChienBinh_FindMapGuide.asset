@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c543af8b5bd13fe48bebf92be6c07dfc, type: 3}
+  m_Name: Day3_CuuChienBinh_FindMapGuide
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  dialogueId: day3_cuuchienbinh_find_map_guide
+  dialogueTitle: "H\u01B0\u1EDBng d\u1EABn t\xECm b\u1EA3n \u0111\u1ED3"
+  lines:
+  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+    content: "An, mu\u1ED1n t\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n \u0111\u1ED3
+      th\xEC con ph\u1EA3i xu\u1ED1ng khu ph\xF2ng h\u1ECDp c\u0169 tr\u01B0\u1EDBc."
+  - speakerName: An
+    content: "Ph\xF2ng h\u1ECDp c\u0169 n\u1EB1m \u1EDF \u0111\xE2u v\u1EADy b\xE1c?"
+  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+    content: "\u0110i theo \u0111\u01B0\u1EDDng h\u1EA7m ch\xEDnh, t\u1EDBi ng\xE3
+      r\u1EBD c\xF3 th\xF9ng ti\u1EBFp t\u1EBF th\xEC r\u1EBD v\xE0o l\u1ED1i b\xEAn
+      ph\u1EA3i. \u1EDE \u0111\xF3 tr\u01B0\u1EDBc kia anh em hay c\u1EA5t t\xE0i
+      li\u1EC7u quan tr\u1ECDng."
+  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+    content: "Con nh\u1EDB quan s\xE1t k\u1EF9 quanh b\xE0n h\u1ECDp, k\u1EC7 h\u1ED3
+      s\u01A1 v\xE0 m\u1EA5y h\xF2m g\u1ED7. B\u1EA3n \u0111\u1ED3 c\xF3 th\u1EC3
+      b\u1ECB k\u1EB9p d\u01B0\u1EDBi gi\u1EA5y t\u1EDD ho\u1EB7c r\u01A1i xu\u1ED1ng
+      g\xF3c t\u1ED1i."
+  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+    content: "T\xECm \u0111\u01B0\u1EE3c b\u1EA3n \u0111\u1ED3 r\u1ED3i th\xEC quay
+      l\xEAn m\u1EB7t \u0111\u1EA5t ngay. \u0110\u1EEBng \u1EDF d\u01B0\u1EDBi h\u1EA7m
+      l\xE2u qu\xE1."
+  - speakerName: An
+    content: "D\u1EA1, con s\u1EBD t\xECm \u1EDF ph\xF2ng h\u1ECDp c\u0169 r\u1ED3i
+      quay l\xEAn m\u1EB7t \u0111\u1EA5t ngay."
+  objectiveIdAfterDialogue: day3_find_map
+  messageAfterDialogue: "\u0110i t\u1EDBi ph\xF2ng h\u1ECDp c\u0169 \u0111\u1EC3
+    t\xECm t\u1EA5m b\u1EA3n \u0111\u1ED3, sau \u0111\xF3 quay l\xEAn m\u1EB7t \u0111\u1EA5t."

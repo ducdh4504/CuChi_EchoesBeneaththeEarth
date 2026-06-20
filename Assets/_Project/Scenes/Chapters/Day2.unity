@@ -10005,6 +10005,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3964372847799905068, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
+      propertyPath: oxygenDecreaseRate
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalPosition.x
       value: -99.714
@@ -10049,6 +10053,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnPlayer 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 8768984398321609864, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
+      propertyPath: dialogueUI
+      value: 
+      objectReference: {fileID: 1835183050}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14585,6 +14593,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1047256006325515575, guid: e97e3301dbfaec942813fabbc19670ca, type: 3}
+--- !u!1 &820929302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dcbf29a89473c614594776d42f29745f, type: 3}
+  m_PrefabInstance: {fileID: 1332613619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &820998593 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 75169479111827575, guid: 8227768272da6b946927eb31ce77f0bf, type: 3}
@@ -18093,6 +18106,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dcbf29a89473c614594776d42f29745f, type: 3}
   m_PrefabInstance: {fileID: 1332613619}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &994270275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820929302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5767b41c84d574a973f089f59ee540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueTrigger
+  npcDisplayName: CuuChienBinh
+  dialogueData: {fileID: 11400000, guid: bc83eaf5d60fbf84fab587d2c3a4d3f7, type: 2}
+  canRepeatDialogue: 1
+--- !u!136 &994270278
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820929302}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.003580701
+  m_Height: 0.009243429
+  m_Direction: 1
+  m_Center: {x: 0.00026326007, y: 0.0046217144, z: 0.0003564203}
 --- !u!1 &994612305 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7361846934188033870, guid: 8227768272da6b946927eb31ce77f0bf, type: 3}
@@ -23808,12 +23859,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dcbf29a89473c614594776d42f29745f, type: 3}
       propertyPath: m_Name
-      value: 34478ffcc782298aa72cbee03b608531
+      value: CuuChienBinh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dcbf29a89473c614594776d42f29745f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 994270275}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dcbf29a89473c614594776d42f29745f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 994270278}
   m_SourcePrefab: {fileID: 100100000, guid: dcbf29a89473c614594776d42f29745f, type: 3}
 --- !u!1 &1333073710 stripped
 GameObject:
