@@ -46,6 +46,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private void LateUpdate()
     {
         if (target == null) return;
+        if (Time.timeScale <= 0f) return;
 
         // Đọc chuyển động chuột qua Input System.
         // Nếu không có chuột (null) thì coi như không xoay.

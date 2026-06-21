@@ -31,6 +31,20 @@ public static class RuntimeInventoryState
         MapFragmentCount++;
     }
 
+    public static void SetState(
+        bool hasSmallMap,
+        bool hasMorseCode,
+        bool hasSecretDecree,
+        bool hasFlashlight,
+        int mapFragmentCount)
+    {
+        HasSmallMap = hasSmallMap;
+        HasMorseCode = hasMorseCode;
+        HasSecretDecree = hasSecretDecree;
+        HasFlashlight = hasFlashlight;
+        MapFragmentCount = mapFragmentCount;
+    }
+
     public static void Reset()
     {
         HasSmallMap = false;

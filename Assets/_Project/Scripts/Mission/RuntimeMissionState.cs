@@ -43,6 +43,12 @@ public static class RuntimeMissionState
         CurrentObjective = objective;
     }
 
+    public static void SetCurrentProgress(string missionId, string objective)
+    {
+        CurrentMissionId = missionId;
+        CurrentObjective = objective;
+    }
+
     public static void ResetAll()
     {
         missionStates.Clear();

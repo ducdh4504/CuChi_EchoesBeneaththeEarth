@@ -13,16 +13,29 @@ public static class SceneLoader
     }
 
     private static Scene targetScene;
+    private static string targetSceneName;
 
     public static void Load(Scene targetScene)
     {
         SceneLoader.targetScene = targetScene;
+        targetSceneName = targetScene.ToString();
+        SceneManager.LoadScene(Scene.LoadedScene.ToString());
+    }
+
+    public static void Load(string sceneName)
+    {
+        if (string.IsNullOrWhiteSpace(sceneName))
+        {
+            sceneName = Scene.Day1.ToString();
+        }
+
+        targetSceneName = sceneName;
         SceneManager.LoadScene(Scene.LoadedScene.ToString());
     }
 
     public static void LoaderCallBack()
     {
 
-        SceneManager.LoadScene(targetScene.ToString());
+        SceneManager.LoadScene(string.IsNullOrWhiteSpace(targetSceneName) ? targetScene.ToString() : targetSceneName);
     }
 }

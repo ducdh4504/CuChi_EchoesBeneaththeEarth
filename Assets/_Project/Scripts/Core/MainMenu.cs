@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     {
         playButton.onClick.AddListener(() =>
         {
-            SceneLoader.Load(SceneLoader.Scene.Day1);
+            GameSaveSystem.LoadSavedGameOrNewGame();
         });
 
         quitButton.onClick.AddListener(() =>

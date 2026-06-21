@@ -150,6 +150,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        GameSaveSystem.SaveCurrentGame();
         isPaused = false;
         Time.timeScale = 1f;
         Cursor.visible = true;

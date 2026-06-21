@@ -103,6 +103,7 @@ public void SetHasMap(bool value)
                 }
 
                 HasSmallMap = true;
+                RuntimeInventoryState.SetSmallMapUnlocked();
                 return true;
 
             case ItemEffectType.UnlockMorseCode:

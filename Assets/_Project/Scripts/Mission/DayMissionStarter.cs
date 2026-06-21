@@ -27,6 +27,11 @@ public class DayMissionStarter : MonoBehaviour
             yield break;
         }
 
+        if (HasLoadedMissionProgress())
+        {
+            yield break;
+        }
+
         switch (dayType)
         {
             case DayType.Day1:
@@ -41,6 +46,12 @@ public class DayMissionStarter : MonoBehaviour
                 StartDay3Mission();
                 break;
         }
+    }
+
+    private static bool HasLoadedMissionProgress()
+    {
+        return !string.IsNullOrWhiteSpace(RuntimeMissionState.CurrentMissionId)
+            || !string.IsNullOrWhiteSpace(RuntimeMissionState.CurrentObjective);
     }
 
     //private void StartDay1Mission()
