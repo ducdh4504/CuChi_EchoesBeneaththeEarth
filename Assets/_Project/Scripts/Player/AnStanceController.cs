@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AnStanceController : MonoBehaviour
 {
+    private const float StanceFitPadding = 0.03f;
+
     private readonly Collider[] overlapBuffer = new Collider[12];
 
     private Rigidbody rb;
@@ -50,16 +52,7 @@ public class AnStanceController : MonoBehaviour
 
     public void Resolve(AnStance requestedStance)
     {
-        AnStance target = requestedStance;
-
-        if (target == AnStance.Standing && !CanFitStance(AnStance.Standing))
-        {
-            target = CanFitStance(AnStance.Sneaking) ? AnStance.Sneaking : AnStance.Crawling;
-        }
-        else if (target == AnStance.Sneaking && !CanFitStance(AnStance.Sneaking))
-        {
-            target = AnStance.Crawling;
-        }
+        AnStance target = GetBestAvailableStance(requestedStance);
 
         if (target != CurrentStance)
         {
@@ -97,7 +90,7 @@ public class AnStanceController : MonoBehaviour
         int count = Physics.OverlapCapsuleNonAlloc(
             top,
             bottom,
-            worldRadius,
+            worldRadius + StanceFitPadding,
             overlapBuffer,
             collisionMask,
             QueryTriggerInteraction.Ignore);
@@ -119,6 +112,39 @@ public class AnStanceController : MonoBehaviour
         }
 
         return true;
+    }
+
+    private AnStance GetBestAvailableStance(AnStance requestedStance)
+    {
+        switch (requestedStance)
+        {
+            case AnStance.Standing:
+                if (CanFitStance(AnStance.Standing))
+                {
+                    return AnStance.Standing;
+                }
+
+                if (CanFitStance(AnStance.Sneaking))
+                {
+                    return AnStance.Sneaking;
+                }
+
+                return CanFitStance(AnStance.Crawling) ? AnStance.Crawling : CurrentStance;
+
+            case AnStance.Sneaking:
+                if (CanFitStance(AnStance.Sneaking))
+                {
+                    return AnStance.Sneaking;
+                }
+
+                return CanFitStance(AnStance.Crawling) ? AnStance.Crawling : CurrentStance;
+
+            case AnStance.Crawling:
+                return CanFitStance(AnStance.Crawling) ? AnStance.Crawling : CurrentStance;
+
+            default:
+                return CurrentStance;
+        }
     }
 
     public void GetWorldCapsule(out Vector3 top, out Vector3 bottom, out float worldRadius)

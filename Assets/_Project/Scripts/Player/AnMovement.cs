@@ -28,7 +28,6 @@ public class AnMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float coyoteTime = 0.08f;
     [SerializeField] private float jumpBufferTime = 0.12f;
-    [SerializeField] private bool canJumpWhileCrawling;
 
     [Header("Tuong tac")]
     [SerializeField] private Transform interactionOrigin;
@@ -238,22 +237,21 @@ public class AnMovement : MonoBehaviour
             return;
         }
 
-        if (CurrentStance == AnStance.Crawling && !canJumpWhileCrawling)
+        if (!CanJumpFromCurrentStance())
         {
-            if (!stanceController.CanFitStance(AnStance.Standing))
-            {
-                return;
-            }
-
-            crawlToggled = false;
-            requestedStance = AnStance.Standing;
-            stanceController.ApplyStance(AnStance.Standing);
+            lastJumpPressedTime = -999f;
+            return;
         }
 
         motor.Jump(jumpVelocity);
         isGrounded = false;
         lastJumpPressedTime = -999f;
         lastGroundedTime = -999f;
+    }
+
+    private bool CanJumpFromCurrentStance()
+    {
+        return CurrentStance == AnStance.Standing;
     }
 
     private void StopMovementAndAnimation()

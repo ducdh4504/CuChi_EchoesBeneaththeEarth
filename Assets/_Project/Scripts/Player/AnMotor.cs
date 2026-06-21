@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class AnMotor : MonoBehaviour
 {
+    private const int CollisionSlideIterations = 3;
+    private const int PenetrationResolveIterations = 3;
+    private const float PenetrationPadding = 0.002f;
+
     private readonly RaycastHit[] castBuffer = new RaycastHit[12];
+    private readonly Collider[] overlapBuffer = new Collider[12];
 
     private Rigidbody rb;
     private CapsuleCollider capsule;
@@ -43,10 +48,17 @@ public class AnMotor : MonoBehaviour
         this.rotationSpeed = rotationSpeed;
         this.collisionSkin = collisionSkin;
         this.groundNormalThreshold = groundNormalThreshold;
+
+        if (rb.collisionDetectionMode == CollisionDetectionMode.Discrete)
+        {
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        }
     }
 
     public void Move(Vector2 moveInput, float speed, bool isGrounded)
     {
+        ResolveCurrentPenetrations();
+
         Vector3 camForward = cameraTransform.forward;
         Vector3 camRight = cameraTransform.right;
 
@@ -118,20 +130,25 @@ public class AnMotor : MonoBehaviour
         Vector3 direction = wishDirection.normalized;
         float distance = speed * Time.fixedDeltaTime + collisionSkin;
 
-        if (TryGetWallHit(direction, distance, out RaycastHit hit))
+        for (int i = 0; i < CollisionSlideIterations; i++)
         {
+            if (!TryGetWallHit(direction, distance, out RaycastHit hit))
+            {
+                return direction * speed;
+            }
+
             Vector3 slide = Vector3.ProjectOnPlane(direction, hit.normal);
             slide.y = 0f;
 
-            if (slide.sqrMagnitude < 0.001f || TryGetWallHit(slide.normalized, distance, out _))
+            if (slide.sqrMagnitude < 0.001f)
             {
-                return Vector3.zero;
+                break;
             }
 
             direction = slide.normalized;
         }
 
-        return direction * speed;
+        return Vector3.zero;
     }
 
     private bool TryGetWallHit(Vector3 direction, float distance, out RaycastHit nearest)
@@ -176,5 +193,91 @@ public class AnMotor : MonoBehaviour
         }
 
         return found;
+    }
+
+    private void ResolveCurrentPenetrations()
+    {
+        if (rb == null || capsule == null || stanceController == null)
+        {
+            return;
+        }
+
+        for (int iteration = 0; iteration < PenetrationResolveIterations; iteration++)
+        {
+            stanceController.GetWorldCapsule(out Vector3 top, out Vector3 bottom, out float radius);
+
+            int count = Physics.OverlapCapsuleNonAlloc(
+                top,
+                bottom,
+                radius + collisionSkin,
+                overlapBuffer,
+                collisionMask,
+                QueryTriggerInteraction.Ignore);
+
+            Vector3 totalPush = Vector3.zero;
+            Vector3 strongestPushDirection = Vector3.zero;
+            float strongestPushDistance = 0f;
+
+            for (int i = 0; i < count; i++)
+            {
+                Collider hit = overlapBuffer[i];
+                if (hit == null || hit == capsule || hit.attachedRigidbody == rb)
+                {
+                    continue;
+                }
+
+                if (!Physics.ComputePenetration(
+                    capsule,
+                    capsule.transform.position,
+                    capsule.transform.rotation,
+                    hit,
+                    hit.transform.position,
+                    hit.transform.rotation,
+                    out Vector3 pushDirection,
+                    out float pushDistance))
+                {
+                    continue;
+                }
+
+                if (pushDistance <= 0f)
+                {
+                    continue;
+                }
+
+                totalPush += pushDirection * (pushDistance + PenetrationPadding);
+
+                if (pushDistance > strongestPushDistance)
+                {
+                    strongestPushDistance = pushDistance;
+                    strongestPushDirection = pushDirection;
+                }
+            }
+
+            if (totalPush.sqrMagnitude < 0.000001f)
+            {
+                break;
+            }
+
+            rb.position += totalPush;
+            RemoveVelocityIntoSurface(strongestPushDirection);
+        }
+    }
+
+    private void RemoveVelocityIntoSurface(Vector3 surfaceNormal)
+    {
+        if (surfaceNormal.sqrMagnitude < 0.000001f)
+        {
+            return;
+        }
+
+        surfaceNormal.Normalize();
+
+        Vector3 velocity = rb.linearVelocity;
+        float intoSurface = Vector3.Dot(velocity, surfaceNormal);
+
+        if (intoSurface < 0f)
+        {
+            rb.linearVelocity = velocity - surfaceNormal * intoSurface;
+        }
     }
 }
