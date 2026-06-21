@@ -83,10 +83,14 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
 
         // xử lý đèn pin
         ShowFlashlightPickupPromptIfNeeded();
-        if (objectivePanelUI != null && !string.IsNullOrWhiteSpace(itemData.objectiveWhenCollected))
-        {
-            objectivePanelUI.SetObjective(itemData.objectiveWhenCollected);
-        }
+        if (
+            itemData.effectType != ItemEffectType.UnlockFlashlight &&
+            objectivePanelUI != null &&
+            !string.IsNullOrWhiteSpace(itemData.objectiveWhenCollected)
+        )
+                {
+                    objectivePanelUI.SetObjective(itemData.objectiveWhenCollected);
+                }
 
         if (itemData.destroyAfterPickup)
         {

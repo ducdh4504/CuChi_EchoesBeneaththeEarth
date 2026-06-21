@@ -15,5 +15,5 @@ MonoBehaviour:
   dialogueId: 
   dialogueTitle: 
   lines: []
-  objectiveIdAfterDialogue: 
+  objectiveIdAfterDialogue: Day3_Complete
   messageAfterDialogue: 

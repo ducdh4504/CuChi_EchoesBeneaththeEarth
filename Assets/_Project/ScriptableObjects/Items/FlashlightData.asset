@@ -21,8 +21,7 @@ MonoBehaviour:
   effectType: 7
   effectValue: 0
   objectiveId: 
-  objectiveWhenCollected: "Nh\u1EA5n ph\xEDm 2 \u0111\u1EC3 b\u1EADt/t\u1EAFt \u0111\xE8n
-    pin"
+  objectiveWhenCollected: 
   messageWhenCollected: "\u0110\xE3 nh\u1EB7t \u0111\xE8n pin. Nh\u1EA5n ph\xEDm
     2 \u0111\u1EC3 s\u1EED d\u1EE5ng. \u0110\xE8n pin c\xF3 gi\u1EDBi h\u1EA1n pin,
     h\xE3y s\u1EED d\u1EE5ng c\u1EA9n th\u1EADn."

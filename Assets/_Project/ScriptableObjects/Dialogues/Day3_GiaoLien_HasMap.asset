@@ -32,5 +32,5 @@ MonoBehaviour:
   - speakerName: An
     content: "D\u1EA1, con ch\u1EC9 l\xE0m ph\u1EA7n vi\u1EC7c c\u1EE7a m\xECnh th\xF4i
       b\xE1c \u1EA1."
-  objectiveIdAfterDialogue: day3_complete
+  objectiveIdAfterDialogue: Day3_Complete
   messageAfterDialogue: "Ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 ch\xEDnh."
