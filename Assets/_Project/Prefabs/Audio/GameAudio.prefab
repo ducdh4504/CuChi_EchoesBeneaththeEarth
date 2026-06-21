@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1298952540302906589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3718184955624592775}
+  - component: {fileID: 6153466009099929782}
+  m_Layer: 0
+  m_Name: GameAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3718184955624592775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298952540302906589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -103.20546, y: -0, z: 0.98075}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6153466009099929782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298952540302906589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c29513dc88f89449c4b9f801d1ff1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  musicSourceA: {fileID: 0}
+  musicSourceB: {fileID: 0}
+  ambienceSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  mainMenuMusic: {fileID: 8300000, guid: 551aec764387fd3498a2e436ed57b2a3, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: 8d2949f58c75c9040a558822206cb147, type: 3}
+  mapFoundMusic: {fileID: 8300000, guid: 551aec764387fd3498a2e436ed57b2a3, type: 3}
+  endingMusic: {fileID: 8300000, guid: 546552abe9f9e2f47b367d9eb23f9dff, type: 3}
+  masterVolume: 1
+  musicVolumeMultiplier: 1
+  ambienceVolumeMultiplier: 1
+  sfxVolumeMultiplier: 1
+  mainMenuMusicVolume: 0.45
+  gameplayMusicVolume: 0.1
+  mapFoundMusicVolume: 0.25
+  endingMusicVolume: 0.65
+  defaultMusicFadeDuration: 1.5
+  storyMusicFadeDuration: 2
+  defaultAmbienceFadeDuration: 1

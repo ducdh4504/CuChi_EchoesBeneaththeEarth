@@ -10,6 +10,15 @@ public class NPCDialogueTrigger : MonoBehaviour, IInteractable, IInteractionAvai
 
     [Header("Settings")]
     [SerializeField] private bool canRepeatDialogue = true;
+    
+    //Audio
+    [Header("Audio")]
+    [SerializeField] private bool triggerMusicOnDialogueStart;
+    [SerializeField] private GameMusicCue musicCueOnDialogueStart = GameMusicCue.Ending;
+    [SerializeField] private AudioClip customDialogueMusic;
+    [SerializeField, Range(-1f, 1f)] private float customDialogueMusicVolume = -1f;
+    [SerializeField] private bool customDialogueMusicLoop;
+    [SerializeField] private float dialogueMusicFadeDuration = 2f;
 
     private bool hasTalked;
 
@@ -54,6 +63,28 @@ public class NPCDialogueTrigger : MonoBehaviour, IInteractable, IInteractionAvai
         }
 
         hasTalked = true;
+        PlayDialogueStartAudio();
         DialogueManager.Instance.StartDialogue(dialogueData);
+    }
+    
+    //Audio
+    private void PlayDialogueStartAudio()
+    {
+        if (!triggerMusicOnDialogueStart)
+        {
+            return;
+        }
+
+        if (AudioManager.Instance == null)
+        {
+            return;
+        }
+
+        AudioManager.Instance.PlayMusicCue(
+            musicCueOnDialogueStart,
+            customDialogueMusic,
+            customDialogueMusicVolume,
+            customDialogueMusicLoop,
+            dialogueMusicFadeDuration);
     }
 }
