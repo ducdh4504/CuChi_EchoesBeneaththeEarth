@@ -116,35 +116,7 @@ public class AnStanceController : MonoBehaviour
 
     private AnStance GetBestAvailableStance(AnStance requestedStance)
     {
-        switch (requestedStance)
-        {
-            case AnStance.Standing:
-                if (CanFitStance(AnStance.Standing))
-                {
-                    return AnStance.Standing;
-                }
-
-                if (CanFitStance(AnStance.Sneaking))
-                {
-                    return AnStance.Sneaking;
-                }
-
-                return CanFitStance(AnStance.Crawling) ? AnStance.Crawling : CurrentStance;
-
-            case AnStance.Sneaking:
-                if (CanFitStance(AnStance.Sneaking))
-                {
-                    return AnStance.Sneaking;
-                }
-
-                return CanFitStance(AnStance.Crawling) ? AnStance.Crawling : CurrentStance;
-
-            case AnStance.Crawling:
-                return CanFitStance(AnStance.Crawling) ? AnStance.Crawling : CurrentStance;
-
-            default:
-                return CurrentStance;
-        }
+        return CanFitStance(requestedStance) ? requestedStance : CurrentStance;
     }
 
     public void GetWorldCapsule(out Vector3 top, out Vector3 bottom, out float worldRadius)
