@@ -19,12 +19,10 @@ MonoBehaviour:
     content: "M\xECnh \u0111\xE3 truy\u1EC1n tin xong r\u1ED3i"
   - speakerName: An
     content: "B\xE2y gi\u1EDD m\xECnh ph\u1EA3i ti\u1EBFp t\xFAc \u0111i t\xECm t\u1EA5m
-      b\u1EA3n \u0111\u1ED3 th\xF4i."
+      b\u1EA3n \u0111\u1ED3 m\u1EDBi \u0111\u01B0\u1EE3c."
   - speakerName: An
-    content: "B\xE2y gi\u1EDD m\xECnh ph\u1EA3i ti\u1EBFp t\xFAc \u0111i t\xECm t\u1EA5m
-      b\u1EA3n \u0111\u1ED3 m\u1EDBi \u0111\u01B0\u1EE3c,n\u1EBFu c\xF3 t\u1EA5m
-      b\u1EA3n \u0111\u1ED3 th\xEC ph\u1EA3i b\xE1o ngay cho giao li\xEAn k\u1EF3
-      c\u1EF1u m\u1EDBi \u0111\u01B0\u1EE3c."
+    content: "n\u1EBFu c\xF3 t\u1EA5m b\u1EA3n \u0111\u1ED3 th\xEC ph\u1EA3i b\xE1o
+      ngay cho giao li\xEAn k\u1EF3 c\u1EF1u m\u1EDBi \u0111\u01B0\u1EE3c."
   - speakerName: An
     content: "\u0110i th\xF4i, kh\xF4ng c\xF2n nhi\u1EC1u th\u1EDDi gian."
   objectiveIdAfterDialogue: 
