@@ -23,6 +23,7 @@ public class EndCreditsRoll : MonoBehaviour
     private float elapsed;
     private bool isPlaying;
     private bool isFinished;
+    private bool isReturningToMenu;
 
     private const string DefaultCredits =
         "SẮC LỆNH SỐ 8\n\n" +
@@ -51,9 +52,9 @@ public class EndCreditsRoll : MonoBehaviour
             UpdateRoll();
         }
 
-        if (isFinished && allowReturnToMenu && WasReturnToMenuPressed())
+        if (isFinished && allowReturnToMenu && !isReturningToMenu && WasReturnToMenuPressed())
         {
-            SceneManager.LoadScene(mainMenuSceneName);
+            ReturnToMenu();
         }
     }
 
@@ -155,5 +156,19 @@ private bool WasReturnToMenuPressed()
         endPromptGroup.alpha = visible ? 1f : 0f;
         endPromptGroup.interactable = visible;
         endPromptGroup.blocksRaycasts = visible;
+    }
+
+    private void ReturnToMenu()
+    {
+        isReturningToMenu = true;
+
+        EndSceneDirector director = FindAnyObjectByType<EndSceneDirector>();
+        if (director != null)
+        {
+            StartCoroutine(director.FadeOutThenLoadScene(mainMenuSceneName));
+            return;
+        }
+
+        SceneManager.LoadScene(mainMenuSceneName);
     }
 }

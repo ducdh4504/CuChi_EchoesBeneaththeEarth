@@ -13,6 +13,11 @@ public class SceneTransitionController : MonoBehaviour
     [SerializeField] private float fadeDuration = 0.65f;
     [SerializeField] private float holdDuration = 0.35f;
 
+    [Header("Ending Transition")]
+    [SerializeField] private string endSceneName = "EndScene";
+    [SerializeField] private float endSceneFadeDuration = 1.8f;
+    [SerializeField] private float endSceneHoldDuration = 0.8f;
+
     public bool IsTransitioning { get; private set; }
 
     private void Awake()
@@ -98,14 +103,22 @@ public class SceneTransitionController : MonoBehaviour
         IsTransitioning = true;
         SetMessage(message);
 
-        yield return FadeTo(1f);
-        yield return new WaitForSeconds(holdDuration);
+        float sceneFadeDuration = GetFadeDurationForScene(sceneName);
+        float sceneHoldDuration = GetHoldDurationForScene(sceneName);
+
+        yield return FadeTo(1f, sceneFadeDuration);
+        yield return new WaitForSecondsRealtime(sceneHoldDuration);
 
         GameSaveSystem.UnlockLevel(sceneName);
         SceneManager.LoadScene(sceneName);
     }
 
     private IEnumerator FadeTo(float targetAlpha)
+    {
+        yield return FadeTo(targetAlpha, fadeDuration);
+    }
+
+    private IEnumerator FadeTo(float targetAlpha, float durationOverride)
     {
         if (fadeGroup == null)
         {
@@ -114,7 +127,7 @@ public class SceneTransitionController : MonoBehaviour
 
         float startAlpha = fadeGroup.alpha;
         float elapsed = 0f;
-        float duration = Mathf.Max(0.01f, fadeDuration);
+        float duration = Mathf.Max(0.01f, durationOverride);
 
         while (elapsed < duration)
         {
@@ -144,5 +157,20 @@ public class SceneTransitionController : MonoBehaviour
         {
             statusText.text = message ?? string.Empty;
         }
+    }
+
+    private float GetFadeDurationForScene(string sceneName)
+    {
+        return IsEndScene(sceneName) ? endSceneFadeDuration : fadeDuration;
+    }
+
+    private float GetHoldDurationForScene(string sceneName)
+    {
+        return IsEndScene(sceneName) ? endSceneHoldDuration : holdDuration;
+    }
+
+    private bool IsEndScene(string sceneName)
+    {
+        return string.Equals(sceneName, endSceneName, System.StringComparison.OrdinalIgnoreCase);
     }
 }

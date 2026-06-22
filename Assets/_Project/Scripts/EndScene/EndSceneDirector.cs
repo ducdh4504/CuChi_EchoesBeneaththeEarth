@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndSceneDirector : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class EndSceneDirector : MonoBehaviour
 
     [Header("Credits")]
     [SerializeField] private EndCreditsRoll creditsRoll;
+
+    [Header("Scene Fade")]
+    [SerializeField] private CanvasGroup fadeGroup;
+    [SerializeField] private float initialBlackHoldDuration = 0.35f;
+    [SerializeField] private float fadeInDuration = 1.5f;
+    [SerializeField] private float fadeOutDuration = 1.2f;
 
     private Coroutine tourRoutine;
 
@@ -35,14 +42,41 @@ public class EndSceneDirector : MonoBehaviour
         {
             creditsRoll = FindAnyObjectByType<EndCreditsRoll>();
         }
+
+        if (fadeGroup == null)
+        {
+            GameObject foundFade = GameObject.Find("EndingFade");
+            if (foundFade != null)
+            {
+                fadeGroup = foundFade.GetComponent<CanvasGroup>();
+            }
+        }
+
+        if (fadeGroup != null)
+        {
+            fadeGroup.transform.SetAsLastSibling();
+        }
+
+        SetFade(1f);
     }
 
     private void Start()
     {
-        StartEnding();
+        StartCoroutine(StartEndingRoutine());
     }
 
     public void StartEnding()
+    {
+        StartCoroutine(StartEndingRoutine());
+    }
+
+    public IEnumerator FadeOutThenLoadScene(string sceneName)
+    {
+        yield return FadeTo(1f, fadeOutDuration);
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private IEnumerator StartEndingRoutine()
     {
         if (creditsRoll != null)
         {
@@ -55,6 +89,13 @@ public class EndSceneDirector : MonoBehaviour
         }
 
         tourRoutine = StartCoroutine(CameraTourRoutine());
+
+        if (initialBlackHoldDuration > 0f)
+        {
+            yield return new WaitForSecondsRealtime(initialBlackHoldDuration);
+        }
+
+        yield return FadeTo(0f, fadeInDuration);
     }
 
     private IEnumerator CameraTourRoutine()
@@ -98,5 +139,45 @@ public class EndSceneDirector : MonoBehaviour
         }
 
         targetCamera.transform.SetPositionAndRotation(toShot.position, toShot.rotation);
+    }
+
+    private IEnumerator FadeTo(float targetAlpha, float duration)
+    {
+        if (fadeGroup == null)
+        {
+            yield break;
+        }
+
+        float startAlpha = fadeGroup.alpha;
+        float safeDuration = Mathf.Max(0.01f, duration);
+        float startTime = Time.realtimeSinceStartup;
+
+        while (true)
+        {
+            yield return null;
+
+            float elapsed = Time.realtimeSinceStartup - startTime;
+            float t = Mathf.Clamp01(elapsed / safeDuration);
+            SetFade(Mathf.Lerp(startAlpha, targetAlpha, t));
+
+            if (t >= 1f)
+            {
+                break;
+            }
+        }
+
+        SetFade(targetAlpha);
+    }
+
+    private void SetFade(float alpha)
+    {
+        if (fadeGroup == null)
+        {
+            return;
+        }
+
+        fadeGroup.alpha = alpha;
+        fadeGroup.blocksRaycasts = alpha > 0.01f;
+        fadeGroup.interactable = alpha > 0.01f;
     }
 }
