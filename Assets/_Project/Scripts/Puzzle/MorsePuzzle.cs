@@ -35,6 +35,10 @@ public class MorsePuzzle : MonoBehaviour
     [SerializeField] private Color indicatorOnColor = Color.green;
     [SerializeField] private Color indicatorOffColor = Color.gray;
 
+    // Âm thanh morse
+    [Header("Audio")]
+    [SerializeField] private MorseToneAudio morseToneAudio;
+
     private static readonly Dictionary<string, char> MorseTable = new Dictionary<string, char>
     {
         { ".-", 'A' },   { "-...", 'B' }, { "-.-.", 'C' }, { "-..", 'D' },  { ".", 'E' },
@@ -81,12 +85,25 @@ public class MorsePuzzle : MonoBehaviour
             silenceTimer = 0f;
             wordSpaceAdded = false;
             SetIndicator(true);
+
+            // ÂM thanh
+            if (morseToneAudio != null)
+            {
+                morseToneAudio.StartTone();
+            }
         }
 
         // Vừa nhả Space -> đo thời gian giữ rồi thêm chấm hoặc gạch.
         if (keyboard.spaceKey.wasReleasedThisFrame && isHolding)
         {
             isHolding = false;
+
+            //âm thanh
+            if (morseToneAudio != null)
+            {
+                morseToneAudio.StopTone();
+            }
+
             float held = Time.time - holdStartTime;
             currentLetter.Append(held >= dashThreshold ? '-' : '.');
             letterPending = true;
@@ -171,4 +188,13 @@ public class MorsePuzzle : MonoBehaviour
 
     /// <summary>Chuỗi đã giải mã hiện tại (để puzzle khác kiểm tra đáp án).</summary>
     public string DecodedText => decoded.ToString();
+
+    // Hàm này để tránh trường hợp người chơi đang giữ Space mà UI Morse bị đóng, âm beep vẫn còn kêu.
+    private void OnDisable()
+    {
+        if (morseToneAudio != null)
+        {
+            morseToneAudio.StopTone();
+        }
+    }
 }
