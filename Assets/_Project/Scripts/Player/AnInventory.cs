@@ -60,9 +60,21 @@ public class AnInventory : MonoBehaviour
         }
     }
 
-public void SetHasMap(bool value)
+    public void SetHasMap(bool value)
     {
+        if (HasSmallMap == value)
+        {
+            return;
+        }
+
         HasSmallMap = value;
+
+        if (value)
+        {
+            RuntimeInventoryState.SetSmallMapUnlocked();
+        }
+
+        NotifyInventoryChanged();
     }
 
 

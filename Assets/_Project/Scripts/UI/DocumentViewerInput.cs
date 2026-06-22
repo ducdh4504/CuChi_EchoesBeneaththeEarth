@@ -1,93 +1,3 @@
-//using UnityEngine;
-//using UnityEngine.InputSystem;
-
-//public class DocumentViewerInput : MonoBehaviour
-//{
-//    [Header("References")]
-//    [SerializeField] private DocumentViewerUI documentViewerUI;
-//    [SerializeField] private AnInventory playerInventory;
-
-//    [Header("Settings")]
-//    [SerializeField] private bool requireCollectedDocuments = true;
-
-//    private void Start()
-//    {
-//        FindReferencesIfNeeded();
-//    }
-
-//    private void Update()
-//    {
-//        FindReferencesIfNeeded();
-
-//        Keyboard keyboard = Keyboard.current;
-//        if (keyboard == null || documentViewerUI == null)
-//        {
-//            return;
-//        }
-
-//        bool documentKeyPressed =
-//            keyboard.digit1Key.wasPressedThisFrame ||
-//            keyboard.numpad1Key.wasPressedThisFrame;
-
-//        if (documentKeyPressed)
-//        {
-//            HandleDocumentKeyPressed();
-//            return;
-//        }
-
-//        if (documentViewerUI.IsOpen && keyboard.spaceKey.wasPressedThisFrame)
-//        {
-//            documentViewerUI.Advance();
-//        }
-//    }
-
-//    private void HandleDocumentKeyPressed()
-//    {
-//        if (documentViewerUI.IsOpen)
-//        {
-//            documentViewerUI.Close();
-//            return;
-//        }
-
-//        if (requireCollectedDocuments && !CanOpenDocuments())
-//        {
-//            Debug.Log("Chưa có đủ tài liệu: cần bảng mã Morse và mảnh sắc lệnh.");
-//            return;
-//        }
-
-//        documentViewerUI.OpenMorseCode();
-//    }
-
-//    private bool CanOpenDocuments()
-//    {
-//        FindReferencesIfNeeded();
-
-//        if (playerInventory == null)
-//        {
-//            Debug.LogWarning("Cannot check documents because AnInventory was not found.");
-//            return false;
-//        }
-
-//        return playerInventory.HasMorsePuzzleDocuments;
-//    }
-
-//    private void FindReferencesIfNeeded()
-//    {
-//        if (documentViewerUI == null)
-//        {
-//            documentViewerUI = Object.FindAnyObjectByType<DocumentViewerUI>(FindObjectsInactive.Include);
-//        }
-
-//        if (playerInventory == null)
-//        {
-//            GameObject player = GameObject.FindGameObjectWithTag("Player");
-//            if (player != null)
-//            {
-//                playerInventory = player.GetComponent<AnInventory>();
-//            }
-//        }
-//    }
-//}
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -97,7 +7,8 @@ public class DocumentViewerInput : MonoBehaviour
     {
         None,
         MorseCode,
-        SecretDecree
+        SecretDecree,
+        Map
     }
 
     [Header("References")]
@@ -132,6 +43,10 @@ public class DocumentViewerInput : MonoBehaviour
             keyboard.digit3Key.wasPressedThisFrame ||
             keyboard.numpad3Key.wasPressedThisFrame;
 
+        bool mapKeyPressed =
+            keyboard.digit4Key.wasPressedThisFrame ||
+            keyboard.numpad4Key.wasPressedThisFrame;
+
         if (morseKeyPressed)
         {
             HandleDocumentKeyPressed(DocumentType.MorseCode);
@@ -141,6 +56,12 @@ public class DocumentViewerInput : MonoBehaviour
         if (secretDecreeKeyPressed)
         {
             HandleDocumentKeyPressed(DocumentType.SecretDecree);
+            return;
+        }
+
+        if (mapKeyPressed)
+        {
+            HandleDocumentKeyPressed(DocumentType.Map);
             return;
         }
 
@@ -197,6 +118,11 @@ public class DocumentViewerInput : MonoBehaviour
                 documentViewerUI.OpenSecretDecree();
                 currentOpenDocument = DocumentType.SecretDecree;
                 break;
+
+            case DocumentType.Map:
+                documentViewerUI.OpenMap();
+                currentOpenDocument = DocumentType.Map;
+                break;
         }
     }
 
@@ -218,6 +144,9 @@ public class DocumentViewerInput : MonoBehaviour
             case DocumentType.SecretDecree:
                 return playerInventory.HasSecretDecree;
 
+            case DocumentType.Map:
+                return playerInventory.HasSmallMap;
+
             default:
                 return false;
         }
@@ -228,13 +157,16 @@ public class DocumentViewerInput : MonoBehaviour
         switch (documentType)
         {
             case DocumentType.MorseCode:
-                return "Chưa có bản hướng dẫn giải mã Morse.";
+                return "Chua co ban huong dan giai ma Morse.";
 
             case DocumentType.SecretDecree:
-                return "Chưa có tấm sắc lệnh.";
+                return "Chua co tam sac lenh.";
+
+            case DocumentType.Map:
+                return "Chua co tam ban do.";
 
             default:
-                return "Chưa có tài liệu này.";
+                return "Chua co tai lieu nay.";
         }
     }
 
