@@ -161,6 +161,7 @@ private bool WasReturnToMenuPressed()
     private void ReturnToMenu()
     {
         isReturningToMenu = true;
+        UnlockCursorForMenu();
 
         EndSceneDirector director = FindAnyObjectByType<EndSceneDirector>();
         if (director != null)
@@ -170,5 +171,11 @@ private bool WasReturnToMenuPressed()
         }
 
         SceneManager.LoadScene(mainMenuSceneName);
+    }
+
+    private static void UnlockCursorForMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

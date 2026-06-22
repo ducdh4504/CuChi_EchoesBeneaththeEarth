@@ -18,6 +18,9 @@ public class MainMenu : MonoBehaviour
 
     private void OnEnable()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         RefreshMenuState();
         HideLevelSelect();
     }

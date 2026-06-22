@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2641302721460182646}
   - component: {fileID: 6626257771211866966}
   - component: {fileID: 8731006883823451773}
+  - component: {fileID: 2200157182499367235}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -104,6 +105,30 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2200157182499367235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373518640190765989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360d44ceb5157454fa1b670e43a12fc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OxygenDeathScreen
+  playerOxygen: {fileID: 0}
+  playerTag: Player
+  overlayGroup: {fileID: 0}
+  deathMessageText: {fileID: 0}
+  deathMessage: "An \u0111\xE3 h\u1EBFt Oxy"
+  overlayColor: {r: 0, g: 0, b: 0, a: 1}
+  messageColor: {r: 1, g: 0.8903957, b: 0.25471687, a: 1}
+  fadeInDuration: 1.8
+  messageDelay: 0.35
+  messageFadeDuration: 1.2
+  holdDuration: 1.4
+  mainMenuSceneName: MainMenu
 --- !u!1 &610227374248359509
 GameObject:
   m_ObjectHideFlags: 0
