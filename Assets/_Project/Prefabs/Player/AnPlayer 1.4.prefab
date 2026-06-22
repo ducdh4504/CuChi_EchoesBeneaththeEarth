@@ -464,6 +464,7 @@ GameObject:
   - component: {fileID: 3968187631343297559}
   - component: {fileID: 3176058894711556890}
   - component: {fileID: 325936818990795028}
+  - component: {fileID: 753102453785701119}
   m_Layer: 0
   m_Name: AnPlayer 1.4
   m_TagString: Player
@@ -534,10 +535,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.35
-  m_Height: 2.3068314
+  m_Radius: 0.45
+  m_Height: 2.315515
   m_Direction: 1
-  m_Center: {x: 0, y: 1.1423309, z: 0}
+  m_Center: {x: 3.8559417e-16, y: 1.1489432, z: 0.08963376}
 --- !u!114 &884476616162040880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,7 +568,6 @@ MonoBehaviour:
     m_Bits: 8
   coyoteTime: 0.08
   jumpBufferTime: 0.12
-  canJumpWhileCrawling: 0
   interactionOrigin: {fileID: 0}
   interactionDistance: 1.6
   interactionRadius: 0.35
@@ -581,8 +581,8 @@ MonoBehaviour:
   groundNormalThreshold: 0.55
   useFrictionlessMaterial: 1
   standingHeight: 2
-  sneakingHeight: 1.35
-  crawlingHeight: 0.8
+  sneakingHeight: 1.77
+  crawlingHeight: 2.5
   standingRadius: 0.5
   sneakingRadius: 0.45
   crawlingRadius: 0.35
@@ -600,7 +600,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AnOxygen
   maxOxygen: 100
   currentOxygen: 100
-  oxygenDecreaseRate: 0.5
+  oxygenDecreaseRate: 0.1
+  pauseWhenStandingOnTerrain: 1
+  terrainCheckDistance: 1.5
+  terrainCheckMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  drainOnlyInsideDrainZone: 0
 --- !u!114 &7529793451636845020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +665,10 @@ MonoBehaviour:
   minLitIntensity: 1.2
   maxRange: 16
   minLitRange: 7
+  flashlightToggleSfx: {fileID: 8300000, guid: 346a9cd63d1f0eb47b9f9dc2ea9e089c, type: 3}
+  flashlightHolsterSfx: {fileID: 8300000, guid: 346a9cd63d1f0eb47b9f9dc2ea9e089c, type: 3}
+  flashlightEmptySfx: {fileID: 8300000, guid: ef4ccd750c88e944090fdc8a4e0b37e6, type: 3}
+  flashlightSfxVolume: 0.75
 --- !u!114 &3176058894711556890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +704,48 @@ MonoBehaviour:
   animator: {fileID: 2696219752841104213}
   holdingLayerName: HoldingItem
   blendSpeed: 10
+--- !u!114 &753102453785701119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8594978568754522132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a251f5c12a5b564b8108b2a9bbfe62a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepLoopAudioController
+  playerRigidbody: {fileID: 0}
+  playerAnimator: {fileID: 0}
+  footstepSource: {fileID: 0}
+  walkTunnelClip: {fileID: 8300000, guid: 4b8ea26522d35754fb1d4d8243f51f52, type: 3}
+  walkGrassClip: {fileID: 8300000, guid: 79335fa3eb7342c439e7a10cdac937e6, type: 3}
+  runTunnelClip: {fileID: 8300000, guid: 776132880bb5a554cb4a5812a95343b0, type: 3}
+  runGrassClip: {fileID: 8300000, guid: dfd113f6fe4356d459515b5c8652819a, type: 3}
+  crouchTunnelClip: {fileID: 8300000, guid: 337b601753d546241adf0471adffa6d6, type: 3}
+  crouchGrassClip: {fileID: 8300000, guid: 337b601753d546241adf0471adffa6d6, type: 3}
+  crawlTunnelClip: {fileID: 8300000, guid: 1f8697217467fdb4d888e5b95b8ae317, type: 3}
+  crawlGrassClip: {fileID: 8300000, guid: 1f8697217467fdb4d888e5b95b8ae317, type: 3}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundCheckDistance: 1.3
+  useGrassSoundOnTerrain: 1
+  minMoveSpeed: 0.2
+  runSpeedThreshold: 3.2
+  crawlSpeedMax: 0.8
+  crouchSpeedMax: 1.8
+  walkVolume: 0.5
+  runVolume: 0.4
+  crouchVolume: 0.4
+  crawlVolume: 0.35
+  walkPitch: 1
+  runPitch: 1
+  crouchPitch: 1
+  crawlPitch: 1
+  spatialBlend: 0
+  debugLogs: 0
 --- !u!1001 &1942662707152334818
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -57,7 +57,7 @@ MonoBehaviour:
   ambienceVolumeMultiplier: 1
   sfxVolumeMultiplier: 1
   mainMenuMusicVolume: 0.45
-  gameplayMusicVolume: 0.1
+  gameplayMusicVolume: 0.02
   mapFoundMusicVolume: 0.25
   endingMusicVolume: 0.65
   defaultMusicFadeDuration: 1.5
