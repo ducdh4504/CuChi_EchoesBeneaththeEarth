@@ -38,6 +38,11 @@ public class StoryDiscoveryUI : MonoBehaviour
     [Header("Input")]
     [SerializeField] private float inputDelayAfterShow = 0.2f;
 
+    //Audio
+    [Header("Audio")]
+    [SerializeField] private AudioClip paperUseSfx;
+    [SerializeField, Range(0f, 1f)] private float paperUseSfxVolume = 0.8f;
+
     private StoryDiscoveryData currentData;
     private DiscoveryStep currentStep = DiscoveryStep.None;
     private bool isShowing;
@@ -170,6 +175,20 @@ public class StoryDiscoveryUI : MonoBehaviour
         if (morseCodeImage != null)
         {
             morseCodeImage.gameObject.SetActive(showMorseCode && morseCodeImage.sprite != null);
+        }
+        PlayStepAudio(step);
+    }
+    //Audio
+    private void PlayStepAudio(DiscoveryStep step)
+    {
+        if (AudioManager.Instance == null)
+        {
+            return;
+        }
+
+        if (step == DiscoveryStep.SecretLetter || step == DiscoveryStep.MorseCode)
+        {
+            AudioManager.Instance.PlaySFX(paperUseSfx, paperUseSfxVolume);
         }
     }
 

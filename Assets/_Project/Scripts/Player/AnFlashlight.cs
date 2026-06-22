@@ -34,6 +34,13 @@ public class AnFlashlight : MonoBehaviour, IEquippableItem
     [SerializeField] private float maxRange = 16f;
     [SerializeField] private float minLitRange = 7f;
 
+    //Audio
+    [Header("Audio")]
+    [SerializeField] private AudioClip flashlightToggleSfx;
+    [SerializeField] private AudioClip flashlightHolsterSfx;
+    [SerializeField] private AudioClip flashlightEmptySfx;
+    [SerializeField, Range(0f, 1f)] private float flashlightSfxVolume = 0.75f;
+
     public bool HasFlashlight => hasFlashlight;
     public HeldItemSlot Slot => slot;
     public bool IsUnlocked => hasFlashlight;
@@ -230,11 +237,19 @@ public class AnFlashlight : MonoBehaviour, IEquippableItem
 
     public void HolsterFlashlight()
     {
+        bool wasEquipped = IsEquipped;
+
         IsLightOn = false;
         IsEquipped = false;
 
         ApplyVisualState();
         NotifyStateChanged();
+
+        if (wasEquipped)
+        {
+            AudioClip clip = flashlightHolsterSfx != null ? flashlightHolsterSfx : flashlightToggleSfx;
+            PlayFlashlightSfx(clip);
+        }
 
         Debug.Log("Flashlight holstered.");
     }
@@ -250,23 +265,50 @@ public class AnFlashlight : MonoBehaviour, IEquippableItem
         if (currentBattery <= 0f)
         {
             Debug.Log("Flashlight battery is empty.");
+            PlayFlashlightSfx(flashlightEmptySfx);
             TurnOff();
             return;
         }
+
+        bool wasLightOn = IsLightOn;
 
         IsEquipped = true;
         IsLightOn = true;
 
         ApplyVisualState();
         NotifyStateChanged();
+
+        if (!wasLightOn)
+        {
+            PlayFlashlightSfx(flashlightToggleSfx);
+        }
     }
 
+    //public void TurnOff()
+    //{
+    //    IsLightOn = false;
+
+    //    ApplyVisualState();
+    //    NotifyStateChanged();
+    //}
     public void TurnOff()
     {
+        TurnOff(true);
+    }
+
+    private void TurnOff(bool playSfx)
+    {
+        bool wasLightOn = IsLightOn;
+
         IsLightOn = false;
 
         ApplyVisualState();
         NotifyStateChanged();
+
+        if (playSfx && wasLightOn)
+        {
+            PlayFlashlightSfx(flashlightToggleSfx);
+        }
     }
 
     public bool TryRestoreBattery(float amount)
@@ -318,7 +360,7 @@ public class AnFlashlight : MonoBehaviour, IEquippableItem
         if (currentBattery <= 0f)
         {
             currentBattery = 0f;
-            TurnOff();
+            TurnOff(false);
             NotifyBatteryChanged();
             return;
         }
@@ -332,7 +374,7 @@ public class AnFlashlight : MonoBehaviour, IEquippableItem
         if (currentBattery <= 0f)
         {
             Debug.Log("Flashlight battery is empty. Light turned off.");
-            TurnOff();
+            TurnOff(false);
         }
     }
 
@@ -404,5 +446,15 @@ public class AnFlashlight : MonoBehaviour, IEquippableItem
     private void NotifyStateChanged()
     {
         OnFlashlightStateChanged?.Invoke(hasFlashlight, IsEquipped, IsLightOn);
+    }
+
+    //Audio
+    private void PlayFlashlightSfx(AudioClip clip)
+    {
+        if (clip == null || AudioManager.Instance == null)
+        {
+            return;
+        }
+        AudioManager.Instance.PlaySFX(clip, flashlightSfxVolume);
     }
 }

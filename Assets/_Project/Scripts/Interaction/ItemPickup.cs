@@ -11,6 +11,12 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
     [SerializeField] private string missionIdToCompleteOnPickup;
     [SerializeField] private string objectiveAfterPickup;
 
+    //Audio
+    [Header("Audio")]
+    [SerializeField] private AudioClip pickupSfx;
+    [SerializeField, Range(0f, 1f)] private float pickupSfxVolume = 0.8f;
+    [SerializeField] private bool triggerMapFoundMusicOnPickup;
+
     private bool isPickedUp;
     private AnInventory playerInventory;
     private AnOxygen playerOxygen;
@@ -69,6 +75,7 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
         }
 
         isPickedUp = true;
+        PlayPickupAudio();
 
         if (playerInventory != null)
         {
@@ -238,6 +245,22 @@ public class ItemPickup : MonoBehaviour, IInteractable, IInteractionAvailability
         if (objectivePanelUI == null)
         {
             objectivePanelUI = Object.FindAnyObjectByType<ObjectivePanelUI>(FindObjectsInactive.Include);
+        }
+    }
+
+    //Audio
+    private void PlayPickupAudio()
+    {
+        if (AudioManager.Instance == null)
+        {
+            return;
+        }
+
+        AudioManager.Instance.PlaySFX(pickupSfx, pickupSfxVolume);
+
+        if (triggerMapFoundMusicOnPickup)
+        {
+            AudioManager.Instance.PlayMapFoundMusic();
         }
     }
 }
