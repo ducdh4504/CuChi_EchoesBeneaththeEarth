@@ -3,32 +3,35 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-/// <summary>
-/// Game gõ Morse theo sắc lệnh: người chơi nhìn ảnh sắc lệnh và gõ lại bằng Morse.
-/// Không hiển thị target/hint. Gõ đúng -> ký tự hiện màu xanh. Gõ sai -> nháy đỏ ký tự sai rồi biến mất, gõ lại.
-/// Dấu cách trong câu mục tiêu được tự bỏ qua.
-/// </summary>
 public class MorseChallenge : MonoBehaviour
 {
-    [Header("Bộ giải Morse cần lắng nghe")]
+    [Header("Morse Decoder")]
     [SerializeField] private MorsePuzzle morsePuzzle;
 
-    [Header("Câu mục tiêu (nội dung sắc lệnh)")]
+    [Header("Target Message")]
     [SerializeField] private string targetMessage = "VU THANH HAI";
 
     [Header("UI")]
-    [Tooltip("TMP Text hiển thị các ký tự đã gõ đúng (màu xanh) và ký tự sai (màu đỏ nháy). Cần bật Rich Text.")]
+    [Tooltip("Shows correct typed letters in green and the latest wrong letter in red.")]
     [SerializeField] private TMP_Text typedDisplay;
+    [Tooltip("Shows the full targetMessage as a faint hint so players know what to transmit.")]
+    [SerializeField] private TMP_Text targetHintDisplay;
 
-    [Header("Màu hiển thị")]
+    [Header("Display Colors")]
     [SerializeField] private Color correctColor = new Color(0.30f, 0.85f, 0.40f);
     [SerializeField] private Color wrongColor = new Color(0.95f, 0.30f, 0.30f);
+    [SerializeField] private Color pendingHintColor = new Color(1f, 1f, 1f, 0.28f);
+    [SerializeField] private Color currentHintColor = new Color(1f, 0.88f, 0.30f, 0.92f);
+
+    [Header("Hint")]
+    [SerializeField] private bool showTargetHint = true;
+    [SerializeField] private string targetHintPrefix = "Thong tin can truyen: ";
 
     [Header("Feedback")]
-    [Tooltip("Thời gian (giây) hiển thị ký tự sai màu đỏ trước khi biến mất.")]
+    [Tooltip("Seconds to show a wrong decoded letter before hiding it.")]
     [SerializeField] private float wrongFlashDuration = 0.6f;
 
-    [Header("Sự kiện")]
+    [Header("Events")]
     public UnityEvent onWin;
 
     private string normalizedTarget = string.Empty;
@@ -60,14 +63,16 @@ public class MorseChallenge : MonoBehaviour
 
     private void Update()
     {
-        if (wrongFlashTimer > 0f)
+        if (wrongFlashTimer <= 0f)
         {
-            wrongFlashTimer -= Time.deltaTime;
-            if (wrongFlashTimer <= 0f)
-            {
-                wrongChar = '\0';
-                Repaint();
-            }
+            return;
+        }
+
+        wrongFlashTimer -= Time.deltaTime;
+        if (wrongFlashTimer <= 0f)
+        {
+            wrongChar = '\0';
+            Repaint();
         }
     }
 
@@ -117,13 +122,13 @@ public class MorseChallenge : MonoBehaviour
                 finished = true;
                 onWin?.Invoke();
             }
+
+            return;
         }
-        else
-        {
-            wrongChar = incoming == '?' ? '?' : incoming;
-            wrongFlashTimer = wrongFlashDuration;
-            Repaint();
-        }
+
+        wrongChar = incoming == '?' ? '?' : incoming;
+        wrongFlashTimer = wrongFlashDuration;
+        Repaint();
     }
 
     private void SkipSpaces()
@@ -135,6 +140,12 @@ public class MorseChallenge : MonoBehaviour
     }
 
     private void Repaint()
+    {
+        RepaintTypedDisplay();
+        RepaintTargetHint();
+    }
+
+    private void RepaintTypedDisplay()
     {
         if (typedDisplay == null)
         {
@@ -158,6 +169,61 @@ public class MorseChallenge : MonoBehaviour
         }
 
         typedDisplay.text = sb.ToString();
+    }
+
+    private void RepaintTargetHint()
+    {
+        if (targetHintDisplay == null)
+        {
+            return;
+        }
+
+        if (!showTargetHint || normalizedTarget.Length == 0)
+        {
+            targetHintDisplay.text = string.Empty;
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder(targetHintPrefix);
+        string correctHex = ColorUtility.ToHtmlStringRGBA(correctColor);
+        string currentHex = ColorUtility.ToHtmlStringRGBA(currentHintColor);
+        string pendingHex = ColorUtility.ToHtmlStringRGBA(pendingHintColor);
+
+        for (int i = 0; i < normalizedTarget.Length; i++)
+        {
+            char c = normalizedTarget[i];
+            string token = c == ' ' ? " " : c.ToString();
+
+            if (i < currentIndex)
+            {
+                AppendColoredToken(sb, token, correctHex, false);
+            }
+            else if (i == currentIndex)
+            {
+                AppendColoredToken(sb, token, currentHex, true);
+            }
+            else
+            {
+                AppendColoredToken(sb, token, pendingHex, false);
+            }
+        }
+
+        targetHintDisplay.text = sb.ToString();
+    }
+
+    private static void AppendColoredToken(StringBuilder sb, string token, string hex, bool bold)
+    {
+        if (bold)
+        {
+            sb.Append("<b>");
+        }
+
+        sb.Append("<color=#").Append(hex).Append('>').Append(token).Append("</color>");
+
+        if (bold)
+        {
+            sb.Append("</b>");
+        }
     }
 
     public string TargetMessage => targetMessage;
