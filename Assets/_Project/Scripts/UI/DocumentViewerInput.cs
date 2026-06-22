@@ -3,12 +3,21 @@
 
 //public class DocumentViewerInput : MonoBehaviour
 //{
+//    private enum DocumentType
+//    {
+//        None,
+//        MorseCode,
+//        SecretDecree
+//    }
+
 //    [Header("References")]
 //    [SerializeField] private DocumentViewerUI documentViewerUI;
 //    [SerializeField] private AnInventory playerInventory;
 
 //    [Header("Settings")]
 //    [SerializeField] private bool requireCollectedDocuments = true;
+
+//    private DocumentType currentOpenDocument = DocumentType.None;
 
 //    private void Start()
 //    {
@@ -25,40 +34,83 @@
 //            return;
 //        }
 
-//        bool documentKeyPressed =
+//        bool morseKeyPressed =
 //            keyboard.digit1Key.wasPressedThisFrame ||
 //            keyboard.numpad1Key.wasPressedThisFrame;
 
-//        if (documentKeyPressed)
+//        bool secretDecreeKeyPressed =
+//            keyboard.digit3Key.wasPressedThisFrame ||
+//            keyboard.numpad3Key.wasPressedThisFrame;
+
+//        if (morseKeyPressed)
 //        {
-//            HandleDocumentKeyPressed();
+//            HandleDocumentKeyPressed(DocumentType.MorseCode);
+//            return;
+//        }
+
+//        if (secretDecreeKeyPressed)
+//        {
+//            HandleDocumentKeyPressed(DocumentType.SecretDecree);
 //            return;
 //        }
 
 //        if (documentViewerUI.IsOpen && keyboard.spaceKey.wasPressedThisFrame)
 //        {
 //            documentViewerUI.Advance();
+
+//            if (!documentViewerUI.IsOpen)
+//            {
+//                currentOpenDocument = DocumentType.None;
+//            }
 //        }
 //    }
 
-//    private void HandleDocumentKeyPressed()
+//    private void HandleDocumentKeyPressed(DocumentType requestedDocument)
 //    {
+//        if (requestedDocument == DocumentType.None)
+//        {
+//            return;
+//        }
+
 //        if (documentViewerUI.IsOpen)
 //        {
+//            if (currentOpenDocument == requestedDocument)
+//            {
+//                documentViewerUI.Close();
+//                currentOpenDocument = DocumentType.None;
+//                return;
+//            }
+
 //            documentViewerUI.Close();
-//            return;
+//            currentOpenDocument = DocumentType.None;
 //        }
 
-//        if (requireCollectedDocuments && !CanOpenDocuments())
+//        if (requireCollectedDocuments && !CanOpenDocument(requestedDocument))
 //        {
-//            Debug.Log("Chưa có đủ tài liệu: cần bảng mã Morse và mảnh sắc lệnh.");
+//            Debug.Log(GetMissingDocumentMessage(requestedDocument));
 //            return;
 //        }
 
-//        documentViewerUI.OpenMorseCode();
+//        OpenDocument(requestedDocument);
 //    }
 
-//    private bool CanOpenDocuments()
+//    private void OpenDocument(DocumentType documentType)
+//    {
+//        switch (documentType)
+//        {
+//            case DocumentType.MorseCode:
+//                documentViewerUI.OpenMorseCode();
+//                currentOpenDocument = DocumentType.MorseCode;
+//                break;
+
+//            case DocumentType.SecretDecree:
+//                documentViewerUI.OpenSecretDecree();
+//                currentOpenDocument = DocumentType.SecretDecree;
+//                break;
+//        }
+//    }
+
+//    private bool CanOpenDocument(DocumentType documentType)
 //    {
 //        FindReferencesIfNeeded();
 
@@ -68,7 +120,32 @@
 //            return false;
 //        }
 
-//        return playerInventory.HasMorsePuzzleDocuments;
+//        switch (documentType)
+//        {
+//            case DocumentType.MorseCode:
+//                return playerInventory.HasMorseCode;
+
+//            case DocumentType.SecretDecree:
+//                return playerInventory.HasSecretDecree;
+
+//            default:
+//                return false;
+//        }
+//    }
+
+//    private string GetMissingDocumentMessage(DocumentType documentType)
+//    {
+//        switch (documentType)
+//        {
+//            case DocumentType.MorseCode:
+//                return "Chưa có bản hướng dẫn giải mã Morse.";
+
+//            case DocumentType.SecretDecree:
+//                return "Chưa có tấm sắc lệnh.";
+
+//            default:
+//                return "Chưa có tài liệu này.";
+//        }
 //    }
 
 //    private void FindReferencesIfNeeded()
@@ -88,6 +165,7 @@
 //        }
 //    }
 //}
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -97,7 +175,8 @@ public class DocumentViewerInput : MonoBehaviour
     {
         None,
         MorseCode,
-        SecretDecree
+        SecretDecree,
+        Map
     }
 
     [Header("References")]
@@ -132,6 +211,10 @@ public class DocumentViewerInput : MonoBehaviour
             keyboard.digit3Key.wasPressedThisFrame ||
             keyboard.numpad3Key.wasPressedThisFrame;
 
+        bool mapKeyPressed =
+            keyboard.digit4Key.wasPressedThisFrame ||
+            keyboard.numpad4Key.wasPressedThisFrame;
+
         if (morseKeyPressed)
         {
             HandleDocumentKeyPressed(DocumentType.MorseCode);
@@ -141,6 +224,12 @@ public class DocumentViewerInput : MonoBehaviour
         if (secretDecreeKeyPressed)
         {
             HandleDocumentKeyPressed(DocumentType.SecretDecree);
+            return;
+        }
+
+        if (mapKeyPressed)
+        {
+            HandleDocumentKeyPressed(DocumentType.Map);
             return;
         }
 
@@ -197,6 +286,11 @@ public class DocumentViewerInput : MonoBehaviour
                 documentViewerUI.OpenSecretDecree();
                 currentOpenDocument = DocumentType.SecretDecree;
                 break;
+
+            case DocumentType.Map:
+                documentViewerUI.OpenMap();
+                currentOpenDocument = DocumentType.Map;
+                break;
         }
     }
 
@@ -218,6 +312,9 @@ public class DocumentViewerInput : MonoBehaviour
             case DocumentType.SecretDecree:
                 return playerInventory.HasSecretDecree;
 
+            case DocumentType.Map:
+                return playerInventory.HasSmallMap;
+
             default:
                 return false;
         }
@@ -232,6 +329,9 @@ public class DocumentViewerInput : MonoBehaviour
 
             case DocumentType.SecretDecree:
                 return "Chưa có tấm sắc lệnh.";
+
+            case DocumentType.Map:
+                return "Chưa có tấm bản đồ.";
 
             default:
                 return "Chưa có tài liệu này.";

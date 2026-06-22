@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 3176058894711556890}
   - component: {fileID: 325936818990795028}
   - component: {fileID: 753102453785701119}
+  - component: {fileID: 3425611441903674340}
   m_Layer: 0
   m_Name: AnPlayer 1.4
   m_TagString: Player
@@ -737,7 +738,7 @@ MonoBehaviour:
   crawlSpeedMax: 0.8
   crouchSpeedMax: 1.8
   walkVolume: 0.5
-  runVolume: 0.4
+  runVolume: 0.1
   crouchVolume: 0.4
   crawlVolume: 0.35
   walkPitch: 1
@@ -746,6 +747,29 @@ MonoBehaviour:
   crawlPitch: 1
   spatialBlend: 0
   debugLogs: 0
+--- !u!114 &3425611441903674340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8594978568754522132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14854b463c2c2464d88b6fc50c425b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JumpAudioController
+  playerRigidbody: {fileID: 0}
+  playerMovement: {fileID: 0}
+  jumpSfx: {fileID: 8300000, guid: 2b8d7fbec2b3b9a468833a0103d22708, type: 3}
+  jumpVolume: 0.2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundCheckDistance: 1.25
+  groundedGraceTime: 0.12
+  jumpSoundCooldown: 0.2
+  debugLogs: 1
 --- !u!1001 &1942662707152334818
 PrefabInstance:
   m_ObjectHideFlags: 0

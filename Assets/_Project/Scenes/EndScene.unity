@@ -1906,6 +1906,12 @@ MonoBehaviour:
   npcDisplayName: "Giao li\xEAn k\u1EF3 c\u1EF1u"
   dialogueData: {fileID: 11400000, guid: c126a4a0f3bba9c4f9c44175b2d1a9d6, type: 2}
   canRepeatDialogue: 1
+  triggerMusicOnDialogueStart: 0
+  musicCueOnDialogueStart: 4
+  customDialogueMusic: {fileID: 0}
+  customDialogueMusicVolume: -1
+  customDialogueMusicLoop: 0
+  dialogueMusicFadeDuration: 2
 --- !u!64 &249637445
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14486,6 +14492,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
   itemData: {fileID: 11400000, guid: d85cb2224cca0004e8c74bfd384a8a89, type: 2}
+  missionIdToStartOnPickup: 
+  missionIdToCompleteOnPickup: 
+  objectiveAfterPickup: 
+  pickupSfx: {fileID: 0}
+  pickupSfxVolume: 0.8
+  triggerMapFoundMusicOnPickup: 0
   flashlightPickupPromptUI: {fileID: 0}
   flashlightPickupPrompt: "\u0110\xE3 nh\u1EB7t \u0111\xE8n pin. Nh\u1EA5n ph\xEDm
     2 \u0111\u1EC3 s\u1EED d\u1EE5ng. \u0110\xE8n pin c\xF3 gi\u1EDBi h\u1EA1n pin,
@@ -21175,6 +21187,63 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7347781270378386119, guid: 6bb25a9e63c454a44af8882cf6bc3fb6, type: 3}
+--- !u!1001 &1322439116
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1298952540302906589, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_Name
+      value: GameAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718184955624592775, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -103.72356
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718184955624592775, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.46661
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718184955624592775, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718184955624592775, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718184955624592775, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718184955624592775, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718184955624592775, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718184955624592775, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718184955624592775, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3718184955624592775, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 63bbd544c2571474b94fd787d1f4d39a, type: 3}
 --- !u!64 &1325930779
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31294,6 +31363,62 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 9167333645620593873, guid: e97e3301dbfaec942813fabbc19670ca, type: 3}
+--- !u!1 &2097711986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2097711988}
+  - component: {fileID: 2097711987}
+  m_Layer: 0
+  m_Name: EndSceneAudioController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2097711987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097711986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b495bdc39760f84badc73bb21f3176d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChapterAudioController
+  stopMusicOnStart: 0
+  musicCueOnStart: 4
+  customMusicClip: {fileID: 0}
+  customMusicVolume: 0.2
+  customMusicLoop: 1
+  customMusicFadeDuration: 1.5
+  stopAmbienceOnStart: 1
+  playAmbienceOnStart: 0
+  ambienceClip: {fileID: 0}
+  ambienceVolume: 0.25
+  ambienceLoop: 1
+  ambienceFadeDuration: 1
+--- !u!4 &2097711988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097711986}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -103.72369, y: 0.82533, z: -3.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2098425499
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31837,3 +31962,5 @@ SceneRoots:
   - {fileID: 688578979}
   - {fileID: 571731764}
   - {fileID: 365895119}
+  - {fileID: 1322439116}
+  - {fileID: 2097711988}

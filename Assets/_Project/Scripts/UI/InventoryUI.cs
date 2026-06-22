@@ -10,11 +10,14 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private Image morseSlotItemImage;        // Slot 1 > Item
     [SerializeField] private Image flashlightSlotItemImage;   // Slot 2 > Item
     [SerializeField] private Image secretDecreeSlotItemImage; // Slot 3 > Item
+    [SerializeField] private Image mapSlotItemImage;          // Slot 4 > Item
 
     [Header("Icons")]
     [SerializeField] private Sprite morseIcon;
     [SerializeField] private Sprite flashlightIcon;
     [SerializeField] private Sprite secretDecreeIcon;
+    //map
+    [SerializeField] private Sprite mapIcon;
 
     private bool isSubscribed;
 
@@ -86,12 +89,16 @@ public class InventoryUI : MonoBehaviour
             SetSlotVisible(morseSlotItemImage, false);
             SetSlotVisible(flashlightSlotItemImage, false);
             SetSlotVisible(secretDecreeSlotItemImage, false);
+            SetSlotVisible(mapSlotItemImage, false);
             return;
         }
 
         SetSlotVisible(morseSlotItemImage, playerInventory.HasMorseCode);
         SetSlotVisible(flashlightSlotItemImage, playerInventory.HasFlashlight);
         SetSlotVisible(secretDecreeSlotItemImage, playerInventory.HasSecretDecree);
+
+        //map
+        SetSlotVisible(mapSlotItemImage, playerInventory.HasSmallMap);
     }
 
     private void SetupSlotImages()
@@ -99,6 +106,9 @@ public class InventoryUI : MonoBehaviour
         SetupSlotImage(morseSlotItemImage, morseIcon);
         SetupSlotImage(flashlightSlotItemImage, flashlightIcon);
         SetupSlotImage(secretDecreeSlotItemImage, secretDecreeIcon);
+
+        //Map
+        SetupSlotImage(mapSlotItemImage, mapIcon);
     }
 
     private static void SetupSlotImage(Image image, Sprite sprite)
