@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621654431774213464}
   - component: {fileID: 7588860599302312231}
+  - component: {fileID: 8012996986565897250}
   m_Layer: 0
   m_Name: MissionManager
   m_TagString: Untagged
@@ -44,3 +45,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107d5219da8cf44478ebb7b2a7ecab0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MissionManager
+  objectivePanelUI: {fileID: 0}
+--- !u!114 &8012996986565897250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911035193800161364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e25302724e0b184d9371f30346914b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MissionWaypointController
+  indicator: {fileID: 0}
+  waypointBindings:
+  - missionId: Main_FindLostMap
+    objectiveContains: 
+    targetWaypointId: Main_FindLostMap
+    target: {fileID: 0}
+  - missionId: Day1_FindTinBox
+    objectiveContains: 
+    targetWaypointId: Day1_FindTinBox
+    target: {fileID: 0}
+  - missionId: Day1_MorseTransmission
+    objectiveContains: 
+    targetWaypointId: Day1_MorseTransmission
+    target: {fileID: 0}
+  - missionId: Day2_MorseTransmission
+    objectiveContains: 
+    targetWaypointId: Day2_MorseTransmission
+    target: {fileID: 0}
+  - missionId: Day3_FindMap
+    objectiveContains: Mang
+    targetWaypointId: Day3_ReturnMap
+    target: {fileID: 0}
+  - missionId: Day3_FindMap
+    objectiveContains: 
+    targetWaypointId: Day3_FindMap
+    target: {fileID: 0}
+  useMissionIdAsTargetId: 1
+  hideCompletedMissions: 1
+  rescanInterval: 1

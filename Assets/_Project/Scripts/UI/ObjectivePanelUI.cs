@@ -9,8 +9,11 @@ public class ObjectivePanelUI : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
 
     [Header("Settings")]
-    [SerializeField] private string defaultTitle = "Nhiệm vụ hiện tại";
-    [SerializeField] private string objectivePrefix = "Mục tiêu: ";
+    [SerializeField] private string defaultTitle = "Nhiem vu hien tai";
+    [SerializeField] private string objectivePrefix = "Muc tieu: ";
+
+    private bool hasContent;
+    private int temporaryHideRequests;
 
     private void Awake()
     {
@@ -32,7 +35,7 @@ public class ObjectivePanelUI : MonoBehaviour
 
     public void SetMission(string missionTitle, string objective, MissionState state)
     {
-        bool hasContent =
+        hasContent =
             !string.IsNullOrWhiteSpace(missionTitle) ||
             !string.IsNullOrWhiteSpace(objective);
 
@@ -57,6 +60,8 @@ public class ObjectivePanelUI : MonoBehaviour
 
     public void ClearObjective()
     {
+        hasContent = false;
+
         if (titleText != null)
         {
             titleText.text = string.Empty;
@@ -70,15 +75,31 @@ public class ObjectivePanelUI : MonoBehaviour
         SetVisible(false);
     }
 
+    public void HideTemporarily()
+    {
+        temporaryHideRequests++;
+        ApplyVisible(false);
+    }
+
+    public void ShowAfterTemporaryHide()
+    {
+        if (temporaryHideRequests > 0)
+        {
+            temporaryHideRequests--;
+        }
+
+        SetVisible(hasContent);
+    }
+
     private string GetStateText(MissionState state)
     {
         switch (state)
         {
             case MissionState.Completed:
-                return "Trạng thái: Hoàn thành\n";
+                return "Trang thai: Hoan thanh\n";
 
             case MissionState.Active:
-                return "Trạng thái: Đang thực hiện\n";
+                return "Trang thai: Dang thuc hien\n";
 
             default:
                 return string.Empty;
@@ -86,6 +107,11 @@ public class ObjectivePanelUI : MonoBehaviour
     }
 
     private void SetVisible(bool visible)
+    {
+        ApplyVisible(visible && temporaryHideRequests <= 0);
+    }
+
+    private void ApplyVisible(bool visible)
     {
         if (canvasGroup != null)
         {

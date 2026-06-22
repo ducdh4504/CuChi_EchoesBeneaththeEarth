@@ -119,6 +119,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2016445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2016446}
+  - component: {fileID: 2016447}
+  m_Layer: 0
+  m_Name: Day3_FindMap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2016446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016445}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.105, y: 0, z: 5.526}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 161758100}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2016447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211889bd9265b864a881cd6ad3fe69b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaypointTarget
+  waypointId: Day3_FindMap
+  worldOffset: {x: 0, y: -0.19, z: 0}
+  touchDistance: 2.5
+  playerTag: Player
 --- !u!64 &2887866
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -892,6 +940,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 781541474}
+  - {fileID: 2016446}
   m_Father: {fileID: 1947738661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &161758101
@@ -1484,84 +1533,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0608f8cc0155aa04aaa6ce5c65b53e5e, type: 3}
   m_PrefabInstance: {fileID: 229296688}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &243314127
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 243314128}
-  - component: {fileID: 243314130}
-  - component: {fileID: 243314129}
-  m_Layer: 0
-  m_Name: FlashlightPickupZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &243314128
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243314127}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 19.64, y: -0.409, z: -7.133}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1815161816}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &243314129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243314127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037b3b454c0b72040b1bf5faf7671c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
-  itemData: {fileID: 11400000, guid: d85cb2224cca0004e8c74bfd384a8a89, type: 2}
-  missionIdToStartOnPickup: 
-  missionIdToCompleteOnPickup: 
-  objectiveAfterPickup: 
-  pickupSfx: {fileID: 0}
-  pickupSfxVolume: 0.8
-  triggerMapFoundMusicOnPickup: 0
-  flashlightPickupPromptUI: {fileID: 600782346}
-  flashlightPickupPrompt: "\u0110\xE3 nh\u1EB7t \u0111\xE8n pin. Nh\u1EA5n ph\xEDm
-    2 \u0111\u1EC3 s\u1EED d\u1EE5ng. \u0110\xE8n pin c\xF3 gi\u1EDBi h\u1EA1n pin,
-    h\xE3y s\u1EED d\u1EE5ng c\u1EA9n th\u1EADn."
-  flashlightPickupPromptDuration: 5
---- !u!65 &243314130
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243314127}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.8, z: 0.8}
-  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &271179499
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,6 +3133,10 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3514745336931978388, guid: f1cddc7c07b9cce4ca231598db603945, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 804268888, guid: 2e09d4923acd33843b1c5981214c4049, type: 3}
     - target: {fileID: 3877577686205289998, guid: f1cddc7c07b9cce4ca231598db603945, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3202,6 +3177,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -36
       objectReference: {fileID: 0}
+    - target: {fileID: 5015439843842309109, guid: f1cddc7c07b9cce4ca231598db603945, type: 3}
+      propertyPath: edgeMargin
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015439843842309109, guid: f1cddc7c07b9cce4ca231598db603945, type: 3}
+      propertyPath: spriteForwardOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015439843842309109, guid: f1cddc7c07b9cce4ca231598db603945, type: 3}
+      propertyPath: lookAtViewportRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400517988634116295, guid: f1cddc7c07b9cce4ca231598db603945, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 221344791, guid: ce839feb98bfd6a43923276da982c052, type: 3}
     - target: {fileID: 6443168169849613653, guid: f1cddc7c07b9cce4ca231598db603945, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 119.39996
@@ -11726,6 +11717,7 @@ GameObject:
   - component: {fileID: 1678268187}
   - component: {fileID: 1678268185}
   - component: {fileID: 1678268188}
+  - component: {fileID: 1678268189}
   m_Layer: 0
   m_Name: GiaoLienKiCuu
   m_TagString: Untagged
@@ -11791,6 +11783,22 @@ MonoBehaviour:
   loadSceneAfterHasMapDialogue: 1
   sceneOnWin: EndScene
   transitionMessage: "Ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5..."
+--- !u!114 &1678268189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678268184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211889bd9265b864a881cd6ad3fe69b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaypointTarget
+  waypointId: Day3_ReturnMap
+  worldOffset: {x: 0.5, y: -0.08, z: 1.75}
+  touchDistance: 2.5
+  playerTag: Player
 --- !u!1 &1721571125
 GameObject:
   m_ObjectHideFlags: 0
@@ -12371,7 +12379,6 @@ Transform:
   - {fileID: 1591558310}
   - {fileID: 454954115}
   - {fileID: 1841493869}
-  - {fileID: 243314128}
   - {fileID: 1492740024}
   - {fileID: 1881260387}
   - {fileID: 1630610844}

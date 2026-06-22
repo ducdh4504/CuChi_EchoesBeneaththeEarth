@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MissionManager : MonoBehaviour
 {
     public static MissionManager Instance { get; private set; }
+    public static event Action<string, string> ObjectiveChanged;
 
     [Header("UI")]
     [SerializeField] private ObjectivePanelUI objectivePanelUI;
@@ -105,21 +107,27 @@ public class MissionManager : MonoBehaviour
         return RuntimeMissionState.GetMissionState(missionId) == MissionState.Completed;
     }
 
-    public void HandleObjectiveId(string objectiveId)
+public void HandleObjectiveId(string objectiveId)
     {
         if (string.IsNullOrWhiteSpace(objectiveId))
         {
             return;
         }
 
-        switch (objectiveId)
+        string resolvedObjectiveId = ResolveObjectiveIdAlias(objectiveId.Trim());
+
+        switch (resolvedObjectiveId)
         {
             case MissionIds.Main_FindLostMap:
-                SetMainObjective("Tìm manh mối liên quan đến tấm bản đồ thất lạc.");
+                SetMainObjective("Tim manh moi lien quan den tam ban do that lac.");
                 break;
 
             case MissionIds.Day1_FindTinBox:
                 StartMission(MissionIds.Day1_FindTinBox);
+                break;
+
+            case MissionIds.Day1_MorseTransmission:
+                StartMission(MissionIds.Day1_MorseTransmission);
                 break;
 
             case MissionIds.Day2_MorseTransmission:
@@ -130,11 +138,10 @@ public class MissionManager : MonoBehaviour
                 StartMission(MissionIds.Day3_FindMap);
                 break;
 
-                // Return map
             case MissionIds.Day3_ReturnMap:
                 RuntimeMissionState.SetCurrentMission(MissionIds.Day3_FindMap);
                 RuntimeMissionState.SetMissionState(MissionIds.Day3_FindMap, MissionState.Active);
-                RuntimeMissionState.SetCurrentObjective("Mang tấm bản đồ lên mặt đất và giao cho Giao liên kỳ cựu.");
+                RuntimeMissionState.SetCurrentObjective("Mang tam ban do len mat dat va giao cho Giao lien ky cuu.");
                 RefreshObjectiveUI();
                 break;
 
@@ -142,28 +149,46 @@ public class MissionManager : MonoBehaviour
                 RuntimeMissionState.SetMissionState(MissionIds.Day3_FindMap, MissionState.Completed);
                 RuntimeMissionState.SetMissionState(MissionIds.Main_FindLostMap, MissionState.Completed);
                 RuntimeMissionState.SetCurrentMission(MissionIds.Main_FindLostMap);
-                RuntimeMissionState.SetCurrentObjective("Đã giao lại tấm bản đồ cho Giao liên kỳ cựu. Nhiệm vụ hoàn thành.");
+                RuntimeMissionState.SetCurrentObjective("Da giao lai tam ban do cho Giao lien ky cuu. Nhiem vu hoan thanh.");
                 RefreshObjectiveUI();
                 break;
 
             default:
-                Debug.LogWarning($"Unknown objectiveId: {objectiveId}");
-                SetCurrentObjective(objectiveId);
+                StartCustomMission(resolvedObjectiveId);
                 break;
         }
     }
 
+private void StartCustomMission(string missionId)
+    {
+        StartMainMissionIfNeeded();
+
+        RuntimeMissionState.SetMissionState(missionId, MissionState.Active);
+        RuntimeMissionState.SetCurrentMission(missionId);
+
+        string objective = GetDefaultObjective(missionId);
+        RuntimeMissionState.SetCurrentObjective(
+            string.IsNullOrWhiteSpace(objective) ? FormatObjectiveId(missionId) : objective);
+
+        RefreshObjectiveUI();
+
+        Debug.Log($"Custom mission started: {missionId}");
+    }
+
+
     private void RefreshObjectiveUI()
     {
+        string missionId = RuntimeMissionState.CurrentMissionId;
+        string objective = RuntimeMissionState.CurrentObjective;
+
+        ObjectiveChanged?.Invoke(missionId, objective);
+
         FindObjectivePanelIfNeeded();
 
         if (objectivePanelUI == null)
         {
             return;
         }
-
-        string missionId = RuntimeMissionState.CurrentMissionId;
-        string objective = RuntimeMissionState.CurrentObjective;
 
         if (string.IsNullOrWhiteSpace(missionId) && string.IsNullOrWhiteSpace(objective))
         {
@@ -184,45 +209,51 @@ public class MissionManager : MonoBehaviour
             return;
         }
 
-        objectivePanelUI = Object.FindAnyObjectByType<ObjectivePanelUI>(FindObjectsInactive.Include);
+        objectivePanelUI = UnityEngine.Object.FindAnyObjectByType<ObjectivePanelUI>(FindObjectsInactive.Include);
     }
 
-    private string GetMissionTitle(string missionId)
+private string GetMissionTitle(string missionId)
     {
         switch (missionId)
         {
             case MissionIds.Main_FindLostMap:
-                return "Tìm tấm bản đồ thất lạc";
+                return "Tim tam ban do that lac";
 
             case MissionIds.Day1_FindTinBox:
-                return "Tìm manh mối đầu tiên";
+                return "Tim manh moi dau tien";
+
+            case MissionIds.Day1_MorseTransmission:
+                return "Truyen tin bang ma Morse";
 
             case MissionIds.Day2_MorseTransmission:
-                return "Truyền tin bằng mã Morse";
+                return "Truyen tin bang ma Morse";
 
             case MissionIds.Day3_FindMap:
-                return "Tìm lại tấm bản đồ";
+                return "Tim lai tam ban do";
 
             default:
-                return "Nhiệm vụ hiện tại";
+                return "Nhiem vu hien tai";
         }
     }
 
-    private string GetDefaultObjective(string missionId)
+private string GetDefaultObjective(string missionId)
     {
         switch (missionId)
         {
             case MissionIds.Day1_FindTinBox:
-                return "Tìm hộp thiếc cũ trong địa đạo.";
+                return "Tim hop thiec cu trong dia dao.";
+
+            case MissionIds.Day1_MorseTransmission:
+                return "Tim phong truyen tin va gui noi dung bang ma Morse.";
 
             case MissionIds.Day2_MorseTransmission:
-                return "Tìm phòng truyền tin và gửi nội dung sắc lệnh bằng mã Morse.";
+                return "Tim phong truyen tin va gui noi dung sac lenh bang ma Morse.";
 
             case MissionIds.Day3_FindMap:
-                return "Tìm phòng họp và lấy lại tấm bản đồ thất lạc.";
+                return "Tim phong hop va lay lai tam ban do that lac.";
 
             case MissionIds.Main_FindLostMap:
-                return "Tìm manh mối liên quan đến tấm bản đồ thất lạc.";
+                return "Tim manh moi lien quan den tam ban do that lac.";
 
             default:
                 return string.Empty;
@@ -233,5 +264,26 @@ public class MissionManager : MonoBehaviour
         RuntimeMissionState.SetCurrentMission(null);
         RuntimeMissionState.SetCurrentObjective(null);
         RefreshObjectiveUI();
+    }
+
+
+private static string ResolveObjectiveIdAlias(string objectiveId)
+    {
+        if (string.Equals(objectiveId, MissionIds.Day3_FindMap, StringComparison.OrdinalIgnoreCase))
+        {
+            return MissionIds.Day3_FindMap;
+        }
+
+        return objectiveId;
+    }
+
+    private static string FormatObjectiveId(string objectiveId)
+    {
+        if (string.IsNullOrWhiteSpace(objectiveId))
+        {
+            return string.Empty;
+        }
+
+        return objectiveId.Replace('_', ' ');
     }
 }

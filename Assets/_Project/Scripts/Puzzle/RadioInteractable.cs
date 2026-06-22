@@ -24,6 +24,7 @@ public class RadioInteractable : MonoBehaviour, IInteractable, IInteractionAvail
     private MorseChallenge currentChallenge;
     private MonoBehaviour disabledMovement;
     private AnOxygen pausedOxygen;
+    private ObjectivePanelUI hiddenObjectivePanel;
     private CursorLockMode previousLockMode;
     private bool previousCursorVisible;
     private bool inventoryWasActive;
@@ -54,6 +55,12 @@ public class RadioInteractable : MonoBehaviour, IInteractable, IInteractionAvail
             inventoryUI.SetActive(false);
         }
 
+        hiddenObjectivePanel = FindAnyObjectByType<ObjectivePanelUI>(FindObjectsInactive.Include);
+        if (hiddenObjectivePanel != null)
+        {
+            hiddenObjectivePanel.HideTemporarily();
+        }
+
         var player = GameObject.FindGameObjectWithTag("Player");
 
         if (disablePlayerMovementWhileOpen && player != null)
@@ -82,7 +89,7 @@ public class RadioInteractable : MonoBehaviour, IInteractable, IInteractionAvail
         if (currentInstance == null || closing) return;
 
         Keyboard keyboard = Keyboard.current;
-        if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame)
+        if ((keyboard != null && keyboard.eKey.wasPressedThisFrame) || (keyboard != null && keyboard.escapeKey.wasPressedThisFrame))
         {
             Close();
         }
@@ -119,6 +126,12 @@ public class RadioInteractable : MonoBehaviour, IInteractable, IInteractionAvail
         if (inventoryUI != null && inventoryWasActive)
         {
             inventoryUI.SetActive(true);
+        }
+
+        if (hiddenObjectivePanel != null)
+        {
+            hiddenObjectivePanel.ShowAfterTemporaryHide();
+            hiddenObjectivePanel = null;
         }
 
         if (disabledMovement != null)
