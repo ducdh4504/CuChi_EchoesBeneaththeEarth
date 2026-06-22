@@ -101,6 +101,7 @@ public class SceneTransitionController : MonoBehaviour
         yield return FadeTo(1f);
         yield return new WaitForSeconds(holdDuration);
 
+        GameSaveSystem.UnlockLevel(sceneName);
         SceneManager.LoadScene(sceneName);
     }
 

@@ -173,6 +173,7 @@ public class StoryItemPickup : MonoBehaviour, IInteractable, IInteractionAvailab
             yield break;
         }
 
+        GameSaveSystem.UnlockLevel(nextSceneName);
         SceneManager.LoadScene(nextSceneName);
     }
 

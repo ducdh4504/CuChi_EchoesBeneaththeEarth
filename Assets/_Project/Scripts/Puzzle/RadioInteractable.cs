@@ -154,6 +154,8 @@ public class RadioInteractable : MonoBehaviour, IInteractable, IInteractionAvail
 
     private void TriggerSceneTransition()
     {
+        GameSaveSystem.UnlockLevel(sceneOnWin);
+
         if (SceneTransitionController.Instance != null)
         {
             SceneTransitionController.Instance.LoadScene(sceneOnWin, transitionMessage);

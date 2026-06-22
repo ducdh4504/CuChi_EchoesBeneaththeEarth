@@ -569,8 +569,8 @@ MonoBehaviour:
   coyoteTime: 0.08
   jumpBufferTime: 0.12
   interactionOrigin: {fileID: 0}
-  interactionDistance: 1.6
-  interactionRadius: 0.35
+  interactionDistance: 1
+  interactionRadius: 0.1
   interactionMask:
     serializedVersion: 2
     m_Bits: 4294967295

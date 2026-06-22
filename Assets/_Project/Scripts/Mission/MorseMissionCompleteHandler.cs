@@ -58,6 +58,8 @@ public class MorseMissionCompleteHandler : MonoBehaviour
             MissionManager.Instance.StartMission(MissionIds.Day3_FindMap);
         }
 
+        GameSaveSystem.UnlockLevel(nextSceneName);
+
         if (SceneTransitionController.Instance != null)
         {
             SceneTransitionController.Instance.LoadScene(nextSceneName, transitionMessage);
