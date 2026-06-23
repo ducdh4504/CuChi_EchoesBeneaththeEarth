@@ -4455,8 +4455,8 @@ MonoBehaviour:
   customMusicFadeDuration: 1.5
   stopAmbienceOnStart: 0
   playAmbienceOnStart: 1
-  ambienceClip: {fileID: 8300000, guid: 74bd605a30ac0f9449e11440c07ea0c2, type: 3}
-  ambienceVolume: 0.25
+  ambienceClip: {fileID: 8300000, guid: f8c4ad0989c419540a71c5a1dec08a83, type: 3}
+  ambienceVolume: 0.17
   ambienceLoop: 1
   ambienceFadeDuration: 1
 --- !u!4 &534460030

@@ -981,9 +981,11 @@ MonoBehaviour:
   morseSlotItemImage: {fileID: 1288386464}
   flashlightSlotItemImage: {fileID: 923494673}
   secretDecreeSlotItemImage: {fileID: 752182013}
+  mapSlotItemImage: {fileID: 0}
   morseIcon: {fileID: 21300000, guid: 7c9b85b5dc8024243afc73774fb2156e, type: 3}
   flashlightIcon: {fileID: 0}
   secretDecreeIcon: {fileID: 21300000, guid: 962fdbbf84fa2fe44abd387376547751, type: 3}
+  mapIcon: {fileID: 0}
 --- !u!114 &131631691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3961,7 +3963,7 @@ MonoBehaviour:
   customMusicFadeDuration: 1.5
   stopAmbienceOnStart: 0
   playAmbienceOnStart: 1
-  ambienceClip: {fileID: 8300000, guid: 74bd605a30ac0f9449e11440c07ea0c2, type: 3}
+  ambienceClip: {fileID: 8300000, guid: 52343682d65c36442b9114d7e3d73e81, type: 3}
   ambienceVolume: 0.25
   ambienceLoop: 1
   ambienceFadeDuration: 1
@@ -8322,8 +8324,11 @@ MonoBehaviour:
   continueHintText: {fileID: 2841126}
   secretLetterImage: {fileID: 2040589899}
   morseCodeImage: {fileID: 1142952274}
+  mapImageSprite: {fileID: 0}
+  mapImage: {fileID: 0}
   morseCodeTitle: "B\u1EA3ng h\u01B0\u1EDBng d\u1EABn m\xE3 Morse"
   secretDecreeTitle: "T\u1EA5m s\u1EAFc l\u1EC7nh"
+  mapTitle: Tam ban do dia dao
 --- !u!114 &958639645
 MonoBehaviour:
   m_ObjectHideFlags: 0

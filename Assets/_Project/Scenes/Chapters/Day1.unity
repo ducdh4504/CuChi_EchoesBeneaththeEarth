@@ -3308,6 +3308,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 753102453785701119, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
+      propertyPath: crouchVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34.189
@@ -3350,7 +3354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6497828895150929950, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: jumpVolume
-      value: 0.7
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8594978568754522132, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_Name
@@ -9818,7 +9822,7 @@ MonoBehaviour:
   stopAmbienceOnStart: 0
   playAmbienceOnStart: 1
   ambienceClip: {fileID: 8300000, guid: 74bd605a30ac0f9449e11440c07ea0c2, type: 3}
-  ambienceVolume: 0.25
+  ambienceVolume: 0.18
   ambienceLoop: 1
   ambienceFadeDuration: 1
 --- !u!4 &1214168265
