@@ -17,6 +17,8 @@ public static class GameSaveSystem
     private const string CheckpointPositionXKey = "Save.Checkpoint.PositionX";
     private const string CheckpointPositionYKey = "Save.Checkpoint.PositionY";
     private const string CheckpointPositionZKey = "Save.Checkpoint.PositionZ";
+    private const string OxygenKey = "Save.Player.Oxygen";
+    private const string RestoreOxygenOnContinueKey = "Save.Player.RestoreOxygenOnContinue";
     private const string LevelUnlockedPrefix = "Save.LevelUnlocked.";
 
     private static readonly string[] SavedMissionIds =
@@ -35,6 +37,8 @@ public static class GameSaveSystem
     };
 
     private static bool loadingFromSave;
+    private static bool hasRuntimeOxygen;
+    private static float runtimeOxygen;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Initialize()
@@ -70,6 +74,7 @@ public static class GameSaveSystem
         PlayerPrefs.SetString(SceneKey, activeScene.name);
         UnlockLevel(activeScene.name, saveImmediately: false);
         SavePlayerCheckpointIfAvailable();
+        SavePlayerOxygenIfAvailable();
 
         PlayerPrefs.SetInt(HasSmallMapKey, RuntimeInventoryState.HasSmallMap ? 1 : 0);
         PlayerPrefs.SetInt(HasMorseCodeKey, RuntimeInventoryState.HasMorseCode ? 1 : 0);
@@ -146,6 +151,7 @@ public static class GameSaveSystem
         }
 
         loadingFromSave = false;
+        hasRuntimeOxygen = false;
         ResetRuntimeStateForLevel(sceneName);
         SceneLoader.Load(sceneName);
     }
@@ -217,6 +223,7 @@ public static class GameSaveSystem
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         TryApplySavedCheckpoint(player);
+        ApplyOxygenState(player);
     }
 
     private static void ResetRuntimeStateForLevel(string sceneName)
@@ -266,6 +273,8 @@ public static class GameSaveSystem
         PlayerPrefs.DeleteKey(CheckpointPositionXKey);
         PlayerPrefs.DeleteKey(CheckpointPositionYKey);
         PlayerPrefs.DeleteKey(CheckpointPositionZKey);
+        PlayerPrefs.DeleteKey(OxygenKey);
+        PlayerPrefs.DeleteKey(RestoreOxygenOnContinueKey);
 
         foreach (string missionId in SavedMissionIds)
         {
@@ -284,6 +293,26 @@ public static class GameSaveSystem
         RuntimeInventoryState.Reset();
         RuntimeMissionState.ResetAll();
         loadingFromSave = false;
+        hasRuntimeOxygen = false;
+    }
+
+    public static void CapturePlayerOxygenForSceneTransition()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null || !player.TryGetComponent(out AnOxygen oxygen))
+        {
+            return;
+        }
+
+        runtimeOxygen = oxygen.CurrentOxygen;
+        hasRuntimeOxygen = true;
+    }
+
+    public static void MarkRestoreOxygenOnNextContinue()
+    {
+        PlayerPrefs.SetInt(RestoreOxygenOnContinueKey, 1);
+        PlayerPrefs.Save();
+        hasRuntimeOxygen = false;
     }
 
     private static void SavePlayerCheckpointIfAvailable()
@@ -303,6 +332,46 @@ public static class GameSaveSystem
         PlayerPrefs.SetFloat(CheckpointPositionXKey, position.x);
         PlayerPrefs.SetFloat(CheckpointPositionYKey, position.y);
         PlayerPrefs.SetFloat(CheckpointPositionZKey, position.z);
+    }
+
+    private static void SavePlayerOxygenIfAvailable()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null || !player.TryGetComponent(out AnOxygen oxygen))
+        {
+            return;
+        }
+
+        PlayerPrefs.SetFloat(OxygenKey, oxygen.CurrentOxygen);
+    }
+
+    private static void ApplyOxygenState(GameObject player)
+    {
+        if (player == null || !player.TryGetComponent(out AnOxygen oxygen))
+        {
+            return;
+        }
+
+        if (loadingFromSave && PlayerPrefs.GetInt(RestoreOxygenOnContinueKey, 0) == 1)
+        {
+            oxygen.SetCurrentOxygen(oxygen.MaxOxygen);
+            PlayerPrefs.DeleteKey(RestoreOxygenOnContinueKey);
+            PlayerPrefs.SetFloat(OxygenKey, oxygen.MaxOxygen);
+            PlayerPrefs.Save();
+            hasRuntimeOxygen = false;
+            return;
+        }
+
+        if (hasRuntimeOxygen)
+        {
+            oxygen.SetCurrentOxygen(runtimeOxygen);
+            return;
+        }
+
+        if (loadingFromSave && HasSave && PlayerPrefs.HasKey(OxygenKey))
+        {
+            oxygen.SetCurrentOxygen(PlayerPrefs.GetFloat(OxygenKey, oxygen.CurrentOxygen));
+        }
     }
 
     private static void UnlockLevel(string sceneName, bool saveImmediately)

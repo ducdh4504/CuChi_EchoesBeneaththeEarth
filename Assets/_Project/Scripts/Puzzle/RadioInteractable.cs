@@ -175,6 +175,7 @@ public class RadioInteractable : MonoBehaviour, IInteractable, IInteractionAvail
         }
         else
         {
+            GameSaveSystem.CapturePlayerOxygenForSceneTransition();
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneOnWin);
         }
     }

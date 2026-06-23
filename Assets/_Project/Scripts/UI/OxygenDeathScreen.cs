@@ -129,6 +129,7 @@ public class OxygenDeathScreen : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        GameSaveSystem.MarkRestoreOxygenOnNextContinue();
         SceneManager.LoadScene(mainMenuSceneName);
     }
 
