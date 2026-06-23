@@ -11466,7 +11466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5767b41c84d574a973f089f59ee540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogueTrigger
-  npcDisplayName: CuuChienBinh
+  npcDisplayName: "C\u1EF1u Chi\u1EBFn Binh"
   dialogueData: {fileID: 11400000, guid: bc83eaf5d60fbf84fab587d2c3a4d3f7, type: 2}
   canRepeatDialogue: 1
   triggerMusicOnDialogueStart: 0

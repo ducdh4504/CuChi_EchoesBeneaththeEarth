@@ -82,8 +82,8 @@ public class MainMenu : MonoBehaviour
     {
         bool hasSave = GameSaveSystem.HasSave;
 
-        SetButtonLabel(newGameButton, "NEW GAME");
-        SetButtonLabel(continueButton, "CONTINUE");
+        SetButtonLabel(newGameButton, "Game mới");
+        SetButtonLabel(continueButton, "Tiếp tục");
 
         if (continueButton != null)
         {
@@ -96,9 +96,9 @@ public class MainMenu : MonoBehaviour
 
     private void RefreshLevelButtons()
     {
-        SetLevelButtonState(level1Button, "DAY 1", GameSaveSystem.IsLevelUnlocked("Day1"));
-        SetLevelButtonState(level2Button, "DAY 2", GameSaveSystem.IsLevelUnlocked("Day2"));
-        SetLevelButtonState(level3Button, "DAY 3", GameSaveSystem.IsLevelUnlocked("Day3"));
+        SetLevelButtonState(level1Button, "Ngày 1", GameSaveSystem.IsLevelUnlocked("Day1"));
+        SetLevelButtonState(level2Button, "Ngày 2", GameSaveSystem.IsLevelUnlocked("Day2"));
+        SetLevelButtonState(level3Button, "Ngày 3", GameSaveSystem.IsLevelUnlocked("Day3"));
     }
 
     private static void SetButtonLabel(Button button, string label)
@@ -123,6 +123,6 @@ public class MainMenu : MonoBehaviour
         }
 
         button.interactable = isUnlocked;
-        SetButtonLabel(button, isUnlocked ? label : $"{label} LOCKED");
+        SetButtonLabel(button, isUnlocked ? label : $"{label} chưa mở");
     }
 }
