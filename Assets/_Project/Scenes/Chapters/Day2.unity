@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: a5a15158f98c3604a90ed437ce4df820, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -9084,7 +9084,7 @@ MonoBehaviour:
   promptText: "Nh\u1EA5n E \u0111\u1EC3 ch\u01A1i m\xE3 Morse"
   disablePlayerMovementWhileOpen: 1
   showCursorWhileOpen: 1
-  pauseOxygenWhileOpen: 1
+  pauseOxygenWhileOpen: 0
   autoCloseAfterWinSeconds: 1
   loadSceneOnWin: 1
   sceneOnWin: Day3
@@ -9548,6 +9548,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4489095726046905920, guid: 451239565a8e267468de48e947e8e414, type: 3}
     - {fileID: 8569710822387342851, guid: 451239565a8e267468de48e947e8e414, type: 3}
+    - {fileID: 1374518422561525119, guid: 451239565a8e267468de48e947e8e414, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5524952286781540223, guid: 451239565a8e267468de48e947e8e414, type: 3}
       insertIndex: 4
@@ -16605,6 +16606,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7714980602037677579, guid: f1cddc7c07b9cce4ca231598db603945, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8277517271849086140, guid: f1cddc7c07b9cce4ca231598db603945, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8312681240028132677, guid: f1cddc7c07b9cce4ca231598db603945, type: 3}
