@@ -119,7 +119,7 @@ public void HandleObjectiveId(string objectiveId)
         switch (resolvedObjectiveId)
         {
             case MissionIds.Main_FindLostMap:
-                SetMainObjective("Tim manh moi lien quan den tam ban do that lac.");
+                SetMainObjective("Tìm manh mối liên quan đến tấm bản đồ thất lạc."); 
                 break;
 
             case MissionIds.Day1_FindTinBox:
@@ -141,16 +141,16 @@ public void HandleObjectiveId(string objectiveId)
             case MissionIds.Day3_ReturnMap:
                 RuntimeMissionState.SetCurrentMission(MissionIds.Day3_FindMap);
                 RuntimeMissionState.SetMissionState(MissionIds.Day3_FindMap, MissionState.Active);
-                RuntimeMissionState.SetCurrentObjective("Mang tam ban do len mat dat va giao cho Giao lien ky cuu.");
-                RefreshObjectiveUI();
+                RuntimeMissionState.SetCurrentObjective("Mang tấm bản đồ lên mặt đất và giao cho Giao liên kỳ cựu.");
+                RefreshObjectiveUI(); 
                 break;
 
             case MissionIds.Day3_Complete:
                 RuntimeMissionState.SetMissionState(MissionIds.Day3_FindMap, MissionState.Completed);
                 RuntimeMissionState.SetMissionState(MissionIds.Main_FindLostMap, MissionState.Completed);
                 RuntimeMissionState.SetCurrentMission(MissionIds.Main_FindLostMap);
-                RuntimeMissionState.SetCurrentObjective("Da giao lai tam ban do cho Giao lien ky cuu. Nhiem vu hoan thanh.");
-                RefreshObjectiveUI();
+                RuntimeMissionState.SetCurrentObjective("Đã giao lại tấm bản đồ cho Giao liên kỳ cựu. Nhiệm vụ hoàn thành.");
+                RefreshObjectiveUI(); 
                 break;
 
             default:
@@ -217,22 +217,22 @@ private string GetMissionTitle(string missionId)
         switch (missionId)
         {
             case MissionIds.Main_FindLostMap:
-                return "Tim tam ban do that lac";
+                return "Tìm tấm bản đồ thất lạc";
 
             case MissionIds.Day1_FindTinBox:
-                return "Tim manh moi dau tien";
+                return "Tìm manh mối đầu tiên";
 
             case MissionIds.Day1_MorseTransmission:
-                return "Truyen tin bang ma Morse";
+                return "Truyền tin bằng mã Morse";
 
             case MissionIds.Day2_MorseTransmission:
-                return "Truyen tin bang ma Morse";
+                return "Truyền tin bằng mã Morse";
 
             case MissionIds.Day3_FindMap:
-                return "Tim lai tam ban do";
+                return "Tìm lại tấm bản đồ";
 
             default:
-                return "Nhiem vu hien tai";
+                return "Nhiệm vụ hiện tại";
         }
     }
 
@@ -241,19 +241,19 @@ private string GetDefaultObjective(string missionId)
         switch (missionId)
         {
             case MissionIds.Day1_FindTinBox:
-                return "Tim hop thiec cu trong dia dao.";
+                return "Tìm hộp thiếc cũ trong địa đạo."; 
 
             case MissionIds.Day1_MorseTransmission:
-                return "Tim phong truyen tin va gui noi dung bang ma Morse.";
+                return "Tìm phòng truyền tin và gửi nội dung bằng mã Morse.";
 
             case MissionIds.Day2_MorseTransmission:
-                return "Tim phong truyen tin va gui noi dung sac lenh bang ma Morse.";
+                return "Tìm phòng truyền tin và gửi nội dung sắc lệnh bằng mã Morse."; 
 
             case MissionIds.Day3_FindMap:
-                return "Tim phong hop va lay lai tam ban do that lac.";
+                return "Tìm phòng họp và lấy lại tấm bản đồ thất lạc."; 
 
             case MissionIds.Main_FindLostMap:
-                return "Tim manh moi lien quan den tam ban do that lac.";
+                return "Tìm manh mối liên quan đến tấm bản đồ thất lạc."; 
 
             default:
                 return string.Empty;

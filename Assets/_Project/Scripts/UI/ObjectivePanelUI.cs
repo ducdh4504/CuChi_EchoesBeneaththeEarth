@@ -9,8 +9,8 @@ public class ObjectivePanelUI : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
 
     [Header("Settings")]
-    [SerializeField] private string defaultTitle = "Nhiem vu hien tai";
-    [SerializeField] private string objectivePrefix = "Muc tieu: ";
+    [SerializeField] private string defaultTitle = "Nhiệm vụ hiện tại";
+    [SerializeField] private string objectivePrefix = "Mục tiêu: ";
 
     private bool hasContent;
     private int temporaryHideRequests;
@@ -96,10 +96,10 @@ public class ObjectivePanelUI : MonoBehaviour
         switch (state)
         {
             case MissionState.Completed:
-                return "Trang thai: Hoan thanh\n";
+                return "Trạng thái: Hoàn thành\n";
 
             case MissionState.Active:
-                return "Trang thai: Dang thuc hien\n";
+                return "Trạng thái: Đang thực hiện\n";
 
             default:
                 return string.Empty;

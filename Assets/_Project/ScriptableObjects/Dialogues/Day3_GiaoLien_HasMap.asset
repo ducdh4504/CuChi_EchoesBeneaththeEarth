@@ -15,18 +15,18 @@ MonoBehaviour:
   dialogueId: day3_giaolien_has_map
   dialogueTitle: "Ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5"
   lines:
-  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
     content: "An \u01A1i, con \u0111\xE3 t\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n
       \u0111\u1ED3 r\u1ED3i \xE0?"
   - speakerName: An
     content: "D\u1EA1 b\xE1c, con \u0111em v\u1EC1 \u0111\xE2y \u1EA1."
-  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
     content: "Gi\u1ECFi l\u1EAFm con! C\xF3 b\u1EA3n \u0111\u1ED3 n\xE0y th\xEC \u0111\u01B0\u1EDDng
       ti\u1EBFn qu\xE2n c\u1EE7a ta xem nh\u01B0 \u0111\xE3 r\xF5."
-  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
     content: "Bao nhi\xEAu c\xF4ng s\u1EE9c c\u1EE7a anh em m\u1EDBi gi\u1EEF \u0111\u01B0\u1EE3c
       t\u1EDBi ng\xE0y h\xF4m nay..."
-  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
     content: "Con \u0111\xE3 ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5. T\u1ED5 qu\u1ED1c
       ghi c\xF4ng con."
   - speakerName: An
