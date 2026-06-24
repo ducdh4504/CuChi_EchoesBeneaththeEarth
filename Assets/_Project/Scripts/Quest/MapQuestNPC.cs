@@ -65,6 +65,7 @@ public class MapQuestNPC : MonoBehaviour, IInteractable, IInteractionAvailabilit
         }
         else
         {
+            GameSaveSystem.CapturePlayerOxygenForSceneTransition();
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneOnWin);
         }
     }

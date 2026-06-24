@@ -174,6 +174,7 @@ public class StoryItemPickup : MonoBehaviour, IInteractable, IInteractionAvailab
         }
 
         GameSaveSystem.UnlockLevel(nextSceneName);
+        GameSaveSystem.CapturePlayerOxygenForSceneTransition();
         SceneManager.LoadScene(nextSceneName);
     }
 

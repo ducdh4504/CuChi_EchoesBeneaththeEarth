@@ -110,6 +110,7 @@ public class SceneTransitionController : MonoBehaviour
         yield return new WaitForSecondsRealtime(sceneHoldDuration);
 
         GameSaveSystem.UnlockLevel(sceneName);
+        GameSaveSystem.CapturePlayerOxygenForSceneTransition();
         SceneManager.LoadScene(sceneName);
     }
 

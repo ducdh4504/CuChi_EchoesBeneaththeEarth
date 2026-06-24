@@ -66,6 +66,7 @@ public class MorseMissionCompleteHandler : MonoBehaviour
             return;
         }
 
+        GameSaveSystem.CapturePlayerOxygenForSceneTransition();
         SceneManager.LoadScene(nextSceneName);
     }
 }
