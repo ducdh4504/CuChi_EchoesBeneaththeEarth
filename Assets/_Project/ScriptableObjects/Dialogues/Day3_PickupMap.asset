@@ -16,10 +16,63 @@ MonoBehaviour:
   dialogueTitle: "Nh\u1EB7t b\u1EA3n \u0111\u1ED3"
   lines:
   - speakerName: An
-    content: "\u0110\xE2y r\u1ED3i! T\u1EA5m b\u1EA3n \u0111\u1ED3 m\xE0 m\xECnh
-      \u0111i t\xECm b\u1EA5y l\xE2u nay."
+    content: "\u0110\xE2y r\u1ED3i! Cu\u1ED1i c\xF9ng th\xEC m\xECnh c\u0169ng t\xECm
+      th\u1EA5y r\u1ED3i! T\u1EA5m b\u1EA3n \u0111\u1ED3 m\xE0 m\xECnh \u0111i t\xECm
+      b\u1EA5y l\xE2u nay... N\xF3 th\u1EF1c s\u1EF1 \u1EDF \u0111\xE2y. Sau bao
+      nhi\xEAu l\u1EA7n l\u1EE5c t\xECm trong \u0111\u1ED1ng h\u1ED3 s\u01A1 c\u0169
+      k\u1EF9, bao nhi\xEAu l\u1EA7n t\u01B0\u1EDFng nh\u01B0 \u0111\xE3 h\u1EBFt
+      hy v\u1ECDng, cu\u1ED1i c\xF9ng m\xECnh c\u0169ng \u0111\u01B0\u1EE3c nh\xECn
+      th\u1EA5y n\xF3 b\u1EB1ng ch\xEDnh m\u1EAFt m\xECnh.\n\n\u0110\u1EC3 xem n\xE0o...
+      \u0110\xFAng r\u1ED3i, nh\u1EEFng k\xFD hi\u1EC7u n\xE0y, nh\u1EEFng n\xE9t
+      \u0111\xE1nh d\u1EA5u n\xE0y ho\xE0n to\xE0n tr\xF9ng kh\u1EDBp v\u1EDBi nh\u1EEFng
+      g\xEC b\xE1c giao li\xEAn \u0111\xE3 m\xF4 t\u1EA3. Kh\xF4ng th\u1EC3 nh\u1EA7m
+      \u0111\u01B0\u1EE3c. \u0110\xE2y ch\xEDnh l\xE0 t\u1EA5m b\u1EA3n \u0111\u1ED3
+      m\xE0 m\u1ECDi ng\u01B0\u1EDDi \u0111\xE3 d\xE0y c\xF4ng g\xECn gi\u1EEF su\u1ED1t
+      bao nhi\xEAu n\u0103m qua.\n\nTh\u1EADt kh\xF4ng ng\u1EDD n\xF3 v\u1EABn c\xF2n
+      nguy\xEAn v\u1EB9n \u0111\u1EBFn v\u1EADy. D\xF9 gi\u1EA5y \u0111\xE3 ng\u1EA3
+      m\xE0u v\xE0 c\xE1c m\xE9p \u0111\xE3 s\u1EDDn c\u0169 theo th\u1EDDi gian,
+      nh\u01B0ng nh\u1EEFng th\xF4ng tin quan tr\u1ECDng tr\xEAn \u0111\xF3 v\u1EABn
+      c\xF2n \u0111\u1ECDc \u0111\u01B0\u1EE3c r\xF5 r\xE0ng. C\xF3 l\u1EBD nh\u1EEFng
+      ng\u01B0\u1EDDi \u0111i tr\u01B0\u1EDBc \u0111\xE3 l\xE0m m\u1ECDi c\xE1ch
+      \u0111\u1EC3 b\u1EA3o v\u1EC7 n\xF3, \u0111\u1EC3 r\u1ED3i m\u1ED9t ng\xE0y
+      n\xE0o \u0111\xF3 s\u1EBD c\xF3 ng\u01B0\u1EDDi t\xECm th\u1EA5y v\xE0 ti\u1EBFp
+      t\u1EE5c ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 c\xF2n dang d\u1EDF.\n\nKh\xF4ng
+      \u0111\u01B0\u1EE3c ch\u1EADm tr\u1EC5 n\u1EEFa. M\xECnh ph\u1EA3i mang n\xF3
+      l\xEAn m\u1EB7t \u0111\u1EA5t ngay l\u1EADp t\u1EE9c. B\xE1c giao li\xEAn k\u1EF3
+      c\u1EF1u c\u1EA7n ph\u1EA3i nh\xECn th\u1EA5y th\u1EE9 n\xE0y c\xE0ng s\u1EDBm
+      c\xE0ng t\u1ED1t. Bao nhi\xEAu c\xF4ng s\u1EE9c, bao nhi\xEAu hy sinh cu\u1ED1i
+      c\xF9ng c\u0169ng \u0111\u01B0\u1EE3c \u0111\u1EC1n \u0111\xE1p. M\xECnh \u0111\xE3
+      t\xECm th\u1EA5y r\u1ED3i... M\xECnh th\u1EF1c s\u1EF1 \u0111\xE3 t\xECm th\u1EA5y
+      r\u1ED3i!"
   - speakerName: An
-    content: "Ph\u1EA3i \u0111em ngay cho C\u1EF1u chi\u1EBFn binh th\xF4i."
+    content: "Ph\u1EA3i \u0111em ngay cho b\xE1c C\u1EF1u chi\u1EBFn binh th\xF4i.
+      \u0110\xE2y kh\xF4ng c\xF2n l\xE0 chuy\u1EC7n c\u1EE7a ri\xEAng m\xECnh n\u1EEFa
+      r\u1ED3i. T\u1EA5m b\u1EA3n \u0111\u1ED3 n\xE0y \u0111\xE3 \u0111\u01B0\u1EE3c
+      g\xECn gi\u1EEF qua bi\u1EBFt bao n\u0103m th\xE1ng, tr\u1EA3i qua bi\u1EBFt
+      bao bi\u1EBFn c\u1ED1 m\xE0 v\u1EABn c\xF2n nguy\xEAn v\u1EB9n \u0111\u1EBFn
+      ng\xE0y h\xF4m nay. Ng\u01B0\u1EDDi \u0111\u1EA7u ti\xEAn c\u1EA7n nh\xECn
+      th\u1EA5y n\xF3 ch\xEDnh l\xE0 b\xE1c \u1EA5y.\n\nB\xE1c C\u1EF1u chi\u1EBFn
+      binh \u0111\xE3 ch\u1EDD \u0111\u1EE3i tin t\u1EE9c n\xE0y t\u1EEB r\u1EA5t
+      l\xE2u. C\xF3 nh\u1EEFng c\xE2u chuy\u1EC7n, nh\u1EEFng k\xFD \u1EE9c v\xE0
+      nh\u1EEFng b\xED m\u1EADt ch\u1EC9 c\xF3 b\xE1c m\u1EDBi hi\u1EC3u h\u1EBFt
+      \u0111\u01B0\u1EE3c. Bi\u1EBFt \u0111\xE2u tr\xEAn t\u1EA5m b\u1EA3n \u0111\u1ED3
+      n\xE0y c\xF2n c\xF3 nh\u1EEFng k\xFD hi\u1EC7u \u0111\u1EB7c bi\u1EC7t m\xE0
+      ch\u1EC9 nh\u1EEFng ng\u01B0\u1EDDi t\u1EEBng tham gia nhi\u1EC7m v\u1EE5 n\u0103m
+      \u0111\xF3 m\u1EDBi c\xF3 th\u1EC3 gi\u1EA3i m\xE3.\n\nM\xECnh kh\xF4ng th\u1EC3
+      \u0111\u1EC3 m\u1EA5t th\xEAm m\u1ED9t gi\xE2y n\xE0o n\u1EEFa. M\u1ED7i ph\xFAt
+      tr\xF4i qua \u0111\u1EC1u c\xF3 th\u1EC3 l\xE0m ch\u1EADm vi\u1EC7c tri\u1EC3n
+      khai k\u1EBF ho\u1EA1ch c\u1EE7a m\u1ECDi ng\u01B0\u1EDDi. H\u01A1n n\u1EEFa,
+      m\xECnh c\u0169ng mu\u1ED1n t\u1EADn m\u1EAFt nh\xECn th\u1EA5y ph\u1EA3n \u1EE9ng
+      c\u1EE7a b\xE1c khi bi\u1EBFt r\u1EB1ng t\u1EA5m b\u1EA3n \u0111\u1ED3 cu\u1ED1i
+      c\xF9ng \u0111\xE3 \u0111\u01B0\u1EE3c t\xECm th\u1EA5y.\n\n\u0110\u01B0\u1EE3c
+      r\u1ED3i, c\u1EA5t n\xF3 th\u1EADt c\u1EA9n th\u1EADn \u0111\xE3. Kh\xF4ng
+      \u0111\u01B0\u1EE3c \u0111\u1EC3 r\xE1ch, kh\xF4ng \u0111\u01B0\u1EE3c \u0111\u1EC3
+      th\u1EA5t l\u1EA1c. Sau \u0111\xF3 l\u1EADp t\u1EE9c quay l\xEAn m\u1EB7t \u0111\u1EA5t.
+      M\xECnh ph\u1EA3i mang n\xF3 \u0111\u1EBFn cho b\xE1c C\u1EF1u chi\u1EBFn binh
+      ngay b\xE2y gi\u1EDD. C\xF3 l\u1EBD sau ng\u1EA7n \u1EA5y n\u0103m ch\u1EDD
+      \u0111\u1EE3i, cu\u1ED1i c\xF9ng b\xE1c c\u0169ng s\u1EBD \u0111\u01B0\u1EE3c
+      nh\xECn th\u1EA5y th\u1EE9 m\xE0 m\xECnh t\u01B0\u1EDFng \u0111\xE3 m\u1EA5t
+      m\xE3i m\xE3i."
   objectiveIdAfterDialogue: Day3_ReturnMap
   messageAfterDialogue: "\u0110em b\u1EA3n \u0111\u1ED3 v\u1EC1 cho C\u1EF1u chi\u1EBFn
     binh."

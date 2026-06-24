@@ -16,22 +16,130 @@ MonoBehaviour:
   dialogueTitle: "T\xECm b\u1EA3n \u0111\u1ED3 r\u1ED3i quay l\xEAn m\u1EB7t \u0111\u1EA5t"
   lines:
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
-    content: "Sao? Con t\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n \u0111\u1ED3
-      ch\u01B0a?"
+    content: "Sao r\u1ED3i con? Con t\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n
+      \u0111\u1ED3 ch\u01B0a? T\u1EEB l\xFAc con xu\u1ED1ng h\u1EA7m \u0111\u1EBFn
+      gi\u1EDD b\xE1c \u0111\u1EE9ng ng\u1ED3i kh\xF4ng y\xEAn, c\u1EE9 th\u1EA5p
+      th\u1ECFm nh\xECn v\u1EC1 ph\xEDa l\u1ED1i v\xE0o. Khu ph\xF2ng h\u1ECDp c\u0169
+      \u1EA5y b\u1ECF hoang \u0111\xE3 l\xE2u, b\xE1c c\u0169ng kh\xF4ng d\xE1m ch\u1EAFc
+      nh\u1EEFng g\xEC m\xECnh nh\u1EDB c\xF2n ch\xEDnh x\xE1c hay kh\xF4ng.\n\nCon
+      c\xF3 t\xECm k\u1EF9 quanh b\xE0n h\u1ECDp v\xE0 m\u1EA5y chi\u1EBFc h\xF2m
+      g\u1ED7 kh\xF4ng? B\xE1c c\u1EE9 lo r\u1EB1ng sau ng\u1EA7n \u1EA5y n\u0103m,
+      t\u1EA5m b\u1EA3n \u0111\u1ED3 c\xF3 th\u1EC3 \u0111\xE3 b\u1ECB th\u1EA5t
+      l\u1EA1c ho\u1EB7c h\u01B0 h\u1ECFng m\u1EA5t r\u1ED3i. N\u1EBFu th\u1EADt
+      s\u1EF1 t\xECm th\u1EA5y n\xF3 th\xEC \u0111\xF3 l\xE0 tin t\u1ED1t nh\u1EA5t
+      m\xE0 b\xE1c \u0111\u01B0\u1EE3c nghe trong nhi\u1EC1u n\u0103m qua.\n\nN\xF3i
+      b\xE1c nghe \u0111i con, d\u01B0\u1EDBi \u0111\xF3 c\xF3 chuy\u1EC7n g\xEC
+      x\u1EA3y ra kh\xF4ng? T\u1EA5m b\u1EA3n \u0111\u1ED3 c\xF2n nguy\xEAn v\u1EB9n
+      ch\u1EE9? Bao nhi\xEAu ng\u01B0\u1EDDi \u0111ang \u0111\u1EB7t hy v\u1ECDng
+      v\xE0o n\xF3, n\xEAn b\xE1c mong l\u1EAFm... mong r\u1EB1ng chuy\u1EBFn \u0111i
+      n\xE0y c\u1EE7a con kh\xF4ng ph\u1EA3i l\xE0 c\xF4ng c\u1ED1c."
   - speakerName: An
-    content: "D\u1EA1... con v\u1EABn ch\u01B0a t\xECm th\u1EA5y, b\xE1c \u1EA1."
+    content: "D\u1EA1... con v\u1EABn ch\u01B0a t\xECm th\u1EA5y, b\xE1c \u1EA1.
+      Con \u0111\xE3 t\xECm kh\u1EAFp ph\xF2ng h\u1ECDp c\u0169 r\u1ED3i. T\u1EEB
+      chi\u1EBFc b\xE0n h\u1ECDp \u1EDF gi\u1EEFa ph\xF2ng, nh\u1EEFng k\u1EC7 h\u1ED3
+      s\u01A1 d\u1ECDc theo t\u01B0\u1EDDng cho \u0111\u1EBFn m\u1EA5y chi\u1EBFc
+      h\xF2m g\u1ED7 trong g\xF3c, con \u0111\u1EC1u m\u1EDF ra ki\u1EC3m tra t\u1EEBng
+      c\xE1i m\u1ED9t. C\xF3 r\u1EA5t nhi\u1EC1u gi\u1EA5y t\u1EDD c\u0169 v\xE0
+      t\xE0i li\u1EC7u \u0111\xE3 \u1ED1 v\xE0ng theo th\u1EDDi gian, nh\u01B0ng
+      con v\u1EABn ch\u01B0a th\u1EA5y t\u1EA5m b\u1EA3n \u0111\u1ED3 m\xE0 ch\xFAng
+      ta \u0111ang t\xECm.\n\nBan \u0111\u1EA7u con ngh\u0129 c\xF3 l\u1EBD n\xF3
+      ch\u1EC9 b\u1ECB k\u1EB9t \u0111\xE2u \u0111\xF3 d\u01B0\u1EDBi \u0111\u1ED1ng
+      h\u1ED3 s\u01A1, n\xEAn con \u0111\xE3 d\xE0nh r\u1EA5t nhi\u1EC1u th\u1EDDi
+      gian \u0111\u1EC3 xem x\xE9t t\u1EEBng ch\u1ED3ng gi\u1EA5y. Nh\u01B0ng c\xE0ng
+      t\xECm, con c\xE0ng th\u1EA5y m\u1ECDi th\u1EE9 r\u1ED1i tung l\xEAn, nh\u01B0
+      th\u1EC3 ai \u0111\xF3 \u0111\xE3 l\u1EE5c so\xE1t n\u01A1i \u0111\xF3 t\u1EEB
+      r\u1EA5t l\xE2u tr\u01B0\u1EDBc \u0111\xE2y.\n\nCon xin l\u1ED7i b\xE1c. L\xFAc
+      quay l\xEAn \u0111\xE2y, trong l\xF2ng con c\u1EE9 hy v\u1ECDng m\xECnh \u0111\xE3
+      b\u1ECF s\xF3t m\u1ED9t ch\u1ED7 n\xE0o \u0111\xF3 v\xE0 t\u1EA5m b\u1EA3n
+      \u0111\u1ED3 v\u1EABn c\xF2n \u1EDF d\u01B0\u1EDBi kia. N\u1EBFu b\xE1c cho
+      ph\xE9p, con mu\u1ED1n quay l\u1EA1i t\xECm th\xEAm m\u1ED9t l\u1EA7n n\u1EEFa.
+      Con c\xF3 c\u1EA3m gi\xE1c r\u1EB1ng manh m\u1ED1i v\u1EABn c\xF2n \u1EDF \u0111\xF3,
+      ch\u1EC9 l\xE0 con ch\u01B0a t\xECm \u0111\xFAng ch\u1ED7 th\xF4i.\n\nCon bi\u1EBFt
+      t\u1EA5m b\u1EA3n \u0111\u1ED3 \u1EA5y quan tr\u1ECDng \u0111\u1EBFn nh\u01B0\u1EDDng
+      n\xE0o. V\xEC v\u1EADy con s\u1EBD kh\xF4ng b\u1ECF cu\u1ED9c \u0111\xE2u b\xE1c.
+      Ch\u1EC9 c\u1EA7n c\xF2n m\u1ED9t tia hy v\u1ECDng, con v\u1EABn mu\u1ED1n
+      ti\u1EBFp t\u1EE5c t\xECm ki\u1EBFm."
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
-    content: "V\u1EADy th\xEC con \u0111i t\xECm ti\u1EBFp \u0111i. Nh\u1EDB v\xE0o
-      ph\xF2ng h\u1ECDp coi th\u1EED, b\u1EA3n \u0111\u1ED3 c\xF3 th\u1EC3 \u0111\u01B0\u1EE3c
-      c\u1EA5t \u1EDF \u0111\xF3."
+    content: "V\u1EADy th\xEC con \u0111i t\xECm ti\u1EBFp \u0111i. \u0110\u1EEBng
+      n\u1EA3n l\xF2ng ch\u1EC9 v\xEC ch\u01B0a th\u1EA5y n\xF3 trong l\u1EA7n \u0111\u1EA7u
+      ti\xEAn. Nh\u1EEFng th\u1EE9 quan tr\u1ECDng nh\u01B0 t\u1EA5m b\u1EA3n \u0111\u1ED3
+      \u0111\xF3 \u0111\xE2u d\u1EC5 d\xE0ng n\u1EB1m ngay tr\u01B0\u1EDBc m\u1EAFt
+      \u0111\u1EC3 ng\u01B0\u1EDDi ta t\xECm th\u1EA5y. C\xF3 khi n\xF3 \u0111\xE3
+      \u0111\u01B0\u1EE3c ai \u0111\xF3 c\u1EA5t gi\u1EA5u th\u1EADt k\u1EF9 t\u1EEB
+      nhi\u1EC1u n\u0103m tr\u01B0\u1EDBc, c\u0169ng c\xF3 khi n\xF3 n\u1EB1m \u1EDF
+      m\u1ED9t g\xF3c m\xE0 con ch\u01B0a k\u1ECBp ki\u1EC3m tra \u0111\u1EBFn.\n\nCon
+      quay l\u1EA1i ph\xF2ng h\u1ECDp c\u0169 m\u1ED9t l\u1EA7n n\u1EEFa nh\xE9.
+      L\u1EA7n n\xE0y t\xECm th\u1EADt ch\u1EADm v\xE0 th\u1EADt k\u1EF9. Xem l\u1EA1i
+      t\u1EEBng ng\u0103n t\u1EE7, t\u1EEBng ch\u1ED3ng h\u1ED3 s\u01A1, t\u1EEBng
+      chi\u1EBFc h\xF2m g\u1ED7 trong ph\xF2ng. \u0110\u1EEBng b\u1ECF qua c\u1EA3
+      nh\u1EEFng ch\u1ED7 t\u01B0\u1EDFng nh\u01B0 kh\xF4ng th\u1EC3 c\u1EA5t t\xE0i
+      li\u1EC7u. H\u1ED3i \u0111\xF3 anh em m\xECnh th\u01B0\u1EDDng gi\u1EA5u nh\u1EEFng
+      gi\u1EA5y t\u1EDD quan tr\u1ECDng \u1EDF nh\u1EEFng n\u01A1i \xEDt ai ng\u1EDD
+      t\u1EDBi \u0111\u1EC3 ph\xF2ng tr\u01B0\u1EDDng h\u1EE3p \u0111\u1ECBch l\u1EE5c
+      so\xE1t.\n\nB\xE1c v\u1EABn tin t\u1EA5m b\u1EA3n \u0111\u1ED3 \u0111ang \u1EDF
+      \u0111\xF3. Bao nhi\xEAu n\u0103m qua n\xF3 ch\u01B0a xu\u1EA5t hi\u1EC7n,
+      ngh\u0129a l\xE0 r\u1EA5t c\xF3 th\u1EC3 n\xF3 v\u1EABn n\u1EB1m y\xEAn trong
+      c\u0103n ph\xF2ng \u1EA5y, ch\u1EDD c\xF3 ng\u01B0\u1EDDi t\xECm th\u1EA5y.
+      Ch\u1EC9 c\u1EA7n con ki\xEAn nh\u1EABn th\xEAm m\u1ED9t ch\xFAt n\u1EEFa th\xF4i.\n\n\u0110i
+      \u0111i con. \u0110\u1EEBng v\u1ED9i v\xE0ng nh\u01B0ng c\u0169ng \u0111\u1EEBng
+      ch\u1EA7n ch\u1EEB. N\u1EBFu t\xECm \u0111\u01B0\u1EE3c b\u1EA5t c\u1EE9 manh
+      m\u1ED1i n\xE0o, d\xF9 l\xE0 nh\u1ECF nh\u1EA5t, c\u0169ng mang v\u1EC1 b\xE1o
+      cho b\xE1c ngay. Bi\u1EBFt \u0111\xE2u ch\xEDnh t\u1EEB m\u1ED9t chi ti\u1EBFt
+      nh\u1ECF \u1EA5y m\xE0 ch\xFAng ta s\u1EBD l\u1EA7n ra \u0111\u01B0\u1EE3c
+      v\u1ECB tr\xED c\u1EE7a t\u1EA5m b\u1EA3n \u0111\u1ED3."
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
     content: "T\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n \u0111\u1ED3 r\u1ED3i
-      th\xEC \u0111\u1EEBng n\u1EA5n n\xE1 d\u01B0\u1EDBi h\u1EA7m n\u1EEFa. Con
-      h\xE3y quay l\xEAn m\u1EB7t \u0111\u1EA5t ngay \u0111\u1EC3 b\xE1o l\u1EA1i
-      t\xECnh h\xECnh."
+      th\xEC \u0111\u1EEBng n\u1EA5n n\xE1 d\u01B0\u1EDBi h\u1EA7m n\u1EEFa nghe
+      con. Vi\u1EC7c quan tr\u1ECDng nh\u1EA5t c\u1EE7a con l\xE0 mang n\xF3 tr\u1EDF
+      v\u1EC1 an to\xE0n. Khu h\u1EA7m \u0111\xF3 \u0111\xE3 b\u1ECB b\u1ECF hoang
+      qu\xE1 l\xE2u r\u1ED3i, ch\u1EB3ng ai bi\u1EBFt b\xEAn d\u01B0\u1EDBi c\xF2n
+      nh\u1EEFng nguy hi\u1EC3m g\xEC \u0111ang ch\u1EDD \u0111\u1EE3i. Ch\u1EC9
+      c\u1EA7n l\u1EA5y \u0111\u01B0\u1EE3c th\u1EE9 ch\xFAng ta c\u1EA7n l\xE0 \u0111\u1EE7,
+      kh\xF4ng c\u1EA7n ph\u1EA3i \u1EDF l\u1EA1i t\xECm hi\u1EC3u th\xEAm b\u1EA5t
+      c\u1EE9 \u0111i\u1EC1u g\xEC.\n\nKhi t\xECm th\u1EA5y b\u1EA3n \u0111\u1ED3,
+      con h\xE3y c\u1EA5t n\xF3 th\u1EADt c\u1EA9n th\u1EADn, tr\xE1nh \u0111\u1EC3
+      r\xE1ch hay th\u1EA5t l\u1EA1c. Sau \u0111\xF3 l\u1EADp t\u1EE9c quay l\xEAn
+      m\u1EB7t \u0111\u1EA5t \u0111\u1EC3 b\xE1o l\u1EA1i t\xECnh h\xECnh cho b\xE1c
+      v\xE0 m\u1ECDi ng\u01B0\u1EDDi. Ngo\xE0i n\xE0y ai c\u0169ng \u0111ang ch\u1EDD
+      tin t\u1EEB con. T\u1EEBng ph\xFAt t\u1EEBng gi\xE2y \u0111\u1EC1u r\u1EA5t
+      qu\xFD gi\xE1, nh\u1EA5t l\xE0 khi nh\u1EEFng th\xF4ng tin tr\xEAn t\u1EA5m
+      b\u1EA3n \u0111\u1ED3 c\xF3 th\u1EC3 \u1EA3nh h\u01B0\u1EDFng \u0111\u1EBFn
+      c\u1EA3 k\u1EBF ho\u1EA1ch c\u1EE7a \u0111\u01A1n v\u1ECB.\n\nN\u1EBFu tr\xEAn
+      \u0111\u01B0\u1EDDng quay ra c\xF3 g\u1EB7p \u0111i\u1EC1u g\xEC b\u1EA5t th\u01B0\u1EDDng
+      th\xEC \u0111\u1EEBng t\u1EF1 \xFD x\u1EED l\xFD m\u1ED9t m\xECnh. \u01AFu
+      ti\xEAn h\xE0ng \u0111\u1EA7u v\u1EABn l\xE0 \u0111\u01B0a b\u1EA3n \u0111\u1ED3
+      l\xEAn kh\u1ECFi h\u1EA7m an to\xE0n. Ch\xFAng ta c\xF3 th\u1EC3 quay l\u1EA1i
+      sau, nh\u01B0ng c\u01A1 h\u1ED9i \u0111\u1EC3 b\u1EA3o to\xE0n t\xE0i li\u1EC7u
+      quan tr\u1ECDng nh\u01B0 th\u1EBF n\xE0y th\xEC kh\xF4ng ph\u1EA3i l\xFAc n\xE0o
+      c\u0169ng c\xF3.\n\nNh\u1EDB k\u1EF9 nh\xE9 con, t\xECm \u0111\u01B0\u1EE3c
+      b\u1EA3n \u0111\u1ED3 l\xE0 ho\xE0n th\xE0nh m\u1ED9t n\u1EEDa nhi\u1EC7m v\u1EE5.
+      Mang n\xF3 tr\u1EDF v\u1EC1 nguy\xEAn v\u1EB9n v\xE0 b\xE1o c\xE1o l\u1EA1i
+      t\xECnh h\xECnh m\u1EDBi l\xE0 ho\xE0n th\xE0nh tr\u1ECDn v\u1EB9n nhi\u1EC7m
+      v\u1EE5. B\xE1c v\xE0 m\u1ECDi ng\u01B0\u1EDDi s\u1EBD \u0111\u1EE3i con \u1EDF
+      tr\xEAn n\xE0y. \u0110\u1EEBng \u0111\u1EC3 ch\xFAng ta ph\u1EA3i ch\u1EDD
+      l\xE2u qu\xE1."
   - speakerName: An
-    content: "D\u1EA1, con hi\u1EC3u r\u1ED3i. Con s\u1EBD t\xECm b\u1EA3n \u0111\u1ED3
-      r\u1ED3i quay l\xEAn m\u1EB7t \u0111\u1EA5t."
+    content: "D\u1EA1, con hi\u1EC3u r\u1ED3i b\xE1c. Con s\u1EBD quay l\u1EA1i ph\xF2ng
+      h\u1ECDp c\u0169 v\xE0 t\xECm th\u1EADt k\u1EF9 m\u1ED9t l\u1EA7n n\u1EEFa.
+      D\xF9 ph\u1EA3i l\u1EE5c l\u1EA1i t\u1EEBng ch\u1ED3ng h\u1ED3 s\u01A1, m\u1EDF
+      t\u1EEBng ng\u0103n t\u1EE7 hay ki\u1EC3m tra t\u1EEBng chi\u1EBFc h\xF2m g\u1ED7,
+      con c\u0169ng s\u1EBD kh\xF4ng b\u1ECF s\xF3t b\u1EA5t c\u1EE9 ch\u1ED7 n\xE0o.
+      N\u1EBFu t\u1EA5m b\u1EA3n \u0111\u1ED3 v\u1EABn c\xF2n \u1EDF d\u01B0\u1EDBi
+      \u0111\xF3, con nh\u1EA5t \u0111\u1ECBnh s\u1EBD mang n\xF3 tr\u1EDF v\u1EC1.\n\nCon
+      bi\u1EBFt m\u1ECDi ng\u01B0\u1EDDi \u0111ang \u0111\u1EB7t r\u1EA5t nhi\u1EC1u
+      hy v\u1ECDng v\xE0o nhi\u1EC7m v\u1EE5 n\xE0y. V\xEC v\u1EADy con s\u1EBD kh\xF4ng
+      \u0111\u1EC3 s\u1EF1 v\u1ED9i v\xE0ng l\xE0m m\xECnh m\u1EAFc sai l\u1EA7m.
+      Con s\u1EBD c\u1EA9n th\u1EADn, b\xECnh t\u0129nh v\xE0 l\xE0m \u0111\xFAng
+      nh\u1EEFng g\xEC b\xE1c \u0111\xE3 d\u1EB7n.\n\nNgay khi t\xECm \u0111\u01B0\u1EE3c
+      b\u1EA3n \u0111\u1ED3, con s\u1EBD kh\xF4ng n\u1EA5n n\xE1 d\u01B0\u1EDBi h\u1EA7m
+      n\u1EEFa. Con s\u1EBD quay l\xEAn m\u1EB7t \u0111\u1EA5t ngay \u0111\u1EC3
+      b\xE1o l\u1EA1i t\xECnh h\xECnh cho b\xE1c v\xE0 \u0111\u01A1n v\u1ECB. T\u1EA5m
+      b\u1EA3n \u0111\u1ED3 \u1EA5y quan tr\u1ECDng, nh\u01B0ng vi\u1EC7c \u0111\u01B0a
+      n\xF3 tr\u1EDF v\u1EC1 an to\xE0n c\xF2n quan tr\u1ECDng h\u01A1n.\n\nB\xE1c
+      c\u1EE9 y\xEAn t\xE2m ch\u1EDD tin con nh\xE9. Con h\u1EE9a s\u1EBD c\u1ED1
+      g\u1EAFng h\u1EBFt s\u1EE9c. D\xF9 c\xF3 m\u1EA5t th\xEAm th\u1EDDi gian, con
+      c\u0169ng s\u1EBD kh\xF4ng b\u1ECF cu\u1ED9c cho \u0111\u1EBFn khi t\xECm \u0111\u01B0\u1EE3c
+      th\u1EE9 m\xE0 ch\xFAng ta \u0111ang t\xECm ki\u1EBFm b\u1EA5y l\xE2u nay."
   objectiveIdAfterDialogue: day3_find_map
   messageAfterDialogue: "T\xECm t\u1EA5m b\u1EA3n \u0111\u1ED3 trong ph\xF2ng h\u1ECDp,
     sau \u0111\xF3 quay l\xEAn m\u1EB7t \u0111\u1EA5t."
