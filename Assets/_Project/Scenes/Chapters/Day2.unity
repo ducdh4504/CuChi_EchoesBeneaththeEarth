@@ -5590,7 +5590,7 @@ MonoBehaviour:
   stopAmbienceOnStart: 0
   playAmbienceOnStart: 1
   ambienceClip: {fileID: 8300000, guid: 52343682d65c36442b9114d7e3d73e81, type: 3}
-  ambienceVolume: 0.25
+  ambienceVolume: 0.1
   ambienceLoop: 1
   ambienceFadeDuration: 1
 --- !u!4 &534460030
@@ -10411,7 +10411,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 788376376}
   openPaperSfx: {fileID: 8300000, guid: 61d8b3172cb70fb4bb24ac21890668b0, type: 3}
   closePaperSfx: {fileID: 8300000, guid: 61d8b3172cb70fb4bb24ac21890668b0, type: 3}
-  volume: 0.8
+  volume: 0.3
 --- !u!1001 &961732482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15475,6 +15475,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 52343682d65c36442b9114d7e3d73e81, type: 3}
     - target: {fileID: 798970641962987102, guid: 88495445b443a4f46aa10a88e26d9986, type: 3}
+      propertyPath: ambienceVolume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 798970641962987102, guid: 88495445b443a4f46aa10a88e26d9986, type: 3}
       propertyPath: musicCueOnStart
       value: 2
       objectReference: {fileID: 0}
@@ -17802,7 +17806,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 52343682d65c36442b9114d7e3d73e81, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -19598,7 +19602,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f8c4ad0989c419540a71c5a1dec08a83, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0

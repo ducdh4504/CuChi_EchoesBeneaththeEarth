@@ -49,7 +49,7 @@ MonoBehaviour:
   ambienceSource: {fileID: 0}
   sfxSource: {fileID: 0}
   mainMenuMusic: {fileID: 8300000, guid: 551aec764387fd3498a2e436ed57b2a3, type: 3}
-  gameplayMusic: {fileID: 8300000, guid: 8d2949f58c75c9040a558822206cb147, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: 551aec764387fd3498a2e436ed57b2a3, type: 3}
   mapFoundMusic: {fileID: 8300000, guid: 551aec764387fd3498a2e436ed57b2a3, type: 3}
   endingMusic: {fileID: 8300000, guid: 551aec764387fd3498a2e436ed57b2a3, type: 3}
   masterVolume: 1
@@ -57,7 +57,7 @@ MonoBehaviour:
   ambienceVolumeMultiplier: 1
   sfxVolumeMultiplier: 1
   mainMenuMusicVolume: 0.45
-  gameplayMusicVolume: 0.04
+  gameplayMusicVolume: 0.08
   mapFoundMusicVolume: 0.25
   endingMusicVolume: 0.65
   defaultMusicFadeDuration: 1.5

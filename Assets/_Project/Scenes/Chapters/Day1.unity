@@ -5256,7 +5256,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f8c4ad0989c419540a71c5a1dec08a83, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13579,7 +13579,7 @@ MonoBehaviour:
   stopAmbienceOnStart: 0
   playAmbienceOnStart: 1
   ambienceClip: {fileID: 8300000, guid: 74bd605a30ac0f9449e11440c07ea0c2, type: 3}
-  ambienceVolume: 0.18
+  ambienceVolume: 0.1
   ambienceLoop: 1
   ambienceFadeDuration: 1
 --- !u!4 &1214168265
@@ -21129,6 +21129,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoryDiscoveryPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 8683029629107587553, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683029629107587553, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683029629107587553, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8683029629107587553, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8755195316560059757, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -22144,7 +22160,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 52343682d65c36442b9114d7e3d73e81, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0

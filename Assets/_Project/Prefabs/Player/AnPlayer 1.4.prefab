@@ -603,11 +603,16 @@ MonoBehaviour:
   currentOxygen: 100
   oxygenDecreaseRate: 0.5
   pauseWhenStandingOnTerrain: 1
+  restoreWhenStandingOnTerrain: 1
+  terrainOxygenRestorePercentPerSecond: 0.1
   terrainCheckDistance: 1.5
   terrainCheckMask:
     serializedVersion: 2
     m_Bits: 4294967295
   drainOnlyInsideDrainZone: 0
+  adjustSunShadowStrengthByTerrain: 1
+  terrainSunShadowStrength: 0.3
+  undergroundSunShadowStrength: 0.97
 --- !u!114 &7529793451636845020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,7 +674,7 @@ MonoBehaviour:
   flashlightToggleSfx: {fileID: 8300000, guid: 346a9cd63d1f0eb47b9f9dc2ea9e089c, type: 3}
   flashlightHolsterSfx: {fileID: 8300000, guid: 346a9cd63d1f0eb47b9f9dc2ea9e089c, type: 3}
   flashlightEmptySfx: {fileID: 8300000, guid: ef4ccd750c88e944090fdc8a4e0b37e6, type: 3}
-  flashlightSfxVolume: 0.5
+  flashlightSfxVolume: 0.25
 --- !u!114 &3176058894711556890
 MonoBehaviour:
   m_ObjectHideFlags: 0
