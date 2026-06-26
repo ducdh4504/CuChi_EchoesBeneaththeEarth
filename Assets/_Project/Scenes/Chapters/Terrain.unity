@@ -3778,6 +3778,18 @@ PrefabInstance:
       propertyPath: interactionOrigin
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2973329722478716888, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -78.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973329722478716888, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.172
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973329722478716888, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.108
+      objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: m_LocalPosition.x
       value: -35.145
@@ -4957,7 +4969,7 @@ MonoBehaviour:
   prompt: "Nh\u1EA5n E \u0111\u1EC3 v\xE0o h\u1EA7m"
   transitionController: {fileID: 0}
   sceneName: Day1
-  transitionMessage: "\u0110ang V\xE0o  H\u1EA7m"
+  transitionMessage: "\u0110ang V\xE0o H\u1EA7m"
   cutsceneDirector: {fileID: 0}
   cutsceneObjectsToEnable: []
   waitForCutscene: 1
@@ -5150,7 +5162,7 @@ Transform:
   m_GameObject: {fileID: 1292308247}
   serializedVersion: 2
   m_LocalRotation: {x: -0.012054927, y: -0.9889022, z: 0.1300325, w: -0.070843026}
-  m_LocalPosition: {x: -0.391, y: 1.468, z: -0.515}
+  m_LocalPosition: {x: -0.404, y: 1.179, z: -0.438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
