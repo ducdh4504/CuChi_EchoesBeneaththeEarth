@@ -17,11 +17,6 @@ public class AnOxygen : MonoBehaviour
     [SerializeField] private LayerMask terrainCheckMask = ~0;
     [SerializeField] private bool drainOnlyInsideDrainZone;
 
-    [Header("Terrain Lighting")]
-    [SerializeField] private bool adjustSunShadowStrengthByTerrain = true;
-    [SerializeField, Range(0f, 1f)] private float terrainSunShadowStrength = 0.3f;
-    [SerializeField, Range(0f, 1f)] private float undergroundSunShadowStrength = 0.97f;
-
     public float CurrentOxygen => currentOxygen;
     public float MaxOxygen => maxOxygen;
     public float OxygenPercent => maxOxygen <= 0f ? 0f : currentOxygen / maxOxygen;
@@ -33,14 +28,12 @@ public class AnOxygen : MonoBehaviour
     private bool isOxygenDrainPaused;
     private int drainZoneCount;
     private bool isOutOfOxygen;
-    private Light shadowControlledSun;
 
     private void Awake()
     {
         maxOxygen = Mathf.Max(1f, maxOxygen);
         currentOxygen = Mathf.Clamp(currentOxygen, 0f, maxOxygen);
         isOutOfOxygen = currentOxygen <= 0f;
-        shadowControlledSun = ResolveSunLight();
     }
 
     private void Update()
@@ -51,7 +44,6 @@ public class AnOxygen : MonoBehaviour
     private void UpdateOxygenOverTime()
     {
         bool standingOnTerrainSurface = IsStandingOnTerrainSurface();
-        UpdateSunShadowStrength(standingOnTerrainSurface);
 
         if (isOutOfOxygen || isOxygenDrainPaused)
         {
@@ -117,47 +109,6 @@ public class AnOxygen : MonoBehaviour
         }
 
         return hit.collider is TerrainCollider;
-    }
-
-    private void UpdateSunShadowStrength(bool standingOnTerrainSurface)
-    {
-        if (!adjustSunShadowStrengthByTerrain)
-        {
-            return;
-        }
-
-        if (shadowControlledSun == null)
-        {
-            shadowControlledSun = ResolveSunLight();
-        }
-
-        if (shadowControlledSun == null)
-        {
-            return;
-        }
-
-        shadowControlledSun.shadowStrength = standingOnTerrainSurface
-            ? terrainSunShadowStrength
-            : undergroundSunShadowStrength;
-    }
-
-    private static Light ResolveSunLight()
-    {
-        if (RenderSettings.sun != null)
-        {
-            return RenderSettings.sun;
-        }
-
-        Light[] lights = FindObjectsByType<Light>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        foreach (Light light in lights)
-        {
-            if (light.type == LightType.Directional)
-            {
-                return light;
-            }
-        }
-
-        return null;
     }
 
     public void SetOxygenDrainPaused(bool paused)

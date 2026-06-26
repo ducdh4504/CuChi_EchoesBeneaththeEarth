@@ -3220,7 +3220,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &245037789 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5524952286781540223, guid: 451239565a8e267468de48e947e8e414, type: 3}
+  m_CorrespondingSourceObject: {fileID: 737342334156943225, guid: 451239565a8e267468de48e947e8e414, type: 3}
   m_PrefabInstance: {fileID: 1052920763}
   m_PrefabAsset: {fileID: 0}
 --- !u!64 &245037790
@@ -10835,6 +10835,11 @@ MonoBehaviour:
   statusText: {fileID: 1345079243}
   fadeDuration: 0.65
   holdDuration: 0.35
+  transitionVideoPlayer: {fileID: 0}
+  transitionVideoObjectsToEnable: []
+  playVideoBeforeSceneLoad: 0
+  waitForTransitionVideo: 1
+  videoPrepareTimeout: 5
   endSceneName: EndScene
   endSceneFadeDuration: 1.8
   endSceneHoldDuration: 0.8

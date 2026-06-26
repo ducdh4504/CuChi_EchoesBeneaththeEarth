@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/LoadedScene.unity
     guid: 5b4d55418931cd14cbd4a3ffaea67d23
   - enabled: 1
+    path: Assets/_Project/Scenes/Chapters/Terrain.unity
+    guid: ded668cd9a7765646a6d0b025a205e66
+  - enabled: 1
     path: Assets/_Project/Scenes/Chapters/Day1.unity
     guid: 1ccd848f36992554a89a0941fcb9caf2
   - enabled: 1

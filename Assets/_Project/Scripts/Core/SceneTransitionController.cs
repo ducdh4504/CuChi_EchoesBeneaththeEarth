@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class SceneTransitionController : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class SceneTransitionController : MonoBehaviour
     [SerializeField] private TMP_Text statusText;
     [SerializeField] private float fadeDuration = 0.65f;
     [SerializeField] private float holdDuration = 0.35f;
+
+    [Header("Transition Video")]
+    [SerializeField] private VideoPlayer transitionVideoPlayer;
+    [SerializeField] private GameObject[] transitionVideoObjectsToEnable;
+    [SerializeField] private bool playVideoBeforeSceneLoad;
+    [SerializeField] private bool waitForTransitionVideo = true;
+    [SerializeField] private float videoPrepareTimeout = 5f;
 
     [Header("Ending Transition")]
     [SerializeField] private string endSceneName = "EndScene";
@@ -111,7 +119,85 @@ public class SceneTransitionController : MonoBehaviour
 
         GameSaveSystem.UnlockLevel(sceneName);
         GameSaveSystem.CapturePlayerOxygenForSceneTransition();
+
+        if (playVideoBeforeSceneLoad)
+        {
+            yield return PlayTransitionVideo();
+        }
+
         SceneManager.LoadScene(sceneName);
+    }
+
+    private IEnumerator PlayTransitionVideo()
+    {
+        if (!HasTransitionVideo())
+        {
+            yield break;
+        }
+
+        SetTransitionVideoObjectsActive(true);
+
+        transitionVideoPlayer.Stop();
+        transitionVideoPlayer.time = 0d;
+
+        if (!transitionVideoPlayer.isPrepared)
+        {
+            transitionVideoPlayer.Prepare();
+
+            float prepareElapsed = 0f;
+            float prepareTimeout = Mathf.Max(0.1f, videoPrepareTimeout);
+            while (!transitionVideoPlayer.isPrepared && prepareElapsed < prepareTimeout)
+            {
+                prepareElapsed += Time.unscaledDeltaTime;
+                yield return null;
+            }
+        }
+
+        if (!transitionVideoPlayer.isPrepared)
+        {
+            Debug.LogWarning("Transition video could not be prepared. Loading scene without video.");
+            SetTransitionVideoObjectsActive(false);
+            yield break;
+        }
+
+        transitionVideoPlayer.isLooping = false;
+        transitionVideoPlayer.Play();
+
+        if (waitForTransitionVideo)
+        {
+            while (transitionVideoPlayer != null && transitionVideoPlayer.isPlaying)
+            {
+                yield return null;
+            }
+        }
+
+        SetTransitionVideoObjectsActive(false);
+    }
+
+    private bool HasTransitionVideo()
+    {
+        if (transitionVideoPlayer == null)
+        {
+            return false;
+        }
+
+        return transitionVideoPlayer.clip != null || !string.IsNullOrWhiteSpace(transitionVideoPlayer.url);
+    }
+
+    private void SetTransitionVideoObjectsActive(bool active)
+    {
+        if (transitionVideoObjectsToEnable == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < transitionVideoObjectsToEnable.Length; i++)
+        {
+            if (transitionVideoObjectsToEnable[i] != null)
+            {
+                transitionVideoObjectsToEnable[i].SetActive(active);
+            }
+        }
     }
 
     private IEnumerator FadeTo(float targetAlpha)

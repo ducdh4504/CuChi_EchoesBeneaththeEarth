@@ -70,7 +70,7 @@ public class DayMissionStarter : MonoBehaviour
 
         if (!MissionManager.Instance.IsMissionCompleted(MissionIds.Day1_FindTinBox))
         {
-            MissionManager.Instance.ClearObjective();
+            MissionManager.Instance.StartMission(MissionIds.Day1_FindTinBox);
         }
     }
 

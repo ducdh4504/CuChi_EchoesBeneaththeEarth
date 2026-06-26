@@ -6,6 +6,7 @@ public static class SceneLoader
     public enum Scene
     {
         MainMenu,
+        Terrain,
         Day1,
         Day2,
         Day3,
@@ -26,7 +27,7 @@ public static class SceneLoader
     {
         if (string.IsNullOrWhiteSpace(sceneName))
         {
-            sceneName = Scene.Day1.ToString();
+            sceneName = Scene.Terrain.ToString();
         }
 
         targetSceneName = sceneName;

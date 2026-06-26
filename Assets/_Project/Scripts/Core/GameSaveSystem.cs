@@ -31,6 +31,7 @@ public static class GameSaveSystem
 
     private static readonly string[] GameplaySceneNames =
     {
+        "Terrain",
         "Day1",
         "Day2",
         "Day3"
@@ -58,7 +59,7 @@ public static class GameSaveSystem
         get
         {
             string sceneName = PlayerPrefs.GetString(SceneKey, string.Empty);
-            return string.IsNullOrWhiteSpace(sceneName) ? "Day1" : sceneName;
+            return string.IsNullOrWhiteSpace(sceneName) ? "Terrain" : sceneName;
         }
     }
 
@@ -133,13 +134,13 @@ public static class GameSaveSystem
             return;
         }
 
-        LoadLevel("Day1");
+        LoadLevel("Terrain");
     }
 
     public static void LoadNewGame()
     {
         DeleteSave();
-        LoadLevel("Day1");
+        LoadLevel("Terrain");
     }
 
     public static void LoadLevel(string sceneName)
@@ -158,7 +159,7 @@ public static class GameSaveSystem
 
     public static bool IsLevelUnlocked(string sceneName)
     {
-        if (sceneName == "Day1")
+        if (sceneName == "Terrain" || sceneName == "Day1")
         {
             return true;
         }
@@ -283,7 +284,7 @@ public static class GameSaveSystem
 
         foreach (string gameplaySceneName in GameplaySceneNames)
         {
-            if (gameplaySceneName != "Day1")
+            if (gameplaySceneName != "Terrain" && gameplaySceneName != "Day1")
             {
                 PlayerPrefs.DeleteKey(LevelUnlockedPrefix + gameplaySceneName);
             }
@@ -381,7 +382,7 @@ public static class GameSaveSystem
             return;
         }
 
-        if (sceneName != "Day1")
+        if (sceneName != "Terrain" && sceneName != "Day1")
         {
             PlayerPrefs.SetInt(LevelUnlockedPrefix + sceneName, 1);
         }
