@@ -18,25 +18,43 @@ MonoBehaviour:
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
     content: "An, mu\u1ED1n t\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n \u0111\u1ED3
       th\xEC con ph\u1EA3i xu\u1ED1ng khu ph\xF2ng h\u1ECDp c\u0169 tr\u01B0\u1EDBc."
+    voiceClip: {fileID: 8300000, guid: 4bc485593ccb0cf4bb24b56ade7e8ec0, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "Ph\xF2ng h\u1ECDp c\u0169 n\u1EB1m \u1EDF \u0111\xE2u v\u1EADy b\xE1c?"
+    voiceClip: {fileID: 8300000, guid: 17778b2327f23f14ebdb4df8343393ed, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
     content: "\u0110i theo \u0111\u01B0\u1EDDng h\u1EA7m ch\xEDnh, t\u1EDBi ng\xE3
       r\u1EBD c\xF3 th\xF9ng ti\u1EBFp t\u1EBF th\xEC r\u1EBD v\xE0o l\u1ED1i b\xEAn
       ph\u1EA3i. \u1EDE \u0111\xF3 tr\u01B0\u1EDBc kia anh em hay c\u1EA5t t\xE0i
       li\u1EC7u quan tr\u1ECDng."
+    voiceClip: {fileID: 8300000, guid: 9d32712aeb7f3e24ca60a09f1a425635, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
     content: "Con nh\u1EDB quan s\xE1t k\u1EF9 quanh b\xE0n h\u1ECDp, k\u1EC7 h\u1ED3
       s\u01A1 v\xE0 m\u1EA5y h\xF2m g\u1ED7. B\u1EA3n \u0111\u1ED3 c\xF3 th\u1EC3
       b\u1ECB k\u1EB9p d\u01B0\u1EDBi gi\u1EA5y t\u1EDD ho\u1EB7c r\u01A1i xu\u1ED1ng
       g\xF3c t\u1ED1i."
+    voiceClip: {fileID: 8300000, guid: 84cb86694a205ab43a2a92a5bf86f5fc, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
     content: "T\xECm \u0111\u01B0\u1EE3c b\u1EA3n \u0111\u1ED3 r\u1ED3i th\xEC quay
       l\xEAn m\u1EB7t \u0111\u1EA5t ngay. \u0110\u1EEBng \u1EDF d\u01B0\u1EDBi h\u1EA7m
       l\xE2u qu\xE1."
+    voiceClip: {fileID: 8300000, guid: 83787c0c753430144bf9c6bf0d4f81d2, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "D\u1EA1, con s\u1EBD t\xECm \u1EDF ph\xF2ng h\u1ECDp c\u0169 r\u1ED3i
       quay l\xEAn m\u1EB7t \u0111\u1EA5t ngay."
+    voiceClip: {fileID: 8300000, guid: dc6c5102b0b2ce24c83f43448d58d529, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   objectiveIdAfterDialogue: Day3_FindMap
   messageAfterDialogue: "\u0110i t\u1EDBi ph\xF2ng h\u1ECDp c\u0169 \u0111\u1EC3
     t\xECm t\u1EA5m b\u1EA3n \u0111\u1ED3, sau \u0111\xF3 quay l\xEAn m\u1EB7t \u0111\u1EA5t."

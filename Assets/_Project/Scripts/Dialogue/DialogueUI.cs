@@ -12,7 +12,7 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TMP_Text continueHintText;
 
     [Header("Settings")]
-    [SerializeField] private string continueHint = "Nhấn Space / E để tiếp tục";
+    [SerializeField] private string continueHint = "Đang hội thoại...";
 
     private void Awake()
     {

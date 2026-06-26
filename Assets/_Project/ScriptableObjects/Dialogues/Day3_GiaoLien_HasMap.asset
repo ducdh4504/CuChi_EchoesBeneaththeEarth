@@ -17,20 +17,38 @@ MonoBehaviour:
   lines:
   - speakerName: "Giao Li\xEAn K\xEC C\u1EF1u"
     content: "An \u01A1i, con \u0111\xE3 t\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n
-      \u0111\u1ED3 r\u1ED3i \xE0?"
+      \u0111\u1ED3 ch\u01B0a?"
+    voiceClip: {fileID: 8300000, guid: 783b5bf216628c04da7376c02399457a, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "D\u1EA1 b\xE1c, con \u0111em v\u1EC1 \u0111\xE2y \u1EA1."
+    voiceClip: {fileID: 8300000, guid: ccd5464a0688bcf4cb1a8da9d3ed0428, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "Giao Li\xEAn K\xEC C\u1EF1u"
     content: "Gi\u1ECFi l\u1EAFm con! C\xF3 b\u1EA3n \u0111\u1ED3 n\xE0y th\xEC \u0111\u01B0\u1EDDng
       ti\u1EBFn qu\xE2n c\u1EE7a ta xem nh\u01B0 \u0111\xE3 r\xF5."
+    voiceClip: {fileID: 8300000, guid: 3d2423dd6fda56844aa3aa9416de9336, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "Giao Li\xEAn K\xEC C\u1EF1u"
     content: "Bao nhi\xEAu c\xF4ng s\u1EE9c c\u1EE7a anh em m\u1EDBi gi\u1EEF \u0111\u01B0\u1EE3c
       t\u1EDBi ng\xE0y h\xF4m nay..."
+    voiceClip: {fileID: 8300000, guid: 9f62484ab832d64449556ec80eadf34e, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "Giao Li\xEAn K\xEC C\u1EF1u"
-    content: "Con \u0111\xE3 ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5. T\u1ED5 qu\u1ED1c
-      ghi c\xF4ng con."
+    content: "Con l\xE0m t\u1ED1t l\u1EAFm, anh em ai c\u0169ng t\u1EF1 h\xE0o v\xEC
+      con."
+    voiceClip: {fileID: 8300000, guid: e171200f4d44ee44198a5bcb02a9b3b1, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "D\u1EA1, con ch\u1EC9 l\xE0m ph\u1EA7n vi\u1EC7c c\u1EE7a m\xECnh th\xF4i
       b\xE1c \u1EA1."
+    voiceClip: {fileID: 8300000, guid: 9ed8d426045e471448d88976f014f97b, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   objectiveIdAfterDialogue: Day3_Complete
   messageAfterDialogue: "Ho\xE0n th\xE0nh nhi\u1EC7m v\u1EE5 ch\xEDnh."

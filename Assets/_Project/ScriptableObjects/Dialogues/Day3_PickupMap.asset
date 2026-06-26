@@ -18,8 +18,9 @@ MonoBehaviour:
   - speakerName: An
     content: "\u0110\xE2y r\u1ED3i! T\u1EA5m b\u1EA3n \u0111\u1ED3 m\xE0 m\xECnh
       \u0111i t\xECm b\u1EA5y l\xE2u nay."
-  - speakerName: An
-    content: "Ph\u1EA3i \u0111em ngay cho C\u1EF1u chi\u1EBFn binh th\xF4i."
+    voiceClip: {fileID: 8300000, guid: 92f97da50a2a9a142937f15b03246ca6, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   objectiveIdAfterDialogue: Day3_ReturnMap
   messageAfterDialogue: "\u0110em b\u1EA3n \u0111\u1ED3 v\u1EC1 cho C\u1EF1u chi\u1EBFn
     binh."
