@@ -63,11 +63,11 @@ public class PauseMenuController : MonoBehaviour
         instance = controllerObject.AddComponent<PauseMenuController>();
     }
 
-    private static bool ShouldExistInScene(Scene scene)
+private static bool ShouldExistInScene(Scene scene)
     {
         return scene.IsValid()
             && scene.isLoaded
-            && scene.name.StartsWith("Day");
+            && (scene.name.StartsWith("Day") || scene.name == "Terrain");
     }
 
     private void Awake()
