@@ -14,16 +14,19 @@ public class MainMenuIntroController : MonoBehaviour
     [SerializeField] private float revealDelay = 0.1f;
     [SerializeField] private float fadeDuration = 0.75f;
 
-    private Coroutine revealRoutine;
-    private bool menuRevealed;
+    [Header("Playback Safety")]
+    [SerializeField] private float prepareTimeout = 12f;
     [SerializeField] private float stallRestartDelay = 0.75f;
     [SerializeField] private float endTolerance = 0.2f;
 
+    private Coroutine playRoutine;
+    private Coroutine revealRoutine;
+    private bool menuRevealed;
     private double lastObservedTime;
     private float stallTimer;
     private float introStartedAt;
 
-private void Awake()
+    private void Awake()
     {
         Application.runInBackground = true;
 
@@ -31,11 +34,9 @@ private void Awake()
         {
             videoPlayer = GetComponent<VideoPlayer>();
         }
-
-        SetMenuVisible(false, 0f);
     }
 
-private void OnEnable()
+    private void OnEnable()
     {
         if (videoPlayer == null)
         {
@@ -51,11 +52,7 @@ private void OnEnable()
         PlayIntro();
     }
 
-private void Start()
-    {
-    }
-
-private void OnDisable()
+    private void OnDisable()
     {
         if (videoPlayer != null)
         {
@@ -64,76 +61,7 @@ private void OnDisable()
         }
     }
 
-private void PlayIntro()
-    {
-        menuRevealed = false;
-        stallTimer = 0f;
-        lastObservedTime = 0d;
-        introStartedAt = Time.realtimeSinceStartup;
-        SetMenuVisible(false, 0f);
-
-        if (videoPlayer == null || videoPlayer.clip == null)
-        {
-            RevealMenu();
-            return;
-        }
-
-        videoPlayer.playOnAwake = false;
-        videoPlayer.isLooping = false;
-        videoPlayer.waitForFirstFrame = true;
-        videoPlayer.skipOnDrop = false;
-        videoPlayer.timeUpdateMode = VideoTimeUpdateMode.UnscaledGameTime;
-        videoPlayer.timeReference = VideoTimeReference.InternalTime;
-        videoPlayer.audioOutputMode = VideoAudioOutputMode.None;
-
-        if (videoImage != null)
-        {
-            videoImage.enabled = true;
-        }
-
-        videoPlayer.Stop();
-        videoPlayer.time = 0d;
-        videoPlayer.frame = 0;
-        lastObservedTime = 0d;
-        videoPlayer.Prepare();
-        StartCoroutine(PlayWhenPrepared());
-    }
-
-private IEnumerator PlayWhenPrepared()
-    {
-        const float prepareTimeout = 12f;
-        float elapsed = 0f;
-
-        while (videoPlayer != null && !videoPlayer.isPrepared && elapsed < prepareTimeout)
-        {
-            elapsed += Time.unscaledDeltaTime;
-            yield return null;
-        }
-
-        if (videoPlayer == null)
-        {
-            RevealMenu();
-            yield break;
-        }
-
-        if (!videoPlayer.isPrepared)
-        {
-            Debug.LogWarning("Main menu video could not be prepared. Click/focus the Game view and try Play again, or check Windows video codec support.");
-            RevealMenu();
-            yield break;
-        }
-
-        videoPlayer.Play();
-        yield return null;
-
-        if (!videoPlayer.isPlaying && videoPlayer.frame <= 0)
-        {
-            Debug.LogWarning("Main menu video prepared but did not start playback. Click/focus the Game view and try Play again, or check Windows video codec support.");
-            RevealMenu();
-        }
-    }
-
-private void Update()
+    private void Update()
     {
         if (menuRevealed || videoPlayer == null || !videoPlayer.isPrepared)
         {
@@ -176,30 +104,76 @@ private void Update()
         }
     }
 
-    private bool IsVideoAtEnd()
+    private void PlayIntro()
     {
+        menuRevealed = false;
+        stallTimer = 0f;
+        lastObservedTime = 0d;
+        introStartedAt = Time.realtimeSinceStartup;
+        SetMenuVisible(false, 0f);
+
         if (videoPlayer == null || videoPlayer.clip == null)
         {
-            return false;
+            RevealMenu();
+            return;
         }
 
-        ulong frameCount = videoPlayer.clip.frameCount;
-        if (frameCount > 0 && videoPlayer.frame >= (long)frameCount - 2)
+        videoPlayer.playOnAwake = false;
+        videoPlayer.isLooping = false;
+        videoPlayer.waitForFirstFrame = true;
+        videoPlayer.skipOnDrop = false;
+        videoPlayer.timeUpdateMode = VideoTimeUpdateMode.UnscaledGameTime;
+        videoPlayer.timeReference = VideoTimeReference.InternalTime;
+        videoPlayer.audioOutputMode = VideoAudioOutputMode.None;
+
+        if (videoImage != null)
         {
-            return true;
+            videoImage.enabled = true;
         }
 
-        return videoPlayer.clip.length > 0d && videoPlayer.time >= videoPlayer.clip.length - endTolerance;
+        videoPlayer.Stop();
+        videoPlayer.time = 0d;
+        videoPlayer.frame = 0;
+
+        if (playRoutine != null)
+        {
+            StopCoroutine(playRoutine);
+        }
+
+        videoPlayer.Prepare();
+        playRoutine = StartCoroutine(PlayWhenPrepared());
     }
 
-    private void HandleVideoError(VideoPlayer source, string message)
+    private IEnumerator PlayWhenPrepared()
     {
-        Debug.LogWarning($"Main menu video error: {message}");
-        RevealMenu();
+        float elapsed = 0f;
+        while (videoPlayer != null && !videoPlayer.isPrepared && elapsed < prepareTimeout)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        if (videoPlayer == null)
+        {
+            RevealMenu();
+            yield break;
+        }
+
+        if (!videoPlayer.isPrepared)
+        {
+            Debug.LogWarning("Main menu video could not be prepared. Menu will be shown.");
+            RevealMenu();
+            yield break;
+        }
+
+        introStartedAt = Time.realtimeSinceStartup;
+        lastObservedTime = 0d;
+        videoPlayer.time = 0d;
+        videoPlayer.frame = 0;
+        videoPlayer.Play();
     }
 
-
-private void HandleVideoFinished(VideoPlayer source)
+    private void HandleVideoFinished(VideoPlayer source)
     {
         if (source != null && source.clip != null)
         {
@@ -219,6 +193,28 @@ private void HandleVideoFinished(VideoPlayer source)
             source.Pause();
         }
 
+        RevealMenu();
+    }
+
+    private bool IsVideoAtEnd()
+    {
+        if (videoPlayer == null || videoPlayer.clip == null)
+        {
+            return false;
+        }
+
+        ulong frameCount = videoPlayer.clip.frameCount;
+        if (frameCount > 0 && videoPlayer.frame >= (long)frameCount - 2)
+        {
+            return true;
+        }
+
+        return videoPlayer.clip.length > 0d && videoPlayer.time >= videoPlayer.clip.length - endTolerance;
+    }
+
+    private void HandleVideoError(VideoPlayer source, string message)
+    {
+        Debug.LogWarning($"Main menu video error: {message}");
         RevealMenu();
     }
 

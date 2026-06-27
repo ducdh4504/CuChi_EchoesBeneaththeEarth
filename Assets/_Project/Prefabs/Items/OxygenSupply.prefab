@@ -9,16 +9,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 04099aca3b36405458635faa0bec3c4d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 04099aca3b36405458635faa0bec3c4d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 04099aca3b36405458635faa0bec3c4d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 04099aca3b36405458635faa0bec3c4d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.782721
+      value: -90.86338
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04099aca3b36405458635faa0bec3c4d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.000000028564944
+      value: 0.75499916
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04099aca3b36405458635faa0bec3c4d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5367931
+      value: -4.842268
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 04099aca3b36405458635faa0bec3c4d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -51,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 04099aca3b36405458635faa0bec3c4d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: d1b1fc3516164ab478e16bc9113c7069, type: 2}
+      objectReference: {fileID: 2100000, guid: 02ff943206f9dc4428287c744c59c811, type: 2}
     - target: {fileID: 919132149155446097, guid: 04099aca3b36405458635faa0bec3c4d, type: 3}
       propertyPath: m_Name
       value: OxygenSupply
@@ -106,4 +118,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
   itemData: {fileID: 11400000, guid: d0a572597b0a5a14abac8d4da94afbe9, type: 2}
-  pickupKey: 101
+  missionIdToStartOnPickup: 
+  missionIdToCompleteOnPickup: 
+  objectiveAfterPickup: 
+  pickupSfx: {fileID: 0}
+  pickupSfxVolume: 0.8
+  triggerMapFoundMusicOnPickup: 0
+  flashlightPickupPromptUI: {fileID: 0}
+  flashlightPickupPrompt: "\u0110\xE3 nh\u1EB7t \u0111\xE8n pin. Nh\u1EA5n ph\xEDm
+    2 \u0111\u1EC3 s\u1EED d\u1EE5ng. \u0110\xE8n pin c\xF3 gi\u1EDBi h\u1EA1n pin,
+    h\xE3y s\u1EED d\u1EE5ng c\u1EA9n th\u1EADn."
+  flashlightPickupPromptDuration: 5

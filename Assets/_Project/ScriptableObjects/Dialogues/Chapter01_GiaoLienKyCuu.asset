@@ -22,8 +22,8 @@ MonoBehaviour:
       so v\u1EDBi khu tr\xEAn. \u0110i \u0111\u1EE9ng nh\u1EDB c\u1EA7n th\u1EADn
       nghe con."
     voiceClip: {fileID: 8300000, guid: 7ad2d4a30811a4c44978612f20526a6f, type: 3}
-    delayAfterLine: 0.15
-    fallbackDuration: 2.5
+    delayAfterLine: 0.3
+    fallbackDuration: 3.5
   - speakerName: AN
     content: "Con \u0111\xE3 s\u1EB5n s\xE0ng. Nh\u01B0ng... t\u1EA5m b\u1EA3n \u0111\u1ED3
       th\u1EADt s\u1EF1 bi\u1EBFn m\u1EA5t sao?"
