@@ -3153,8 +3153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportPortal
   prompt: "Nh\u1EA5n E \u0111\u1EC3 v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
   transitionController: {fileID: 21025030}
-  sceneName: 
+  teleportDestination: {fileID: 0}
   transitionMessage: "\u0110ang v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
+  sceneName: 
   cutsceneDirector: {fileID: 0}
   cutsceneObjectsToEnable: []
   waitForCutscene: 0
@@ -4146,83 +4147,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415227531}
   m_Mesh: {fileID: 7267249143343070471, guid: e685b9eb2e6335f4cad19a4119f21107, type: 3}
---- !u!1001 &416310473
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -77.355
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.142
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 9.619
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.06480381
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.0008144751
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.99577975
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.06498121
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594978568754522132, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_Name
-      value: AnPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 8768984398321609864, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: dialogueUI
-      value: 
-      objectReference: {fileID: 612540694}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
---- !u!114 &416549037 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7529793451636845020, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-  m_PrefabInstance: {fileID: 416310473}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197afaaaa05ff914991928eef26d5cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnInventory
---- !u!4 &416549042 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-  m_PrefabInstance: {fileID: 416310473}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &425093698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5826,11 +5750,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8768984398321609864, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: dialogueUI
+      value: 
+      objectReference: {fileID: 612540694}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+--- !u!4 &508451626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+  m_PrefabInstance: {fileID: 508451625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &509377719 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5979430444669340720, guid: 0f377c442464a47409236419b7fc076e, type: 3}
@@ -12066,7 +11999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6347607d14d645d45994c240c2ae47c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
-  playerInventory: {fileID: 416549037}
+  playerInventory: {fileID: 0}
   morseSlotItemImage: {fileID: 519037131}
   flashlightSlotItemImage: {fileID: 298300543}
   secretDecreeSlotItemImage: {fileID: 855435079}
@@ -12718,8 +12651,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportPortal
   prompt: "Nh\u1EA5n E \u0111\u1EC3 v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
   transitionController: {fileID: 21025030}
-  sceneName: 
+  teleportDestination: {fileID: 0}
   transitionMessage: "\u0111ang v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
+  sceneName: 
   cutsceneDirector: {fileID: 0}
   cutsceneObjectsToEnable: []
   waitForCutscene: 0
@@ -18393,8 +18327,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportPortal
   prompt: "Nh\u1EA5n E \u0111\u1EC3 ra kh\u1ECFi \u0111\u1ECBa \u0111\u1EA1o"
   transitionController: {fileID: 21025030}
-  sceneName: 
+  teleportDestination: {fileID: 0}
   transitionMessage: "\u0110ang ra kh\u1ECFi \u0111\u1ECBa \u0111\u1EA1o"
+  sceneName: 
   cutsceneDirector: {fileID: 0}
   cutsceneObjectsToEnable: []
   waitForCutscene: 1
@@ -20531,8 +20466,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportPortal
   prompt: "Nh\u1EA5n E \u0111\u1EC3 v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
   transitionController: {fileID: 21025030}
-  sceneName: 
+  teleportDestination: {fileID: 0}
   transitionMessage: "\u0110ang v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
+  sceneName: 
   cutsceneDirector: {fileID: 0}
   cutsceneObjectsToEnable: []
   waitForCutscene: 0
@@ -22009,6 +21945,14 @@ PrefabInstance:
     - target: {fileID: 4123864163992117280, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793115987084675371, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 149
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871111988021784315, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_text
+      value: "\u0110ang h\u1ED9i tho\u1EA1i..."
       objectReference: {fileID: 0}
     - target: {fileID: 8158820207387440405, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
       propertyPath: m_Name
@@ -25116,7 +25060,7 @@ PrefabInstance:
     - target: {fileID: 4752946181783379006, guid: 91cd3b0ca2b795743bbb305b727a2f6f, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 416549042}
+      objectReference: {fileID: 508451626}
     - target: {fileID: 4752946181783379006, guid: 91cd3b0ca2b795743bbb305b727a2f6f, type: 3}
       propertyPath: cinemachineTarget
       value: 
@@ -25244,7 +25188,6 @@ SceneRoots:
   - {fileID: 658304042}
   - {fileID: 877201949}
   - {fileID: 1854591580}
-  - {fileID: 416310473}
   - {fileID: 6116216835289498143}
   - {fileID: 217021325}
   - {fileID: 1029146655}

@@ -63,17 +63,15 @@ MonoBehaviour:
       ch\xEDnh l\xE0 m\u1EA1ng s\u1ED1ng c\u1EE7a con d\u01B0\u1EDBi \u0111\xF3.
       M\u1EA5t \u0111\xE8n l\xE0 m\u1EA5t ph\u01B0\u01A1ng h\u01B0\u1EDBng li\u1EC1n.
       Kh\xF4ng kh\xED trong m\u1EA5y tuy\u1EBFn h\u1EA7m c\u0169 c\u0169ng kh\xF4ng
-      c\xF2n nhi\u1EC1u \u0111\xE2u. \u0110i t\u1EDBi \u0111\xE2u th\xEC nh\xECn
-      k\u1EF9 t\u1EDBi \u0111\xF3. \u0110\u1EB7c bi\u1EC7t l\xE0 m\u1EA5y l\u1ED1i
-      m\xF2n c\u0169, bi\u1EBFt \u0111\xE2u ch\xEDnh m\u1EA5y d\u1EA5u v\u1EBFt \u0111\xF3
-      s\u1EBD d\u1EABn con \u0111\u1EBFn ch\u1ED7 m\xECnh \u0111ang t\xECm."
+      c\xF2n nhi\u1EC1u \u0111\xE2u. "
     voiceClip: {fileID: 8300000, guid: a69041286daeef448b9632dd8250ece1, type: 3}
     delayAfterLine: 0.15
     fallbackDuration: 2.5
   - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
-    content: "\u0110\u1EB7c bi\u1EC7t l\xE0 m\u1EA5y l\u1ED1i m\xF2n c\u0169, bi\u1EBFt
-      \u0111\xE2u ch\xEDnh m\u1EA5y d\u1EA5u v\u1EBFt \u0111\xF3 s\u1EBD d\u1EABn
-      con \u0111\u1EBFn ch\u1ED7 m\xECnh \u0111ang t\xECm. "
+    content: "\u0110i t\u1EDBi \u0111\xE2u th\xEC nh\xECn k\u1EF9 t\u1EDBi \u0111\xF3.
+      \u0110\u1EB7c bi\u1EC7t l\xE0 m\u1EA5y l\u1ED1i m\xF2n c\u0169, bi\u1EBFt \u0111\xE2u
+      ch\xEDnh m\u1EA5y d\u1EA5u v\u1EBFt \u0111\xF3 s\u1EBD d\u1EABn con \u0111\u1EBFn
+      ch\u1ED7 m\xECnh \u0111ang t\xECm. "
     voiceClip: {fileID: 8300000, guid: d711f92e41891b64a8a162ab437cec0b, type: 3}
     delayAfterLine: 0.15
     fallbackDuration: 2.5

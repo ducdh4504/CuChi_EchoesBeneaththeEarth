@@ -6177,50 +6177,6 @@ PrefabInstance:
       propertyPath: oxygenDecreaseRate
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -100.035
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.14947891
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 23.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8594978568754522132, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
-      propertyPath: m_Name
-      value: AnPlayer 1.4
-      objectReference: {fileID: 0}
     - target: {fileID: 8768984398321609864, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
       propertyPath: dialogueUI
       value: 
@@ -6265,14 +6221,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 148.94
       objectReference: {fileID: 0}
+    - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -100.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.14947891
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594978568754522132, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: m_Name
+      value: AnPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768984398321609864, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
+      propertyPath: dialogueUI
+      value: 
+      objectReference: {fileID: 1835183050}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
 --- !u!4 &584948345 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5485448541681665559, guid: 19ba9d7c349224b44b3489d814416ece, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
   m_PrefabInstance: {fileID: 584948344}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &585036019
@@ -6615,6 +6619,14 @@ PrefabInstance:
     - target: {fileID: 4123864163992117280, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793115987084675371, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 144
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871111988021784315, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_text
+      value: "\u0110ang h\u1ED9i tho\u1EA1i..."
       objectReference: {fileID: 0}
     - target: {fileID: 8158820207387440405, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
       propertyPath: m_Name

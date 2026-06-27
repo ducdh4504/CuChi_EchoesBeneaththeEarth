@@ -3607,8 +3607,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportPortal
   prompt: "Nh\u1EA5n E \u0111\u1EC3 v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
   transitionController: {fileID: 0}
-  sceneName: 
+  teleportDestination: {fileID: 0}
   transitionMessage: "\u0110ang v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
+  sceneName: 
   cutsceneDirector: {fileID: 0}
   cutsceneObjectsToEnable: []
   waitForCutscene: 0
@@ -14595,6 +14596,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6793115987084675371, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 147
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871111988021784315, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_text
+      value: "\u0110ang h\u1ED9i tho\u1EA1i..."
+      objectReference: {fileID: 0}
     - target: {fileID: 8158820207387440405, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
       propertyPath: m_Name
       value: StoryDiscoveryPanel
@@ -16053,8 +16062,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportPortal
   prompt: "Nh\u1EA5n E \u0111\u1EC3 ra kh\u1ECFi \u0111\u1ECBa \u0111\u1EA1o"
   transitionController: {fileID: 0}
-  sceneName: 
+  teleportDestination: {fileID: 0}
   transitionMessage: "\u0110ang ra kh\u1ECFi \u0111\u1ECBa \u0111\u1EA1o"
+  sceneName: 
   cutsceneDirector: {fileID: 0}
   cutsceneObjectsToEnable: []
   waitForCutscene: 1
@@ -20409,8 +20419,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportPortal
   prompt: "Nh\u1EA5n E \u0111\u1EC3 v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
   transitionController: {fileID: 0}
-  sceneName: 
+  teleportDestination: {fileID: 0}
   transitionMessage: "\u0110ang v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
+  sceneName: 
   cutsceneDirector: {fileID: 0}
   cutsceneObjectsToEnable: []
   waitForCutscene: 0
@@ -22896,8 +22907,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleportPortal
   prompt: "Nh\u1EA5n E \u0111\u1EC3 v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
   transitionController: {fileID: 0}
-  sceneName: 
+  teleportDestination: {fileID: 0}
   transitionMessage: "\u0111ang v\xE0o \u0111\u1ECBa \u0111\u1EA1o"
+  sceneName: 
   cutsceneDirector: {fileID: 0}
   cutsceneObjectsToEnable: []
   waitForCutscene: 0
