@@ -16,44 +16,99 @@ MonoBehaviour:
   dialogueTitle: "Giao nhi\u1EC7m v\u1EE5 t\xECm b\u1EA3n \u0111\u1ED3 b\xED m\u1EADt"
   lines:
   - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
-    content: "An, c\u1EADu \u0111\u1EBFn r\u1ED3i. T\u1EEB \u0111\xE2y tr\u1EDF xu\u1ED1ng
-      l\xE0 tuy\u1EBFn h\u1EA7m c\u0169, t\u1ED1i v\xE0 h\u1EB9p h\u01A1n nhi\u1EC1u
-      so v\u1EDBi khu tr\xEAn."
+    content: "An, con t\u1EDBi r\u1ED3i \u0111\xF3 h\u1EA3? T\u1EEB \u0111\xE2y tr\u1EDF
+      xu\u1ED1ng l\xE0 tuy\u1EBFn h\u1EA7m c\u0169 \u0111\xF3 nghe. D\u01B0\u1EDBi
+      \u0111\xF3 t\u1ED1i l\u1EAFm, m\xE0 c\u0169ng h\u1EB9p h\u01A1n nhi\u1EC1u
+      so v\u1EDBi khu tr\xEAn. \u0110i \u0111\u1EE9ng nh\u1EDB c\u1EA7n th\u1EADn
+      nghe con."
+    voiceClip: {fileID: 8300000, guid: 7ad2d4a30811a4c44978612f20526a6f, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: AN
-    content: "Em \u0111\xE3 s\u1EB5n s\xE0ng. Nh\u01B0ng... t\u1EA5m b\u1EA3n \u0111\u1ED3
-      th\u1EADt s\u1EF1 bi\u1EBFn m\u1EA5t sao?\r\n"
+    content: "Con \u0111\xE3 s\u1EB5n s\xE0ng. Nh\u01B0ng... t\u1EA5m b\u1EA3n \u0111\u1ED3
+      th\u1EADt s\u1EF1 bi\u1EBFn m\u1EA5t sao?"
+    voiceClip: {fileID: 8300000, guid: ff50ab4c6ad77174582b746e17c4e67f, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
-    content: "\u0110\xFAng. \u0110\xF3 kh\xF4ng ch\u1EC9 l\xE0 m\u1ED9t t\u1EA5m
-      b\u1EA3n \u0111\u1ED3. N\xF3 ghi l\u1EA1i \u0111\u01B0\u1EDDng h\u1EA7m ch\xEDnh,
-      kho thu\u1ED1c, kho l\u01B0\u01A1ng th\u1EF1c v\xE0 c\u1EA3 l\u1ED1i tho\xE1t
-      cho th\u01B0\u01A1ng binh."
+    content: "\u0110\xFAng r\u1ED3i, \u0111\xF3 \u0111\xE2u ph\u1EA3i ch\u1EC9 l\xE0
+      t\u1EA5m b\u1EA3n \u0111\u1ED3 b\xECnh th\u01B0\u1EDDng \u0111\xE2u con. Tr\xEAn
+      \u0111\xF3 c\xF3 ghi \u0111\u01B0\u1EDDng h\u1EA7m ch\xEDnh c\u1EE7a \u0111\u1ECBa
+      \u0111\u1EA1o, v\u1ECB tr\xED kho thu\u1ED1c, kho l\u01B0\u01A1ng th\u1EF1c.
+      R\u1ED3i c\u1EA3 nh\u1EEFng l\u1ED1i tho\xE1t cho th\u01B0\u01A1ng binh n\u1EEFa."
+    voiceClip: {fileID: 8300000, guid: 6ed38e3cf97976943b19c5ca0a7527ea, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: AN
     content: "N\u1EBFu \u0111\u1ECBch t\xECm th\u1EA5y n\xF3..."
+    voiceClip: {fileID: 8300000, guid: 1cbe7c9c6628fa3439fdd9ec35431caa, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
-    content: "C\u1EA3 c\u0103n c\u1EE9 n\xE0y c\xF3 th\u1EC3 b\u1ECB l\u1ED9. V\xEC
-      v\u1EADy c\u1EADu ph\u1EA3i t\xECm l\u1EA1i n\xF3 tr\u01B0\u1EDBc khi \u0111\u1ECBch
-      ph\xE1t hi\u1EC7n ra."
+    content: "N\u1EBFu \u0111\u1EC3 t\u1EA5m b\u1EA3n \u0111\u1ED3 \u0111\xF3 l\u1ECDt
+      v\xF4 tay t\u1EE5i \u0111\u1ECBch th\xEC nguy l\u1EAFm nghe. C\u1EA3 c\u0103n
+      c\u1EE9 m\xECnh c\xF3 th\u1EC3 b\u1ECB l\u1ED9 h\u1EBFt. B\u1EDFi v\u1EADy
+      con ph\u1EA3i t\xECm l\u1EA1i n\xF3 tr\u01B0\u1EDBc khi t\u1EE5i n\xF3 l\u1EA7n
+      ra \u0111\u01B0\u1EE3c manh m\u1ED1i."
+    voiceClip: {fileID: 8300000, guid: 5304691610ff4cd4a9c4a66e06237421, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: AN
-    content: "Em s\u1EBD \u0111i ngay."
+    content: "Con s\u1EBD \u0111i ngay!"
+    voiceClip: {fileID: 8300000, guid: b63ba6019039d7d4fbda219e39cadcba, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
-    content: "Nh\u1EDB k\u1EF9. \u0110\xE8n l\xE0 m\u1EA1ng s\u1ED1ng c\u1EE7a c\u1EADu.
-      Oxy d\u01B0\u1EDBi h\u1EA7m kh\xF4ng nhi\u1EC1u. H\xE3y quan s\xE1t k\u1EF9
-      c\xE1c l\u1ED1i m\xF2n, c\xF3 th\u1EC3 ch\xFAng s\u1EBD ch\u1EC9 \u0111\u01B0\u1EDDng
-      cho c\u1EADu."
+    content: "Nh\u1EDB k\u1EF9 l\u1EDDi b\xE1c d\u1EB7n nghe con. C\xE1i \u0111\xE8n
+      ch\xEDnh l\xE0 m\u1EA1ng s\u1ED1ng c\u1EE7a con d\u01B0\u1EDBi \u0111\xF3.
+      M\u1EA5t \u0111\xE8n l\xE0 m\u1EA5t ph\u01B0\u01A1ng h\u01B0\u1EDBng li\u1EC1n.
+      Kh\xF4ng kh\xED trong m\u1EA5y tuy\u1EBFn h\u1EA7m c\u0169 c\u0169ng kh\xF4ng
+      c\xF2n nhi\u1EC1u \u0111\xE2u. \u0110i t\u1EDBi \u0111\xE2u th\xEC nh\xECn
+      k\u1EF9 t\u1EDBi \u0111\xF3. \u0110\u1EB7c bi\u1EC7t l\xE0 m\u1EA5y l\u1ED1i
+      m\xF2n c\u0169, bi\u1EBFt \u0111\xE2u ch\xEDnh m\u1EA5y d\u1EA5u v\u1EBFt \u0111\xF3
+      s\u1EBD d\u1EABn con \u0111\u1EBFn ch\u1ED7 m\xECnh \u0111ang t\xECm."
+    voiceClip: {fileID: 8300000, guid: a69041286daeef448b9632dd8250ece1, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
+    content: "\u0110\u1EB7c bi\u1EC7t l\xE0 m\u1EA5y l\u1ED1i m\xF2n c\u0169, bi\u1EBFt
+      \u0111\xE2u ch\xEDnh m\u1EA5y d\u1EA5u v\u1EBFt \u0111\xF3 s\u1EBD d\u1EABn
+      con \u0111\u1EBFn ch\u1ED7 m\xECnh \u0111ang t\xECm. "
+    voiceClip: {fileID: 8300000, guid: d711f92e41891b64a8a162ab437cec0b, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: AN
     content: "Nh\u01B0ng c\xF2n d\u1EA5u v\u1EBFt n\xE0o kh\xF4ng \u1EA1?"
+    voiceClip: {fileID: 8300000, guid: f0e2b635309f2ac42993035db70b8676, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
-    content: "T\xECm c\xE1c h\u1ED9p ti\u1EBFp t\u1EBF c\u0169. Giao li\xEAn tr\u01B0\u1EDBc
-      th\u01B0\u1EDDng \u0111\u1EC3 l\u1EA1i d\u1EA5u hi\u1EC7u g\u1EA7n \u0111\xF3.
+    content: "T\xECm quanh m\u1EA5y h\u1ED9p ti\u1EBFp t\u1EBF c\u0169 tr\u01B0\u1EDBc
+      nhen. H\u1ED3i \u0111\xF3, m\u1EA5y anh em giao li\xEAn hay \u0111\u1EC3 l\u1EA1i
+      d\u1EA5u hi\u1EC7u g\u1EA7n nh\u1EEFng ch\u1ED7 nh\u01B0 v\u1EADy l\u1EAFm.
       V\xE0 An n\xE0y..."
+    voiceClip: {fileID: 8300000, guid: 49b1d8cfe1943534999678a4db1297cd, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: AN
     content: "D\u1EA1?"
+    voiceClip: {fileID: 8300000, guid: c33dd19b0d969ed4b903c7154e1ee595, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
-    content: "S\u1EE3 h\xE3i kh\xF4ng l\xE0m c\u1EADu y\u1EBFu \u0111i. B\u1ECF cu\u1ED9c
-      m\u1EDBi l\xE0m nhi\u1EC7m v\u1EE5 th\u1EA5t b\u1EA1i."
+    content: "Con \u0111\u1EEBng c\xF3 ngh\u0129 s\u1EE3 l\xE0 y\u1EBFu \u0111u\u1ED1i.
+      Ai b\u01B0\u1EDBc xu\u1ED1ng m\u1EA5y \u0111\u01B0\u1EDDng h\u1EA7m \u0111\xF3
+      m\xE0 kh\xF4ng bi\u1EBFt s\u1EE3. Nh\u01B0ng c\xE1i l\xE0m m\xECnh th\u1EA5t
+      b\u1EA1i kh\xF4ng ph\u1EA3i v\xEC s\u1EE3 m\xE0 l\xE0 b\u1ECF cu\u1ED9c gi\u1EEFa
+      ch\u1EEBng."
+    voiceClip: {fileID: 8300000, guid: 0f57467febbf40c47b26e28bc7751c05, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: AN
-    content: "Em hi\u1EC3u r\u1ED3i. Em s\u1EBD t\xECm l\u1EA1i t\u1EA5m b\u1EA3n
-      \u0111\u1ED3."
+    content: "D\u1EA1, con s\u1EBD \u0111i ngay!"
+    voiceClip: {fileID: 8300000, guid: 6bc70d0e58c3a8442b1173e270176c25, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   objectiveIdAfterDialogue: Day1_FindTinBox
   messageAfterDialogue: "Nhi\u1EC7m v\u1EE5 m\u1EDBi: T\xECm d\u1EA5u v\u1EBFt \u0111\u1EA7u
     ti\xEAn c\u1EE7a t\u1EA5m b\u1EA3n \u0111\u1ED3 b\xED m\u1EADt \u1EDF tuy\u1EBFn

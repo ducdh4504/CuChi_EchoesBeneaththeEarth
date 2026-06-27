@@ -15,23 +15,38 @@ MonoBehaviour:
   dialogueId: day3_giaolien_no_map
   dialogueTitle: "T\xECm b\u1EA3n \u0111\u1ED3 r\u1ED3i quay l\xEAn m\u1EB7t \u0111\u1EA5t"
   lines:
-  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
     content: "Sao? Con t\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n \u0111\u1ED3
       ch\u01B0a?"
+    voiceClip: {fileID: 8300000, guid: 49fa41813525fca4a972be0bd4e43c1b, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "D\u1EA1... con v\u1EABn ch\u01B0a t\xECm th\u1EA5y, b\xE1c \u1EA1."
-  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+    voiceClip: {fileID: 8300000, guid: 56483f4939b6dbb449a8984fcbc126d6, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
     content: "V\u1EADy th\xEC con \u0111i t\xECm ti\u1EBFp \u0111i. Nh\u1EDB v\xE0o
       ph\xF2ng h\u1ECDp coi th\u1EED, b\u1EA3n \u0111\u1ED3 c\xF3 th\u1EC3 \u0111\u01B0\u1EE3c
       c\u1EA5t \u1EDF \u0111\xF3."
-  - speakerName: "C\u1EF1u chi\u1EBFn binh"
+    voiceClip: {fileID: 8300000, guid: 1cf85772fe782ec42980086dd4b98cd7, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
+  - speakerName: "GIAO LI\xCAN K\u1EF2 C\u1EF0U"
     content: "T\xECm \u0111\u01B0\u1EE3c t\u1EA5m b\u1EA3n \u0111\u1ED3 r\u1ED3i
-      th\xEC \u0111\u1EEBng n\u1EA5n n\xE1 d\u01B0\u1EDBi h\u1EA7m n\u1EEFa. Con
-      h\xE3y quay l\xEAn m\u1EB7t \u0111\u1EA5t ngay \u0111\u1EC3 b\xE1o l\u1EA1i
+      th\xEC \u0111\u1EEBng ch\u1EA7n ch\u1EEB d\u01B0\u1EDBi h\u1EA7m n\u1EEFa.
+      Con h\xE3y quay l\xEAn m\u1EB7t \u0111\u1EA5t ngay \u0111\u1EC3 b\xE1o l\u1EA1i
       t\xECnh h\xECnh."
+    voiceClip: {fileID: 8300000, guid: cedc80f3aaf7c774cbb2048545e8df9d, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "D\u1EA1, con hi\u1EC3u r\u1ED3i. Con s\u1EBD t\xECm b\u1EA3n \u0111\u1ED3
       r\u1ED3i quay l\xEAn m\u1EB7t \u0111\u1EA5t."
+    voiceClip: {fileID: 8300000, guid: cafa2573123b1bb498d87ef6c35198d2, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   objectiveIdAfterDialogue: day3_find_map
   messageAfterDialogue: "T\xECm t\u1EA5m b\u1EA3n \u0111\u1ED3 trong ph\xF2ng h\u1ECDp,
     sau \u0111\xF3 quay l\xEAn m\u1EB7t \u0111\u1EA5t."

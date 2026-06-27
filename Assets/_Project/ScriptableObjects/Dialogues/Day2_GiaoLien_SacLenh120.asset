@@ -18,28 +18,48 @@ MonoBehaviour:
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
     content: "An \u0111\xF3 h\u1EA3 con? C\xF3 tin g\xEC v\u1EC1 S\u1EAFc l\u1EC7nh
       120 kh\xF4ng?"
+    voiceClip: {fileID: 8300000, guid: 1ac5255371f2f1346bfdf451423172e6, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "B\xE1c \u01A1i, con t\xECm \u0111\u01B0\u1EE3c r\u1ED3i! T\u1EDD S\u1EAFc
       l\u1EC7nh 120 \u0111\xE2y \u1EA1."
+    voiceClip: {fileID: 8300000, guid: 003ed720ed3ae7545a2e08e92319e1c0, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "N\xF3 n\u1EB1m l\u1EABn trong \u0111\u1ED1ng \u0111\u1ED3 \u1EDF h\u1EA7m
       c\u0169. May m\xE0 ch\u01B0a b\u1ECB \u01B0\u1EDBt."
+    voiceClip: {fileID: 8300000, guid: c3249a2178ce8af499a7359d13a80962, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
     content: "Tr\u1EDDi \u01A1i... Qu\xFD h\u01A1n v\xE0ng. Bao nhi\xEAu m\u1EA1ng
       ng\u01B0\u1EDDi ch\u1EDD \u0111\u1EE3i t\u1EDD gi\u1EA5y n\xE0y."
+    voiceClip: {fileID: 8300000, guid: 4e750c0e2b6d9a34b822c02ef6dec407, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
-    content: "Gi\u1EDD con c\u1EA7m v\u1EC1 ph\xF2ng truy\u1EC1n tin ngay \u0111i."
+    content: "Gi\u1EDD con c\u1EA7m v\u1EC1 ph\xF2ng truy\u1EC1n tin ngay \u0111i.\nTruy\u1EC1n
+      S\u1EAFc l\u1EC7nh s\u1ED1 8 cho c\xE1c \u0111\u1ED3ng \u0111\u1ED9i ngo\xE0i
+      chi\u1EBFn tuy\u1EBFn nghe ch\u01B0a?"
+    voiceClip: {fileID: 8300000, guid: 696eec3a3c433834bb3a3ca4165d1746, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
-    content: "Truy\u1EC1n S\u1EAFc l\u1EC7nh s\u1ED1 8 cho c\xE1c \u0111\u1ED3ng
-      \u0111\u1ED9i ngo\xE0i chi\u1EBFn tuy\u1EBFn nghe ch\u01B0a, b\u1ED9 \u0111\u1ED9i
-      h\u1ECD c\u0169ng c\xF3 m\u1ED9t t\u1EDD nh\u01B0ng t\u1EDD \u0111\u1EA5y b\u1ECB
-      ch\xE1y xem \u0111i m\u1EA5t \u0111i\u1EC1u s\u1ED1 8 n\xEAn h\u1ECD kh\xF4ng
-      n\u1EAFm r\xF5 \u0111\u01B0\u1EE3c th\xF4ng tin ti\u1EBFp theo l\xE0 g\xEC."
-  - speakerName: "C\u1EF1u chi\u1EBFn binh"
-    content: "Sai m\u1ED9t li l\xE0 ch\u1EBFt ng\u01B0\u1EDDi. C\u1EA9n th\u1EADn
-      \u0111\xF3 con."
+    content: "B\u1ED9 \u0111\u1ED9i, h\u1ECD c\u0169ng c\xF3 m\u1ED9t t\u1EDD nh\u01B0ng
+      t\u1EDD \u0111\u1EA5y b\u1ECB ch\xE1y x\xE9m \u0111i m\u1EA5t \u0111i\u1EC1u
+      s\u1ED1 8 n\xEAn h\u1ECD kh\xF4ng n\u1EAFm r\xF5 \u0111\u01B0\u1EE3c th\xF4ng
+      tin ti\u1EBFp theo l\xE0 g\xEC. Sai m\u1ED9t li l\xE0 ch\u1EBFt ng\u01B0\u1EDDi.
+      C\u1EA9n th\u1EADn \u0111\xF3 con."
+    voiceClip: {fileID: 8300000, guid: fdfb0e301ae35964e91e117435f2b651, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "D\u1EA1, con \u0111i ngay b\xE1c \u01A1i!"
+    voiceClip: {fileID: 8300000, guid: 30169fa2f8c06b040bd6c85b143d0e4a, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   objectiveIdAfterDialogue: Day2_MorseTransmission
   messageAfterDialogue: "V\u1EC1 ph\xF2ng truy\u1EC1n tin \u0111\u1EC3 truy\u1EC1n
     S\u1EAFc l\u1EC7nh s\u1ED1 8."

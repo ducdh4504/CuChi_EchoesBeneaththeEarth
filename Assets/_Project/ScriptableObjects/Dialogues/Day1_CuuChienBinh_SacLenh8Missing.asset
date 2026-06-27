@@ -18,21 +18,36 @@ MonoBehaviour:
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
     content: "An \u0111\xF3 h\u1EA3 con? B\xE1c \u0111ang c\u1EA7n con gi\xFAp m\u1ED9t
       vi\u1EC7c g\u1EA5p."
+    voiceClip: {fileID: 8300000, guid: f026229ee63236c41b289d1c1cd582da, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "D\u1EA1, c\xF3 chuy\u1EC7n g\xEC v\u1EADy b\xE1c?"
+    voiceClip: {fileID: 8300000, guid: 8da542ffcd56b1f4891601f0c9b456ec, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
-    content: "Hi\u1EC7n t\u1EA1i t\u1EDD S\u1EAFc l\u1EC7nh s\u1ED1 120 \u0111ang
-      b\u1ECB thi\u1EBFu S\u1EAFc l\u1EC7nh s\u1ED1 8. Ph\u1EA7n gi\u1EA5y \u0111\xF3
+    content: "Hi\u1EC7n t\u1EA1i, t\u1EDD s\u1EAFc l\u1EC7nh s\u1ED1 120 \u0111ang
+      b\u1ECB thi\u1EBFu s\u1EAFc l\u1EC7nh s\u1ED1 8. Ph\u1EA7n gi\u1EA5y \u0111\xF3
       b\u1ECB ch\xE1y x\xE9m n\xEAn ph\xF2ng truy\u1EC1n tin kh\xF4ng \u0111\u1ECDc
-      r\xF5 \u0111\u01B0\u1EE3c n\u1ED9i dung."
+      r\xF5 \u0111\u01B0\u1EE3c n\u1ED9i dung"
+    voiceClip: {fileID: 8300000, guid: db302f27770f4324c95b8b7b4a14916d, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: "C\u1EF1u chi\u1EBFn binh"
     content: "Con h\xE3y t\xECm l\u1EA1i t\u1EDD s\u1EAFc l\u1EC7nh \u0111\xF3, r\u1ED3i
       g\u1EEDi ngay cho ph\xF2ng truy\u1EC1n tin. Ch\u1EADm m\u1ED9t ch\xFAt l\xE0
       ngo\xE0i chi\u1EBFn tuy\u1EBFn s\u1EBD kh\xF4ng nh\u1EADn \u0111\u01B0\u1EE3c
       l\u1EC7nh ti\u1EBFp theo."
+    voiceClip: {fileID: 8300000, guid: a896cf4b1817a0742877df06554bf5b2, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   - speakerName: An
     content: "D\u1EA1, con s\u1EBD \u0111i t\xECm ngay r\u1ED3i g\u1EEDi cho ph\xF2ng
       truy\u1EC1n tin."
+    voiceClip: {fileID: 8300000, guid: 46a097869f07b4945b4b0f992fb557ab, type: 3}
+    delayAfterLine: 0.15
+    fallbackDuration: 2.5
   objectiveIdAfterDialogue: Day1_MorseTransmission
   messageAfterDialogue: "T\xECm l\u1EA1i S\u1EAFc l\u1EC7nh s\u1ED1 8 b\u1ECB ch\xE1y
     x\xE9m v\xE0 g\u1EEDi cho ph\xF2ng truy\u1EC1n tin."
