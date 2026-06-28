@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MorseMissionCompleteHandler
   missionIdToComplete: Day2_MorseTransmission
   nextSceneName: Day3
-  transitionMessage: "Ng\xE0y 3/2/1948 - T\xECm l\u1EA1i t\u1EA5m b\u1EA3n \u0111\u1ED3
+  transitionMessage: "Ng\xE0y 3 - T\xECm l\u1EA1i t\u1EA5m b\u1EA3n \u0111\u1ED3
     th\u1EA5t l\u1EA1c"
 --- !u!1 &300975173132909695
 GameObject:
