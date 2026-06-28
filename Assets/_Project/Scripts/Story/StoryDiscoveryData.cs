@@ -20,7 +20,8 @@ public class StoryDiscoveryData : ScriptableObject
     public Sprite morseCodeImage;
 
     [Header("UI Text")]
-    public string continueHint = "Nhấn E / Space để tiếp tục";
+    //public string continueHint = "Nhấn E / Space để tiếp tục";
+    public string continueHint = "Đang hội thoại... Giữ Space để bỏ qua";
 
     [Header("After Discovery")]
     [TextArea(2, 4)]

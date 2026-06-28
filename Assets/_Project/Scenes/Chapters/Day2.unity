@@ -1811,15 +1811,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 4
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -1878,11 +1878,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1484137873}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: -72, y: 28}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -32, y: -24}
+  m_SizeDelta: {x: 320, y: 28}
+  m_Pivot: {x: 1, y: 1}
 --- !u!1 &194432711
 GameObject:
   m_ObjectHideFlags: 0
@@ -15350,7 +15350,8 @@ MonoBehaviour:
   speakerNameText: {fileID: 710864959}
   contentText: {fileID: 121453052}
   continueHintText: {fileID: 180255127}
-  continueHint: "Nh\u1EA5n Space / E \u0111\u1EC3 ti\u1EBFp t\u1EE5c"
+  continueHint: "\u0110ang h\u1ED9i tho\u1EA1i... Gi\u1EEF Space \u0111\u1EC3 b\u1ECF
+    qua"
 --- !u!224 &1835183051
 RectTransform:
   m_ObjectHideFlags: 0

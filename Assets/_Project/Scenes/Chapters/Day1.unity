@@ -3130,19 +3130,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -77.55414
+      value: -118.446
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1400001
+      value: 0.154
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.520344
+      value: 11.711
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.045546014
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3150,7 +3150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9989623
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
       propertyPath: m_LocalRotation.z
@@ -3162,7 +3162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 174.779
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5485448541681665559, guid: 532391f2f3c27c54aafba44919854df0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -3294,7 +3294,8 @@ MonoBehaviour:
   speakerNameText: {fileID: 263626391}
   contentText: {fileID: 1252339369}
   continueHintText: {fileID: 2142220344}
-  continueHint: "Nh\u1EA5n Space / E \u0111\u1EC3 ti\u1EBFp t\u1EE5c"
+  continueHint: "\u0110ang h\u1ED9i tho\u1EA1i... Gi\u1EEF Space \u0111\u1EC3 b\u1ECF
+    qua"
 --- !u!224 &612540695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11964,7 +11965,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7871111988021784315, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
       propertyPath: m_text
-      value: "\u0110ang h\u1ED9i tho\u1EA1i..."
+      value: "\u0110ang h\u1ED9i tho\u1EA1i... Gi\u1EEF Space \u0111\u1EC3 b\u1ECF
+        qua"
       objectReference: {fileID: 0}
     - target: {fileID: 8158820207387440405, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
       propertyPath: m_Name
@@ -11990,6 +11992,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a674e25544ac73d46b94a310f73e14f0, type: 3}
+    - target: {fileID: 8920263133866233298, guid: 10a7567a119b2bc4cb5b0d9b23fa8ca5, type: 3}
+      propertyPath: m_text
+      value: "Space \u0111\u1EC3 ti\u1EBFp t\u1EE5c"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13434,15 +13440,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 4
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -13501,11 +13507,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 967617706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: -72, y: 28}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -32, y: -24}
+  m_SizeDelta: {x: 320, y: 28}
+  m_Pivot: {x: 1, y: 1}
 --- !u!1001 &153957037560302067
 PrefabInstance:
   m_ObjectHideFlags: 0
