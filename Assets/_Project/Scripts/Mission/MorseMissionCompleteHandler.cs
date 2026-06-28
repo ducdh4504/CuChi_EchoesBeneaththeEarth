@@ -45,7 +45,7 @@ public class MorseMissionCompleteHandler : MonoBehaviour
     [TextArea(2, 4)]
     [SerializeField]
     private string transitionMessage =
-        "Ngày 3/2/1948 - Tìm lại tấm bản đồ thất lạc";
+        "Ngày 3 - Tìm lại tấm bản đồ thất lạc";
 
     public void CompleteMorseMissionAndLoadNextScene()
     {
