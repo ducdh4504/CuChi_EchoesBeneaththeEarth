@@ -187,7 +187,7 @@ Transform:
   m_GameObject: {fileID: 4395138207692985893}
   serializedVersion: 2
   m_LocalRotation: {x: 0.17868017, y: -0.39643076, z: 0.1563156, w: -0.8868379}
-  m_LocalPosition: {x: -78.1731, y: 1.2585, z: 9.0581}
+  m_LocalPosition: {x: -78.178, y: 1.128, z: 9.052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -642,6 +642,10 @@ MonoBehaviour:
   minimumFallbackDuration: 1.5
   secondsPerCharacterFallback: 0.045
   maximumFallbackDuration: 6
+  allowSkipDialogue: 1
+  skipKey: 1
+  requireHoldToSkip: 1
+  holdSecondsToSkip: 0.75
   gameplayHudRoot: {fileID: 0}
   hideGameplayHudDuringDialogue: 0
 --- !u!114 &3968187631343297559
