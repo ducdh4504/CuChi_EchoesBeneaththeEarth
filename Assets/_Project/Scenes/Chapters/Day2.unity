@@ -8417,7 +8417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a8890358d8313045a4d3b3808071c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RadioInteractable
-  morsePuzzleUIPrefab: {fileID: 8742782141540804239, guid: ed6500a6ecdff214893a90632fb6a3c8, type: 3}
+  morsePuzzleUIPrefab: {fileID: 1506860178459915921, guid: c15032618ec4af146be1de243e9ae0eb, type: 3}
   inventoryUI: {fileID: 0}
   promptText: "Nh\u1EA5n E \u0111\u1EC3 ch\u01A1i m\xE3 Morse"
   disablePlayerMovementWhileOpen: 1
