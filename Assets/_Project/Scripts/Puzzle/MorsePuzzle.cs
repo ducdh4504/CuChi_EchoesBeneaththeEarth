@@ -62,6 +62,7 @@ public class MorsePuzzle : MonoBehaviour
 
     /// <summary>Phát mỗi khi một chữ cái được chốt (kể cả '?' khi mã không hợp lệ).</summary>
     public event Action<char> LetterCommitted;
+    public event Action<bool> HoldingChanged;
 
     private void Start()
     {
@@ -80,7 +81,7 @@ public class MorsePuzzle : MonoBehaviour
         // Vừa nhấn Space -> bắt đầu đếm thời gian giữ.
         if (keyboard.spaceKey.wasPressedThisFrame)
         {
-            isHolding = true;
+            SetHolding(true);
             holdStartTime = Time.time;
             silenceTimer = 0f;
             wordSpaceAdded = false;
@@ -96,7 +97,7 @@ public class MorsePuzzle : MonoBehaviour
         // Vừa nhả Space -> đo thời gian giữ rồi thêm chấm hoặc gạch.
         if (keyboard.spaceKey.wasReleasedThisFrame && isHolding)
         {
-            isHolding = false;
+            SetHolding(false);
 
             //âm thanh
             if (morseToneAudio != null)
@@ -175,6 +176,17 @@ public class MorsePuzzle : MonoBehaviour
         }
     }
 
+    private void SetHolding(bool holding)
+    {
+        if (isHolding == holding)
+        {
+            return;
+        }
+
+        isHolding = holding;
+        HoldingChanged?.Invoke(isHolding);
+    }
+
     /// <summary>Xóa toàn bộ để gõ lại từ đầu (có thể gọi từ một nút Reset).</summary>
     public void ResetDecoder()
     {
@@ -183,15 +195,19 @@ public class MorsePuzzle : MonoBehaviour
         letterPending = false;
         wordSpaceAdded = false;
         silenceTimer = 0f;
+        SetHolding(false);
         UpdateUI();
     }
 
     /// <summary>Chuỗi đã giải mã hiện tại (để puzzle khác kiểm tra đáp án).</summary>
     public string DecodedText => decoded.ToString();
+    public bool IsHolding => isHolding;
 
     // Hàm này để tránh trường hợp người chơi đang giữ Space mà UI Morse bị đóng, âm beep vẫn còn kêu.
     private void OnDisable()
     {
+        SetHolding(false);
+
         if (morseToneAudio != null)
         {
             morseToneAudio.StopTone();

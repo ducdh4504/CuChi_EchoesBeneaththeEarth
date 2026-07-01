@@ -15,40 +15,112 @@ public class LeverInputTrigger : MonoBehaviour
     [Tooltip("Optional explicit animator reference. If null, uses the one on this GameObject.")]
     [SerializeField] private Animator animator;
 
+    [Tooltip("Optional Morse decoder to sync with. If null, this script searches the prefab root.")]
+    [SerializeField] private MorsePuzzle morsePuzzle;
+
+    [Header("Direct Lever Motion")]
+    [SerializeField] private bool useDirectTransform = true;
+    [SerializeField] private RectTransform visualPivot;
+    [SerializeField] private float releasedEulerZ = -20.34375f;
+    [SerializeField] private float pulledEulerZ = -58f;
+    [SerializeField] private float directMotionSpeed = 16f;
+
+    private bool subscribedToPuzzle;
+    private bool isPulled;
+
     private void Awake()
     {
         if (animator == null)
         {
             animator = GetComponent<Animator>();
         }
+
+        if (morsePuzzle == null && transform.root != null)
+        {
+            morsePuzzle = transform.root.GetComponentInChildren<MorsePuzzle>(true);
+        }
+
+        if (visualPivot == null)
+        {
+            visualPivot = transform as RectTransform;
+        }
+
+        if (useDirectTransform && animator != null)
+        {
+            animator.enabled = false;
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (morsePuzzle != null)
+        {
+            morsePuzzle.HoldingChanged += SetPulled;
+            subscribedToPuzzle = true;
+            SetPulled(morsePuzzle.IsHolding);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (subscribedToPuzzle && morsePuzzle != null)
+        {
+            morsePuzzle.HoldingChanged -= SetPulled;
+        }
+
+        subscribedToPuzzle = false;
+        SetPulled(false);
     }
 
     private void Update()
     {
-        if (animator == null)
+        if (animator == null && !useDirectTransform)
         {
             return;
         }
 
-        Keyboard keyboard = Keyboard.current;
-        if (keyboard == null)
+        if (morsePuzzle == null)
+        {
+            Keyboard keyboard = Keyboard.current;
+            if (keyboard != null)
+            {
+                SetPulled(keyboard.spaceKey.isPressed);
+            }
+        }
+
+        UpdateDirectMotion();
+    }
+
+    private void SetPulled(bool pulled)
+    {
+        isPulled = pulled;
+
+        if (useDirectTransform)
         {
             return;
         }
 
-        if (keyboard.spaceKey.isPressed)
+        if (animator != null && animator.GetBool(boolName) != pulled)
         {
-            if (!animator.GetBool(boolName))
-            {
-                animator.SetBool(boolName, true);
-            }
+            animator.SetBool(boolName, pulled);
         }
-        else
+    }
+
+    private void UpdateDirectMotion()
+    {
+        if (visualPivot == null)
         {
-            if (animator.GetBool(boolName))
-            {
-                animator.SetBool(boolName, false);
-            }
+            visualPivot = transform as RectTransform;
         }
+
+        if (!useDirectTransform || visualPivot == null)
+        {
+            return;
+        }
+
+        float targetZ = isPulled ? pulledEulerZ : releasedEulerZ;
+        Vector3 euler = visualPivot.localEulerAngles;
+        euler.z = Mathf.LerpAngle(euler.z, targetZ, 1f - Mathf.Exp(-directMotionSpeed * Time.deltaTime));
+        visualPivot.localEulerAngles = euler;
     }
 }
